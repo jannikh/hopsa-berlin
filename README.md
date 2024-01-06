@@ -8,7 +8,33 @@ This website is available at [https://hopsa-berlin.de](hopsa-berlin.de).
 
 This website is built with [11ty](https://www.11ty.dev/) and [tailwind](https://tailwindcss.com/), a static site generator written in JavaScript and compiled with [npm](https://www.npmjs.com/). Templating is compiled from `.njk` files with [nunjucks](https://mozilla.github.io/nunjucks/).
 
-## File structure
+## Installation and Setup (as suggested by ChatGPT)
+
+Based on the excerpt from the README.md file, here are the steps to install and setup the project on a completely new computer:
+
+1.  **Clone the repository**: Use `git clone` to clone the repository to your local machine.
+
+2.  **Install Node.js and npm**: Node.js is a JavaScript runtime that's required to run the project. npm (Node Package Manager) is used to manage the project's dependencies. You can download Node.js and npm from the [official website]("https://nodejs.org/").
+
+3.  **Install project dependencies**: Navigate to the project directory in your terminal and run `npm install` to install the project's dependencies.
+
+4.  **Install Tailwind CSS CLI**: The project uses Tailwind CSS, a utility-first CSS framework. The Tailwind CSS CLI is used to generate the Tailwind CSS file. You can install it globally with `npm install tailwindcss -g`.
+
+5.  **Install Eleventy**: The project uses Eleventy, a static site generator. You can install it globally with `npm install @11ty/eleventy -g`.
+
+6.  **Setup the project**: Run the batch script to setup the project. This script performs the following tasks:
+
+    -   Copies the `CNAME` file from the `src` directory to the `docs` directory.
+    -   Mirrors the directory structure from `./src/styles` to `./docs/styles`.
+    -   Generates the Tailwind CSS file.
+    -   Runs Eleventy in serve mode.
+7.  **Access the project**: Open your web browser and navigate to `http://localhost:8080` to view the project.
+
+8.  **For deployment**: Commit your changes to the `main` branch. The changes will be published to the public website (with a few minutes delay). If you want to test changes before they are published, you can create a new branch and commit your changes there. This branch can then be merged into the `main` branch once you are happy with the changes.
+
+Please note that these steps are based on the provided excerpt from the README.md file. There might be additional setup steps not covered in this excerpt. Always refer to the full README.md file for complete setup instructions.
+
+## File structure *(Development and Deployment is mentioned further below)*
 
 ### Docs / Hosting
 This repository is automatically hosted on github pages and connected via DNS to the domain `hopsa-berlin.de`. The files that are hosted are in the folder **docs**. This folder is automatically generated during deployment and completely mirrors the content of the hosted website (sometimes also called dist / public / output / ...) Anything that should be accessible on the public website needs to copied to this folder (don't only store it there, the folder is volatile and may be cleared and overwritten at any point.)
