@@ -114,6 +114,21 @@ The folder *node_modules* contains all the modules used for this project, as fur
 
 The **README.md** file contains all information about this repository and its file structure and contents. If you were not reading it right now, I would suggest you do in case there is confusion about anything (or just ask ChatGPT, it knows the code in this repo very well).
 
+## Tips and Advice
+### Markdown conversion
+To easily convert a preformatted document (e.g. Word / Google Docs / Richtext / E-mail) into markdown, you can use [https://euangoddard.github.io/clipboard2markdown/](https://euangoddard.github.io/clipboard2markdown/). Just copy the text from the source and paste it into the box, then copy the code that appears. If all goes well, only minimal changes and fixes are necessary to align the code (e.g. converting links to html `<a href="...`). VS Code has great markdown preview and editing capabilities.
+
+With your markdown content, create a new file in the *src* folder (or a subfolder if you want to use a subdomain like `hopsa-berlin.de/auftritte/weihnachten`), name it accordingly and paste the code into it. Then add the following lines to the top of the file:
+```
+layout: default.njk
+title: *(Page title, gets shown as the tab an window title)*
+redirect: [..., ..., ...] *(alternative URLs, always relative to the root domain, this line is optional)*
+```
+
+Finally, link to this page from any other page, or add it to the navigation bar in *src/_includes/header.njk* - or just leave it as a secret page that is only accessible via the direct link (or by anyone who reads through the public github repository code).
+
+If you want to store secret information on a static site, you can use [https://github.com/robinmoisson/staticrypt](Staticrypt) or [https://github.com/Greenheart/pagecrypt](pagecrypt) to encrypt the page with a password on your local machine. (security may not be 100% guaranteed, and make sure to do this locally and to not commit or push the original data or password)
+
 ## Contact
 
 If you have any questions, please contact us at [mailto:hopsaberlin@gmail.com](hopsaberlin@gmail.com)
