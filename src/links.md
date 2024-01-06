@@ -10,5 +10,7 @@ redirect: [link, hyperlink, hyperlinks, verlinkung, verlinkungen, social-assets,
 
 {% include "links.md" %}
 
+<!-- <div class="text-center mt-8 pb-8">Für Anfragen zur Buchung des Ensembles für Ihre Veranstaltung, zu Workshops oder Presseanfragen, können Sie uns gerne <a href="mailto:hopsa@jannikh.com">per E-Mail kontaktieren</a></div> -->
+
 <!-- ## Ausgewählte Inhalte -->
 {% include "embeddings.md" %}

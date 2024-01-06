@@ -55,6 +55,10 @@ Unsere Übungen werden abwechselnd von den regelmäßigen TeilnehmerInnen angele
 Die persönlichen Erfahrungswelten der TeilnehmerInnen künstlerisch zu verarbeiten.
 Wir streben die Schaffung eines sozialen Umfelds an, das jungen Menschen Raum für Selbstreflexion und Persönlichkeitsentwicklung bietet. Gleichzeitig ermöglichen wir es, Lebenswelten unverfälscht auf der Bühne zu präsentieren.
 
+# 
+
+Mehr zum Thema:&emsp;<a href="/improvisation">Was ist eigentlich Improvisation?</a>&emsp;<a href="/improvisation#theater">Und was hat das mit Theater zu tun?</a>
+
 <div class="mt-8 text-lg flex items-center w-full justify-center">
 <a class="no-underline hover:no-underline hover:text-white" style="text-decoration: none !important" href="/ensemble"><div class="py-3 px-6 max-w-10 m-6 border border-gray-300 hover:border-white hover:bg-gray-900 hover:text-white rounded-lg">Ensemble</div></a>
 <a class="no-underline hover:no-underline hover:text-white" style="text-decoration: none !important" href="mailto:hopsaberlin@gmail.com"><div class="py-3 px-6 max-w-10 m-6 border border-gray-300 hover:border-white hover:bg-gray-900 hover:text-white rounded-lg"><img src="/assets/favicon/favicon_transparent.png" alt="Hopsa Logo" class="w-6 h-6 inline -mt-2">&nbsp;Voranmelden</div></a>
