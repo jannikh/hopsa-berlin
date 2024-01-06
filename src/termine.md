@@ -1,5 +1,5 @@
 ---
-layout: default.njk
+layout: default-serif.njk
 title: Social Media / Links
 redirect: [termin, kalender, aufführungen, auffuhrungen, auffuehrungen, aufführung, auffuhrung, auffuehrung, events, auftritt, auftritte, event]
 ---

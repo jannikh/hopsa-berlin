@@ -1,5 +1,5 @@
 ---
-layout: default.njk
+layout: default-serif.njk
 title: Kurse / Mitmachen
 redirect: [kurse, mitmachen, machmit, mach-mit, teilnehmen, teilnahme, teilnehmer, course, participate, lernen, ueben, uben, proben, probe]
 ---
