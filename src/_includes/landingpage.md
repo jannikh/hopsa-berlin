@@ -13,6 +13,6 @@ Wir haben uns im Mai 2023 zusammengefunden und sind eine <a href="/ensemble">bun
 Unser Motto: *„Ein Spiel Aller für Alle“* (Max Herrmann). Wir stellen uns Träumen und Albträumen und Leidenschaften. Wir freuen uns auf das Ungewisse, was dringlich wartet.
 
 #### 
-Wir sind immer auf der Suche nach neuen <a href="/improvisation">Impro</a>-Herausforderungen und freuen uns über Anfragen für Auftritte, Workshops und andere Projekte. Wer mag, kann gerne unsere <a href="/termine">Auftritte besuchen</a>, mal zur <a href="/kurs">Probe vorbeischauen</a> oder uns auf <a href="/links">Social Media</a> folgen :)
+Wir sind immer auf der Suche nach neuen <a href="/improvisation">Impro</a>-Herausforderungen und freuen uns über <a href="/kontakt">Anfragen für Auftritte, Workshops und andere Projekte</a>. Wer mag, kann gerne unsere <a href="/termine">Auftritte besuchen</a>, mal zur <a href="/kurs">Probe vorbeischauen</a> oder uns auf <a href="/links">Social Media</a> folgen :)
 
 </i>

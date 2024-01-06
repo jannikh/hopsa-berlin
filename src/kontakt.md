@@ -6,7 +6,9 @@ redirect: [contact, presse, anfrage, anfragen, buchung, buchungen, veranstaltung
 
 # Kontakt
 
-<div class="mb-16">Für Anfragen zur Buchung des Ensembles für Ihre Veranstaltung, zu Workshops oder Presseanfragen, können Sie uns gerne jederzeit <a href="mailto:hopsa@jannikh.com">per E-Mail an hopsa@jannikh.com kontaktieren.</a></div>
+<div class="mb-16 italic">Für Anfragen zur Buchung des <a href="/ensemble">Hopsa-Ensembles</a> für Ihre Veranstaltung, zu <a href="/kurs">Workshops</a> oder Presseanfragen, können Sie uns gerne jederzeit unter <a href="mailto:hopsaberlin@gmail.com">hopsaberlin@gmail.com per E-Mail kontaktieren.</a></div>
+
+#
 
 #### Weitere Kontaktmöglichkeiten / Social Media-Kanäle
 

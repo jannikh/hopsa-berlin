@@ -26,7 +26,7 @@ Wir sind Jannik, Lilli, Ella, David und haben uns im Mai 2023 zusammengefunden, 
 <div class="flex w-full justify-center items-center mx-auto text-center mt-6 flex-wrap">
     <a class="no-underline hover:no-underline hover:text-white" style="text-decoration: none !important" href="/termine"><div class="py-3 px-6 max-w-10 m-6 border border-gray-300 hover:border-white hover:bg-gray-900 hover:text-white rounded-lg">Auftritte</div></a>
     <a class="no-underline hover:no-underline hover:text-white" style="text-decoration: none !important" href="/kurs"><div class="py-3 px-6 max-w-10 m-6 border border-gray-300 hover:border-white hover:bg-gray-900 hover:text-white rounded-lg"><img src="/assets/favicon/favicon_transparent.png" alt="Hopsa Logo" class="w-6 h-6 inline -mt-2">&nbsp;Mitmachen</div></a>
-    <a class="no-underline hover:no-underline hover:text-white" style="text-decoration: none !important" href="/links"><div class="py-3 px-6 max-w-10 m-6 border border-gray-300 hover:border-white hover:bg-gray-900 hover:text-white rounded-lg">Kontakt</div></a>
+    <a class="no-underline hover:no-underline hover:text-white" style="text-decoration: none !important" href="/kontact"><div class="py-3 px-6 max-w-10 m-6 border border-gray-300 hover:border-white hover:bg-gray-900 hover:text-white rounded-lg">Kontakt</div></a>
 </div>
 
 <!-- <div class="flex flex-col justify-center items-center min-h-screen mx-auto text-center">
