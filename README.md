@@ -6,7 +6,7 @@ This website is available at [https://hopsa-berlin.de](hopsa-berlin.de).
 
 ## Technical details
 
-This website is built with [11ty](https://www.11ty.dev/) and [tailwind](https://tailwindcss.com/), a static site generator written in JavaScript and compiled with [npm](https://www.npmjs.com/).
+This website is built with [11ty](https://www.11ty.dev/) and [tailwind](https://tailwindcss.com/), a static site generator written in JavaScript and compiled with [npm](https://www.npmjs.com/). Templating is compiled with [nunjucks](https://mozilla.github.io/nunjucks/).
 
 ## File structure
 

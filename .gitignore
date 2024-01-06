@@ -41,9 +41,6 @@ public
 # Mac files
 .DS_Store
 
-# Eleventy configuration
-.eleventy.js
-
 # Other common ignore patterns
 *.log
 *.sql

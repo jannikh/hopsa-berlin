@@ -1,0 +1,21 @@
+[
+    { "from": "insta", "to": "https://instagram.com/hopsa_berlin/" },
+    { "from": "instagram", "to": "https://instagram.com/hopsa_berlin/" },
+    { "from": "links", "to": "https://linktr.ee/hopsa_berlin" },
+    { "from": "linktree", "to": "https://linktr.ee/hopsa_berlin" },
+    { "from": "soundcloud", "to": "https://soundcloud.com/hopsa_berlin" },
+    { "from": "yt", "to": "https://www.youtube.com/@HopsaBerlin" },
+    { "from": "youtube", "to": "https://www.youtube.com/@HopsaBerlin" },
+    { "from": "tiktok", "to": "https://www.tiktok.com/@hopsa_berlin/" },
+    { "from": "improwiki", "to": "https://improwiki.com/de/improgruppe/hopsa_berlin" },
+    { "from": "wiki", "to": "https://improwiki.com/de/improgruppe/hopsa_berlin" },
+    
+    { "from": "social/instagram", "to": "https://instagram.com/hopsa_berlin/" },
+    { "from": "social/soundcloud", "to": "https://soundcloud.com/hopsa_berlin" },
+    { "from": "social/youtube", "to": "https://www.youtube.com/@HopsaBerlin" },
+    { "from": "social/tiktok", "to": "https://www.tiktok.com/@hopsa_berlin/" },
+    
+    { "from": "email", "to": "mailto:hopsaberlin@gmail.com" },
+    { "from": "mail", "to": "mailto:hopsaberlin@gmail.com" }
+]
+  
