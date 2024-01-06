@@ -15,4 +15,4 @@ Wir haben uns im April 2023 zusammengefunden und sind eine <a href="galerie">bun
 Wir sind immer auf der Suche nach neuen Herausforderungen und freuen uns über Anfragen für Auftritte, Workshops und andere Projekte.
 
 #### 
-Wer mag, kann gerne mal zur <a href="/kurs">Probe vorbeikommen</a> oder uns auf <a href="/links">Social Media</a> folgen :)
+Wer mag, kann gerne unsere <a href="/termine">Auftritte besuchen</a>, mal zur <a href="/kurs">Probe vorbeischauen</a> oder uns auf <a href="/links">Social Media</a> folgen :)
