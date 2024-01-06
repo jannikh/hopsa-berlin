@@ -1,0 +1,30 @@
+{% set navigation = [
+    {"name": "Kontakt", "path": "/links"},
+    {"name": "Impressum", "path": "/impressum"},
+    {"name": "Datenschutz", "path": "/datenschutz"},
+    {"name": "Mitmachen", "path": "/kurs"}
+] %}
+    {# {"name": "Weitere Links", "path": "/links"}, #}
+
+<footer class="bg-black text-white text-sm">
+    <nav class="container mx-auto py-0 px-0 sm:px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="x-bg-red-900 min-w-10 flex items-center justify-between px-6 sm:px-0 -ml-6">
+                    <div class="flex items-center flex-wrap px-6">
+                            {# <a class="text-gray-500 hover:text-gray-300 py-3 my-0 px-6 transition-all duration-200 {% if isActive %}border-white{% endif %}" href="{{ link.path }}"> #}
+                                <p class="text-gray-500 pointer-events-none">Hopsa 2024</p>
+                            {# </a> #}
+                    </div>
+                    <div class="flex items-center flex-wrap">
+                    {% for link in navigation %}
+                            {% set isActive = page.url == link.path or (page.url | slice(0, link.path | length)) == link.path %}
+                            <a class="text-gray-500 py-3 my-0 px-6 hover:text-red-800 transition-all duration-200 {% if isActive %}border-white{% endif %}" href="{{ link.path }}">{{ link.name }}</a>
+                    {% endfor %}
+                    </div>
+                    {# <div> #}
+                    {# <a href="/teilnahme" class="ml-6 px-4 py-2 border border-white rounded-sm hover:bg-white hover:text-black transition-colors whitespace-nowrap">Sei Dabei</a> #}
+                    {# </div> #}
+            </div>
+        </div>
+    </nav>
+</footer>

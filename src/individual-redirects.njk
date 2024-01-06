@@ -1,0 +1,10 @@
+---
+pagination:
+  data: collections.pageRedirects
+  size: 1
+  alias: redirect
+permalink: "{{ redirect.from | url }}index.html"
+layout: redirect.njk
+---
+
+{# Empty content, as the layout does all the work #}

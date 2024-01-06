@@ -1,0 +1,15 @@
+{% extends "html-wrapper.njk" %}
+
+{% block content %}
+
+    {% include "header.njk" %}
+
+    <div class="content-wrapper">
+        <div class="content prose serif">
+            {{ content | safe }}
+        </div>
+    </div>
+
+    {% include "footer.njk" %}
+
+{% endblock %}

@@ -1,0 +1,97 @@
+h1 {
+    font-size: 3rem;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    color: #ddd;
+}
+
+h2 {
+    font-size: 2.4rem;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    /* font-weight: bold; */
+    color: #ddd;
+}
+
+h3 {
+    font-size: 1.6rem;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    /* text-decoration: underline; */
+    color: #ddd;
+}
+
+h4 {
+    font-size: 1.1rem;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    font-style: italic;
+    color: #eee;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.content a {
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #800;
+    text-decoration: underline;
+}
+
+header a:hover {
+    text-decoration: none;
+}
+
+body {
+    background-color: #111;
+    color: #eee;
+    line-height: 1.5;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto;
+}
+
+.content-wrapper {
+    flex: 1;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/media/background/curtain.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    padding-top: 2rem;
+    padding-bottom: 8rem;
+    width: 100%;
+    padding-right: calc(10vw + 1rem);
+    padding-left: calc(10vw + 1rem);
+    /* display: flex; */
+    /* justify-content: space-around; */
+}
+
+.content {
+    min-width: 2.5rem;
+    max-width: 56rem;
+    margin:auto;
+}
+
+::selection {
+    background: white;
+    color: black;
+}
+
+::-moz-selection {
+    background: white;
+    color: black;
+}

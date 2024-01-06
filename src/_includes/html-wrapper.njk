@@ -1,16 +1,23 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if title %}{{ title }} - {% endif %}Hopsa Berlin</title>
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="shortcut icon" type="image/x-icon" href="/src/media/favicon/favicon_transparent_bigger.ico">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% if title %}{{ title }} - {% endif %}Hopsa Berlin</title>
+        <link rel="stylesheet" href="/styles.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/media/favicon/favicon_transparent_bigger.ico">
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="/styles/tailwind.css">
+        <link rel="stylesheet" href="/styles/default.css">
+    </head>
+    <body>
 
-    <!-- Content will be injected here -->
-    {{ content | safe }}
+        {% block content %}
+            <!-- Child templates will inject content here -->
+        {% endblock %}
 
 </body>
 </html>
