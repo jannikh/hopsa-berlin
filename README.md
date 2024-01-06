@@ -51,6 +51,8 @@ The folder **src/styles** contains css stylesheets that are imported by the *htm
 
 The *CNAME* file is here to ensure on every commit that github pages keeps the connection to the domain name and DNS config, as this was a problem earlier. (Same with the *CNAME* on repository root level)
 
+*Some more files have been added since, but the general sentiment stays the same.*
+
 ### Templates
 The **src/_includes** folder contains all templates that are used to generate the website:
 
@@ -65,6 +67,8 @@ The **embeddings.md** section covers all social media iframe embeddings of post 
 The *termine.njk* template is used to generate the html elements that are used for the termine page. The *links.njk* template is used to generate the html elements that are used for the links page. (Those two are reused on the landing page for a modern long-scroll version, that is why they exist as a template to be loaded into multiple html files.) The *landingpage.md* is the upper part of the first homepage (*src/index.html* on root level).
 
 Also, just a `#` in a single line in a markdown file creates some vertical space between elements.
+
+*Some more files have been added since, but the general sentiment stays the same.*
 
 ### Redirects
 **_data/redirections.json** contains a list of all redirects. The from is the URL relative to `hopsa-berlin.de/[from]`, the to can be anything, either relative to this domain as well or an external URL. This file mostly contains external redirects, as internal redirects can be handled another way:
