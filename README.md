@@ -10,7 +10,7 @@ This website is built with [11ty](https://www.11ty.dev/) and [tailwind](https://
 
 ## File structure
 
-The source code is located in the `src` folder. The compiled website is located in the `dist` folder. CSS styles are located in the `styles` folder. HTML templates and snippets are located in the `src/_includes` folder.
+The source code is located in the `src` folder. The compiled website is located in the `docs` folder. CSS styles are located in the `styles` folder. HTML templates and snippets are located in the `src/_includes` folder.
 
 ## Contact
 
