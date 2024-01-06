@@ -13,6 +13,12 @@ title: Willkommen
 # 
 
 <!-- ONE COLUMN LAYOUT (except for embeddings) -->
+---
+layout: default.njk
+title: Willkommen
+# redirect: [home, landing, start, hopsa]
+---
+
 ## Social Media / Kontakt
 
 {% include "links.md" %}
