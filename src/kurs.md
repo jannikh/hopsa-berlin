@@ -59,7 +59,8 @@ Wir streben die Schaffung eines sozialen Umfelds an, das jungen Menschen Raum fÃ
 
 Mehr zum Thema:&emsp;<a href="/improvisation">Was ist eigentlich Improvisation?</a>&emsp;<a href="/improvisation#theater">Und was hat das mit Theater zu tun?</a>
 
-<div class="mt-8 text-lg flex items-center w-full justify-center">
+<div class="flex w-full justify-center items-center mx-auto text-center mt-6 flex-wrap">
 <a class="no-underline hover:no-underline hover:text-white" style="text-decoration: none !important" href="/ensemble"><div class="py-3 px-6 max-w-10 m-6 border border-gray-300 hover:border-white hover:bg-gray-900 hover:text-white rounded-lg">Ensemble</div></a>
 <a class="no-underline hover:no-underline hover:text-white" style="text-decoration: none !important" href="mailto:hopsaberlin@gmail.com"><div class="py-3 px-6 max-w-10 m-6 border border-gray-300 hover:border-white hover:bg-gray-900 hover:text-white rounded-lg"><img src="/assets/favicon/favicon_transparent.png" alt="Hopsa Logo" class="w-6 h-6 inline -mt-2">&nbsp;Voranmelden</div></a>
+<!-- <a class="no-underline hover:no-underline hover:text-white" style="text-decoration: none !important" href="/kontakt"><div class="py-3 px-6 max-w-10 m-6 border border-gray-300 hover:border-white hover:bg-gray-900 hover:text-white rounded-lg">Kontakt</div></a> -->
 </div>
