@@ -10,6 +10,7 @@
     { "from": "tiktok", "to": "https://www.tiktok.com/@hopsa_berlin/" },
     { "from": "improwiki", "to": "https://improwiki.com/de/improgruppe/hopsa_berlin" },
     { "from": "wiki", "to": "https://improwiki.com/de/improgruppe/hopsa_berlin" },
+    { "from": "jimdo", "to": "https://hopsa-berlin.jimdosite.com/" },
     
     { "from": "social/instagram", "to": "https://instagram.com/hopsa_berlin/" },
     { "from": "social/soundcloud", "to": "https://soundcloud.com/hopsa_berlin" },
