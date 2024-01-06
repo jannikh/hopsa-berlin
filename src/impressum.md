@@ -1,7 +1,7 @@
 ---
 layout: default.njk
 title: Impressum
-redirect: [Impressum]
+# redirect: []
 ---
 
 ## Impressum
