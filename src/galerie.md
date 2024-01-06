@@ -20,3 +20,11 @@ redirect: [fotos, foto, bilder, bild, photos, gallery, pics, pictures, images, i
     <div><img src="/assets/team/collage.webp" alt="Hopsa-Team-Collage 1"></div>
     <div><img src="/assets/team/collage2.webp" alt="Hopsa-Team-Collage 2"></div>
 </div>
+
+# 
+
+<div class="flex flex-col justify-center items-center min-h-screen mx-auto text-center">
+
+{% include "instagram-embed.html" %}
+
+</div>

@@ -60,7 +60,11 @@ The **default.njk** template is the main template that is used for all pages (th
 
 The **redirect.njk** template is used to generate the html files that are used for redirects (see further below).
 
-The *termine.njk* template is used to generate the html elements that are used for the termine page. The *links.njk* template is used to generate the html elements that are used for the links page. (Those two are reused on the landing page for a modern long-scroll version, that is why they exist as a template to be loaded into multiple html files.)
+The **embeddings.md** section covers all social media iframe embeddings of post feeds that we can display on they website. This file does responsive design and imports the iframe codes from the various *...-embed.html* files.
+
+The *termine.njk* template is used to generate the html elements that are used for the termine page. The *links.njk* template is used to generate the html elements that are used for the links page. (Those two are reused on the landing page for a modern long-scroll version, that is why they exist as a template to be loaded into multiple html files.) The *landingpage.md* is the upper part of the first homepage (*src/index.html* on root level).
+
+Also, just a `#` in a single line in a markdown file creates some vertical space between elements.
 
 ### Redirects
 **_data/redirections.json** contains a list of all redirects. The from is the URL relative to `hopsa-berlin.de/[from]`, the to can be anything, either relative to this domain as well or an external URL. This file mostly contains external redirects, as internal redirects can be handled another way:

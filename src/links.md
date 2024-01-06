@@ -9,3 +9,6 @@ redirect: [link, hyperlink, hyperlinks, verlinkung, verlinkungen, social-assets,
 </div>
 
 {% include "links.md" %}
+
+<!-- ## Ausgewählte Inhalte -->
+{% include "embeddings.md" %}
