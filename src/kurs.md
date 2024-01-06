@@ -23,7 +23,7 @@ Wir freuen uns über Menschen mit und ohne Erfahrung. Wenn es für Alle bestehen
 
 Unser Motto: *„Ein Spiel Aller für Alle“*&ensp;(Max Herrmann).
 
-Wir stellen uns Träumen und Albträumen und Leidenschaften. Wir freuen uns auf das Ungewisse, was dringlich wartet.
+Wir stellen uns Träumen, Albträumen und Leidenschaften. Wir freuen uns auf das Ungewisse, was dringlich wartet.
 
 #### Freue dich in den Proben auf:
 <ul class="space-y-2 list-disc list-inside pl-2">
