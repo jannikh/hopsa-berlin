@@ -66,13 +66,13 @@ footer {
 
 .content-wrapper {
     flex: 1;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('/media/background/curtain.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('/assets/background/curtain.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 
     padding-top: 2rem;
-    padding-bottom: 8rem;
+    padding-bottom: 6rem;
     width: 100%;
     padding-right: calc(10vw + 1rem);
     padding-left: calc(10vw + 1rem);

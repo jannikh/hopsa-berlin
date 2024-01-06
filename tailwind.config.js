@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const colors = require('tailwindcss/colors');
+
 module.exports = {
   purge: false, // Disable PurgeCSS during development
   plugins: [
@@ -22,6 +25,17 @@ module.exports = {
           },
         },
       }),
+      colors: {
+        orangex: {
+          DEFAULT: '#9A3412',
+        },
+        fuchsiax: {
+          DEFAULT: '#701A75',
+        },
+        neutralx: {
+          DEFAULT: '#404040',
+        },
+      },
     },
   },
 }

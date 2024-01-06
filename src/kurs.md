@@ -4,7 +4,7 @@ title: Kurse / Mitmachen
 redirect: [kurse, mitmachen, machmit, mach-mit, teilnehmen, teilnahme, teilnehmer, course, participate, lernen, ueben, uben, proben, probe]
 ---
 
-# Offene Probe <img src="/media/favicon/favicon_transparent.png" alt="Hopsa Logo" class="w-16 h-16 inline -mt-5">
+# Offene Probe <img src="/assets/favicon/favicon_transparent.png" alt="Hopsa Logo" class="w-16 h-16 inline -mt-5">
 
 #### Wer: Theaterbegeisterte 17 - 28 Jahre
 (egal ob mit oder ohne Bühnenerfahrung)

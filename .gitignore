@@ -47,3 +47,6 @@ public
 *.sqlite
 temp/
 tmp/
+
+# Others
+.vscode
