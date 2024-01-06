@@ -16,7 +16,7 @@ redirect: [home, landing, start, hopsa]
 
 #### 
 <i>
-Wir haben uns im April 2023 zusammengefunden und sind eine <a href="galerie">bunt gemischte Truppe</a> aus Impro-Neulingen und etwas erfahreneren . Wir proben regelmäßig zusammen und haben schon einige Auftritte hinter uns.
+Wir haben uns im April 2023 zusammengefunden und sind eine <a href="galerie">bunt gemischte Truppe</a> aus Impro-Neulingen und Menschen mit ein wenig Theater-Erfahrung.
 
 #### 
 Wir sind immer auf der Suche nach neuen Herausforderungen und freuen uns über Anfragen für Auftritte, Workshops und andere Projekte.
