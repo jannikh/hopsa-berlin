@@ -17,6 +17,21 @@
     { "from": "social/youtube", "to": "https://www.youtube.com/@HopsaBerlin" },
     { "from": "social/tiktok", "to": "https://www.tiktok.com/@hopsa_berlin/" },
     
+    { "from": "impro/theater", "to": "/improvisation#theater" },
+    { "from": "improvisation/theater", "to": "/improvisation#theater" },
+    { "from": "improvisation/theatre", "to": "/improvisation#theater" },
+    { "from": "improvisation/improtheater", "to": "/improvisation#theater" },
+    { "from": "improvisation/impro-theater", "to": "/improvisation#theater" },
+    { "from": "improvisation/improv-theatre", "to": "/improvisation#theater" },
+    { "from": "improvisation/improv", "to": "/improvisation#theater" },
+    { "from": "improtheater", "to": "/improvisation#theater" },
+    { "from": "impro-theater", "to": "/improvisation#theater" },
+    { "from": "improv-theatre", "to": "/improvisation#theater" },
+    { "from": "improv/theatre", "to": "/improvisation#theater" },
+    { "from": "improvtheatre", "to": "/improvisation#theater" },
+    { "from": "theatre", "to": "/improvisation#theater" },
+    { "from": "theater", "to": "/improvisation#theater" },
+
     { "from": "email", "to": "mailto:hopsaberlin@gmail.com" },
     { "from": "mail", "to": "mailto:hopsaberlin@gmail.com" }
 ]

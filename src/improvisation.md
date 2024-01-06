@@ -1,7 +1,7 @@
 ---  
 layout: default-serif.njk  
 title: Was ist Improvisation?  
-redirect: [impro, improv, improtheater, improv-theatre, improvtheatre, definition, quotes, authors, zitate, autoren, literature, literatur]  
+redirect: [impro, improv, definition, quotes, authors, zitate, autoren, literature, literatur]  
 ---  
   
 <div class="font-serif text-justify">  
@@ -13,24 +13,27 @@ redirect: [impro, improv, improtheater, improv-theatre, improvtheatre, definitio
 
 #### 
 
-Improvisation ist ein wesentlicher Bestandteil des Theaters. Da wir uns als Improtheatergruppe natürlich auch schön des Öfteren Gedanken darüber gemacht haben, was Improvisation eigentlich bedeutet und wie man sie etwas greifbarer macht, haben wir hier ein paar Zitate und Literaturauszüge zum Thema Inspiration gesammelt.
+Improvisation ist ein wesentlicher Bestandteil des Theaters. Da wir uns als Improtheater-Ensemble natürlich auch schön des Öfteren Gedanken darüber gemacht haben, was Improvisation eigentlich bedeutet und wie man sie etwas greifbarer macht, haben wir hier ein paar Zitate und Literaturauszüge zum Thema Inspiration gesammelt.
 
 ## Aus dem <i>Metzler Lexikon Theatertheorie</i>  
 
-&mdash;<span class="text-sm"> *von Erika Fischer Lichte, Doris Kolesch & Matthias Warstat*; Auszüge sind zum Teil paraphrasiert</span>  
+<span class="text-sm">*von Erika Fischer Lichte, Doris Kolesch und Matthias Warstat aus 2014*; Auszüge sind zum Teil paraphrasiert</span>  
     
 ### Definition und Anwendung  
 Mit dem Begriff der Improvisation werden im allgemeinen Sprachgebrauch verschiedene Formen des Handelns und von Ausdrucksbewegungen beschrieben, die im weitesten Sinne unvorbereitet vollzogen werden. Wer improvisiert, sieht sich meist einer Situation gegenüber, in der herkömmliche Mittel zur Lösung eines Problems oder zur Gestaltung einer Situation nicht gegeben sind. Improvisation birgt somit immer ein Moment der Überraschung für den Ausführenden und fordert vom handelnden Subjekt, ein vorhandenes Situationspotential zu nutzen bzw. neue Möglichkeiten zu erfinden, um zum Ziel zu gelangen, ein Problem zu lösen oder eine Situation zu gestalten.  
   
-### Negative Konnotation im Alltag vs. Wertschätzung in der Kunst  
+### Negative Alltagsbedeutung vs. künstlerische Wertschätzung
 Im Alltag ist Improvisation oft negativ konnotiert, als unkonventionell und unregelmäßig, da es oft nicht den erwarteten Formen oder Standards an Perfektion entspricht - im Gegensatz zur hohen Wertschätzung in den Bereichen des Theaters, Tanzes, Musik und in therapeutischen Kontexten. Künstlerische oder therapeutische Improvisation unterscheidet sich von der alltäglichen durch ihren bewussten Einsatz und die Anerkennung als erstrebenswertes Ziel.  
   
 ### Therapeutische und künstlerische Improvisation  
 In therapeutischen Kontexten dient Improvisation der Erkennung vielfältiger Lösungsmöglichkeiten innerhalb gesetzter Rahmenbedingungen. Improvisation zielt darauf ab, spielerisch die Kreativität sowie Geschicklichkeit, Erfinder- und Reaktionsfähigkeit des Handelnden zu fördern. Künstlerische Improvisation hingegen basiert auf einer ästhetischen Gestaltungsabsicht und Kunstfertigkeit und ist stets an einen von der Kunst vorgegebenen Rahmen gebunden.  
   
-### Das Improvisationstheater (Theatersport)  
-„Das Improvisationstheater (Theatersport) als eigenes Genre sieht die Improvisation als spontanen Schaffensakt, als Abfolge unvorhergesehener Aktionen, deren dramaturgische Logik sich erst in ihrem Vollzug ergibt. Im Improvisationstheater geschehen Produktion und Aufführung gleichzeitig. Häufig bestimmt das Publikum, zu welchen Themen die Spieler eine Improvisation erschaffen sollen. Unabhängig von den verschiedenen Formen des Theaters gilt für die Mehrzahl der Theaterpraktiker die Improvisation als unverzichtbarer Bestandteil der Schauspielkunst. Dies resultiert aus der Tatsache, dass jede Aufführung sich jeweils neu ereignet. Begründet in der prinzipiellen Unvorhersehbarkeit einer Aufführungssituation ist der Schauspieler gefordert, innerhalb des von der Inszenierung gesteckten Rahmens immer wieder neu agieren und reagieren zu können. Somit könnte man sagen, die schauspielerische Fähigkeit zur Improvisation bildet die Grundlage für die Wahrnehmung von Emergenzen.“  
-&mdash; <span class="text-sm">Christel Weiler im Theaterlexikon</span>  
+<!-- Setting a link anchor here -->
+<a id="theater"></a>
+
+### Das Improvisationstheater  
+Das **Improvisationstheater (Theatersport)** als eigenes Genre sieht die Improvisation als spontanen Schaffensakt, als Abfolge unvorhergesehener Aktionen, deren dramaturgische Logik sich erst in ihrem Vollzug ergibt. Im Improvisationstheater geschehen Produktion und Aufführung gleichzeitig. Häufig bestimmt das Publikum, zu welchen Themen die Spieler eine Improvisation erschaffen sollen. Unabhängig von den verschiedenen Formen des Theaters gilt für die Mehrzahl der Theaterpraktiker die Improvisation als unverzichtbarer Bestandteil der Schauspielkunst. Dies resultiert aus der Tatsache, dass jede Aufführung sich jeweils neu ereignet. Begründet in der prinzipiellen Unvorhersehbarkeit einer Aufführungssituation ist der Schauspieler gefordert, innerhalb des von der Inszenierung gesteckten Rahmens immer wieder neu agieren und reagieren zu können. Somit könnte man sagen, die schauspielerische Fähigkeit zur Improvisation bildet die Grundlage für die Wahrnehmung von Emergenzen.  
+<!-- &mdash; <span class="text-sm">Christel Weiler im Metzler Lexikon Theatertheorie</span>   -->
   
 ## Zitate über Improvisation  
   
