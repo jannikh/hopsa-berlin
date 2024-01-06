@@ -1,6 +1,6 @@
 ---
 layout: html-wrapper.njk
-title: Hopsa Berlin
+title: Willkommen
 ---
 
 # test
