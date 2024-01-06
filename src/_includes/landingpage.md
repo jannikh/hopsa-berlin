@@ -8,12 +8,11 @@
 
 #### 
 <i>
-Wir haben uns im April 2023 zusammengefunden und sind eine <a href="galerie">bunt gemischte Truppe</a> aus Impro-Neulingen und Menschen mit ein wenig Theater-Erfahrung.
+Wir haben uns im Mai 2023 zusammengefunden und sind eine <a href="/ensemble">bunt gemischte Truppe</a> aus Impro-Neulingen und Menschen mit ein wenig Theater-Erfahrung.
+
+Unser Motto: *„Ein Spiel Aller für Alle“* (Max Herrmann). Wir stellen uns Träumen und Albträumen und Leidenschaften. Wir freuen uns auf das Ungewisse, was dringlich wartet.
 
 #### 
-Wir sind immer auf der Suche nach neuen Herausforderungen und freuen uns über Anfragen für Auftritte, Workshops und andere Projekte.
-
-#### 
-Wer mag, kann gerne unsere <a href="/termine">Auftritte besuchen</a>, mal zur <a href="/kurs">Probe vorbeischauen</a> oder uns auf <a href="/links">Social Media</a> folgen :)
+Wir sind immer auf der Suche nach neuen Herausforderungen und freuen uns über Anfragen für Auftritte, Workshops und andere Projekte. Wer mag, kann gerne unsere <a href="/termine">Auftritte besuchen</a>, mal zur <a href="/kurs">Probe vorbeischauen</a> oder uns auf <a href="/links">Social Media</a> folgen :)
 
 </i>
