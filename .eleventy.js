@@ -1,13 +1,39 @@
-module.exports = function(eleventyConfig) {
+// Section of code that is used to process images, so that they are optimized for the web and don't load top to bottom
 
+const Image = require("@11ty/eleventy-img");
+
+// Example function to process an image
+async function imageShortcode(src, alt, outputFormat = "jpeg") {
+    let metadata = await Image(src, {
+        widths: [null], // or specify other widths you want to generate
+        formats: ["jpeg", "png", "webp"], // now includes WebP
+        outputDir: "./docs/assets/",
+        urlPath: "/src/assets/",
+        sharpJpegOptions: {
+            progressive: true, // enable progressive loading for JPEGs
+            quality: 80 // optionally, adjust the quality
+        },
+        sharpPngOptions: {
+            progressive: true, // enable interlacing for PNGs
+            quality: 80 // optionally, adjust the quality
+        },
+        sharpWebpOptions: {
+            quality: 80 // optionally, adjust the quality for WebP
+        }
+    });
+}
+
+
+module.exports = function(eleventyConfig) {
     eleventyConfig.setBrowserSyncConfig({
         serveStaticOptions: {
-          extensions: ["html"], // pretty URLs
+            extensions: ["html"], // pretty URLs
         }
     });
 
     eleventyConfig.addPassthroughCopy("src/assets");
-  
+    eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
+    
     // // Add a shortcode for converting Markdown links to HTML <a> links
     // eleventyConfig.addShortcode('convertMarkdownLinks', require('./convertMarkdownLinks'));
 
