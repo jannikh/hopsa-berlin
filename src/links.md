@@ -1,7 +1,7 @@
 ---
 layout: default.njk
 title: Social Media / Links
-redirect: [link, hyperlink, hyperlinks, verlinkung, verlinkungen, social-assets, socialassets, social]
+redirect: [link, hyperlink, hyperlinks, verlinkung, verlinkungen, social-assets, socialassets, social, socialmedia, social-media, soziale, soziales, soziale-medien, sozialemedien]
 ---
 
 <div class="flex justify-center">

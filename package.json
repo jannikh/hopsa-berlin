@@ -6,7 +6,9 @@
     "postcss-import": "^16.0.0"
   },
   "dependencies": {
+    "@11ty/eleventy-img": "^3.1.8",
     "@tailwindcss/typography": "^0.5.10",
+    "cookies-eu-banner": "^2.0.1",
     "postcss": "^8.4.33",
     "tailwindcss": "^3.4.1"
   },
