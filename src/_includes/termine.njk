@@ -1,0 +1,17 @@
+{% macro neuesEvent(titel="Hopsa-Aufführung", datum="Datum wird noch mit geteilt", uhrzeit="Details sind noch in Planung", veranstaltungsort="Veranstaltungsort siehe Instagram", adresse="Adresse wird auf Instagram", eintritt="Eintritt auf Spendenbasis", kategorie="Auftritt", link="#", deaktivieren=false) %}
+
+{% if not deaktivieren %}
+
+### {{ titel }}
+
+<h4 class="-mt-2 mb-2">{{ kategorie }}: {{ datum }} | {{ uhrzeit }} </h4>
+
+<a href="{{ link }}" target="_blank">{{ veranstaltungsort }}</a>:
+<a href="http://maps.google.com/maps?mrt=loc&q={{ adresse | urlencode }}&output=kml" target="_blank">{{ adresse }}</a>
+
+<p class="mt-2">{{ eintritt }}</p>
+
+### 
+-------------------
+{% endif %}
+{% endmacro %}

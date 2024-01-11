@@ -1,8 +1,6 @@
 [
     { "from": "insta", "to": "https://instagram.com/hopsa_berlin/" },
     { "from": "instagram", "to": "https://instagram.com/hopsa_berlin/" },
-    { "from": "hopsa_berlin", "to": "https://instagram.com/hopsa_berlin/" },
-    { "from": "ensemble/hopsa_berlin", "to": "https://instagram.com/hopsa_berlin/" },
     { "from": "linktree", "to": "https://linktr.ee/hopsa_berlin" },
     { "from": "soundcloud", "to": "https://soundcloud.com/hopsa_berlin" },
     { "from": "yt", "to": "https://www.youtube.com/@HopsaBerlin" },
@@ -11,6 +9,10 @@
     { "from": "improwiki", "to": "https://improwiki.com/de/improgruppe/hopsa_berlin" },
     { "from": "wiki", "to": "https://improwiki.com/de/improgruppe/hopsa_berlin" },
     { "from": "jimdo", "to": "https://hopsa-berlin.jimdosite.com/" },
+    
+    { "from": "hopsa_berlin", "to": "https://instagram.com/hopsa_berlin/" },
+    { "from": "ensemble/hopsa_berlin", "to": "https://instagram.com/hopsa_berlin/" },
+    { "from": "links/hopsa_berlin", "to": "https://instagram.com/hopsa_berlin/" },
     
     { "from": "social/instagram", "to": "https://instagram.com/hopsa_berlin/" },
     { "from": "social/soundcloud", "to": "https://soundcloud.com/hopsa_berlin" },
