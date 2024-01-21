@@ -4,7 +4,18 @@
 
 <h3 class="mt-0 italic">eine Improtheater-Gruppe aus Berlin</h3>
 
-<img src="/assets/team/collage2.webp" alt="Hopsa Logo" class="w-1/2 mt-8 mb-0" style="min-width: 20rem !important">
+<!-- <img src="/assets/team/collage2.webp" alt="Hopsa Logo" class="w-1/2 mt-8 mb-0" style="min-width: 20rem !important"> -->
+
+<div style="display: flex; justify-content: center; align-items: center;" class="mt-8">
+    <img src="/assets/team/collage2.webp" alt="Hopsa Logo" class="w-1/2 mb-0" style="min-width: 20rem !important; float: left;">
+    <div style="margin-left: 0.5em; text-align: left; color: white; display: flex; flex-direction: column; justify-content: space-between; height: 100%; font-size: 2em; line-height:2em; color: #baa; font-style: italic;">
+        <p><strong style="font-size: 1.7em; color: #e4dddd;">H</strong>emmungslos</p>
+        <p><strong style="font-size: 1.7em; color: #e4dddd;">O</strong>ffen</p>
+        <p><strong style="font-size: 1.7em; color: #e4dddd;">P</strong>ublikumsnah</p>
+        <p><strong style="font-size: 1.7em; color: #e4dddd;">S</strong>pontan</p>
+        <p><strong style="font-size: 1.7em; color: #e4dddd;">A</strong>ktuell</p>
+    </div>
+</div>
 
 #### 
 <i>

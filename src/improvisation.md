@@ -13,7 +13,7 @@ redirect: [impro, improv, definition, quotes, authors, zitate, autoren, literatu
 
 #### 
 
-Improvisation ist ein wesentlicher Bestandteil des Theaters. Da wir uns als Improtheater-Ensemble natürlich auch schön des Öfteren Gedanken darüber gemacht haben, was Improvisation eigentlich bedeutet und wie man sie etwas greifbarer macht, haben wir hier ein paar Zitate und Literaturauszüge zum Thema Inspiration gesammelt.
+Improvisation ist ein wesentlicher Bestandteil des Theaters. Da wir uns als Improtheater-Ensemble natürlich auch schon des Öfteren Gedanken darüber gemacht haben, was Improvisation eigentlich bedeutet und wie man sie etwas greifbarer macht, haben wir hier ein paar Zitate und Literaturauszüge zum Thema Inspiration gesammelt.
 
 ## Aus dem <i>Metzler Lexikon Theatertheorie</i>  
 
