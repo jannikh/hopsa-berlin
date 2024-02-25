@@ -33,8 +33,10 @@
     { "from": "improvtheatre", "to": "/improvisation#theater" },
     { "from": "theatre", "to": "/improvisation#theater" },
     { "from": "theater", "to": "/improvisation#theater" },
-
+    
     { "from": "email", "to": "mailto:hopsaberlin@gmail.com" },
-    { "from": "mail", "to": "mailto:hopsaberlin@gmail.com" }
+    { "from": "mail", "to": "mailto:hopsaberlin@gmail.com" },
+
+    { "from": "qr", "to": "/links" }
 ]
   
