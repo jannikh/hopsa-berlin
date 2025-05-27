@@ -2,91 +2,670 @@ Dieser Leitfaden erklärt dir Schritt für Schritt, wie du die Hopsa-Berlin Webs
 
 ## Inhaltsverzeichnis
 
-### 1. Einführung und Überblick
-- **Was ist eine statische Website?**
-- **Die Struktur der Hopsa-Website verstehen**
-- **Die wichtigsten Dateien und Ordner auf einen Blick**
+* [1. Einführung und Überblick](#1-einfuhrung-und-uberblick)
+  * [Willkommen zu deiner neuen Hopsa-Berlin Website!](#willkommen-zu-deiner-neuen-hopsa-berlin-website)
+    * [Was dich in diesem Leitfaden erwartet](#was-dich-in-diesem-leitfaden-erwartet)
+  * [Was ist eine statische Website?](#was-ist-eine-statische-website)
+    * [Der Unterschied: Statische vs. dynamische Websites](#der-unterschied-statische-vs-dynamische-websites)
+    * [Vorteile einer statischen Website](#vorteile-einer-statischen-website)
+    * [Wie deine Änderungen den Weg auf die Website finden](#wie-deine-anderungen-den-weg-auf-die-website-finden)
+  * [Die Struktur der Hopsa-Website verstehen](#die-struktur-der-hopsa-website-verstehen)
+    * [Die wichtigsten Seiten](#die-wichtigsten-seiten)
+    * [Die Navigation](#die-navigation)
+  * [Die wichtigsten Dateien und Ordner auf einen Blick](#die-wichtigsten-dateien-und-ordner-auf-einen-blick)
+    * [Ordnerstruktur](#ordnerstruktur)
+    * [Die Dateien, die du am häufigsten bearbeiten wirst](#die-dateien-die-du-am-haufigsten-bearbeiten-wirst)
+  * [Die Technologien hinter der Website (einfach erklärt)](#die-technologien-hinter-der-website-einfach-erklart)
+    * [11ty (Eleventy)](#11ty-eleventy)
+    * [Markdown (.md)](#markdown-md)
+    * [Nunjucks (.njk)](#nunjucks-njk)
+    * [Tailwind CSS](#tailwind-css)
+  * [Die run.bat-Datei - Das Herzstück des Build-Prozesses](#die-runbat-datei-das-herzstuck-des-build-prozesses)
+  * [Wie du mit der Hopsa-Website arbeiten kannst](#wie-du-mit-der-hopsa-website-arbeiten-kannst)
+    * [1. Mit Visual Studio Code auf deinem Computer (empfohlen)](#1-mit-visual-studio-code-auf-deinem-computer-empfohlen)
+    * [2. Direkt in GitHub bearbeiten (nur für bestimmte Fälle)](#2-direkt-in-github-bearbeiten-nur-fur-bestimmte-falle)
+  * [Häufige Fragen zum Einstieg](#haufige-fragen-zum-einstieg)
+    * ["Muss ich programmieren können?"](#muss-ich-programmieren-konnen)
+    * ["Was passiert, wenn ich etwas kaputt mache?"](#was-passiert-wenn-ich-etwas-kaputt-mache)
+    * ["Wie lange dauert es, bis Änderungen sichtbar sind?"](#wie-lange-dauert-es-bis-anderungen-sichtbar-sind)
+    * ["Was ist der Unterschied zwischen der Website und der Domain?"](#was-ist-der-unterschied-zwischen-der-website-und-der-domain)
+  * [ChatGPT als dein persönlicher Assistent](#chatgpt-als-dein-personlicher-assistent)
+  * [Zusammenfassung und nächste Schritte](#zusammenfassung-und-nachste-schritte)
+* [2. Domain-Verwaltung mit Namecheap](#2-domain-verwaltung-mit-namecheap)
+  * [Die digitale Adresse deiner Website](#die-digitale-adresse-deiner-website)
+    * [Was wir in diesem Kapitel behandeln:](#was-wir-in-diesem-kapitel-behandeln)
+  * [Was ist eine Domain und warum ist sie wichtig?](#was-ist-eine-domain-und-warum-ist-sie-wichtig)
+    * [Der Unterschied zwischen Domain und Website](#der-unterschied-zwischen-domain-und-website)
+    * [Warum die Domain so wichtig ist](#warum-die-domain-so-wichtig-ist)
+  * [Zugriff auf dein Namecheap-Konto](#zugriff-auf-dein-namecheap-konto)
+    * [Anmeldung bei Namecheap](#anmeldung-bei-namecheap)
+    * [Das Namecheap-Dashboard verstehen](#das-namecheap-dashboard-verstehen)
+  * [Domain-Erneuerung und Bezahlung](#domain-erneuerung-und-bezahlung)
+    * [Wann und wie die Domain erneuert werden muss](#wann-und-wie-die-domain-erneuert-werden-muss)
+    * [Kreditkarte für automatische Verlängerung hinterlegen](#kreditkarte-fur-automatische-verlangerung-hinterlegen)
+    * [Warum regelmäßige Verlängerung wichtig ist](#warum-regelmassige-verlangerung-wichtig-ist)
+  * [Die aktuellen DNS-Einstellungen](#die-aktuellen-dns-einstellungen)
+    * [Die aktuellen DNS-Einstellungen verstehen](#die-aktuellen-dns-einstellungen-verstehen)
+    * [Warum du diese Einstellungen (normalerweise) nicht ändern solltest](#warum-du-diese-einstellungen-normalerweise-nicht-andern-solltest)
+    * [So findest du die DNS-Einstellungen](#so-findest-du-die-dns-einstellungen)
+  * [Häufige Fragen zur Domain-Verwaltung](#haufige-fragen-zur-domain-verwaltung)
+    * ["Was passiert, wenn die Website plötzlich nicht mehr erreichbar ist?"](#was-passiert-wenn-die-website-plotzlich-nicht-mehr-erreichbar-ist)
+    * ["Wie lange dauern Änderungen an den DNS-Einstellungen?"](#wie-lange-dauern-anderungen-an-den-dns-einstellungen)
+    * ["Muss ich mich um HTTPS/SSL kümmern?"](#muss-ich-mich-um-httpsssl-kummern)
+  * [Sicherheit deines Namecheap-Kontos](#sicherheit-deines-namecheap-kontos)
+    * [Starkes Passwort verwenden](#starkes-passwort-verwenden)
+    * [Zwei-Faktor-Authentifizierung einrichten](#zwei-faktor-authentifizierung-einrichten)
+    * [Kontaktinformationen aktuell halten](#kontaktinformationen-aktuell-halten)
+  * [ChatGPT als Helfer bei Domain-Fragen](#chatgpt-als-helfer-bei-domain-fragen)
+  * [Zusammenfassung und nächste Schritte](#zusammenfassung-und-nachste-schritte-1)
+* [3. GitHub verstehen - ohne technisches Fachwissen](#3-github-verstehen---ohne-technisches-fachwissen)
+  * [GitHub - Dein digitaler Speicherort für die Website](#github---dein-digitaler-speicherort-fur-die-website)
+    * [Was wir in diesem Kapitel behandeln:](#was-wir-in-diesem-kapitel-behandeln-1)
+  * [Was ist GitHub und wozu brauchen wir es?](#was-ist-github-und-wozu-brauchen-wir-es)
+    * [GitHub als "Speicherort" einfach erklärt](#github-als-speicherort-einfach-erklart)
+    * [GitHub Pages als kostenloser Hosting-Service](#github-pages-als-kostenloser-hosting-service)
+  * [Dein GitHub-Konto einrichten](#dein-github-konto-einrichten)
+    * [Registrierung in einfachen Schritten](#registrierung-in-einfachen-schritten)
+    * [Sicherheitseinstellungen für dein Konto](#sicherheitseinstellungen-fur-dein-konto)
+  * [Zugriffsrechte für das Hopsa-Repository erhalten](#zugriffsrechte-fur-das-hopsa-repository-erhalten)
+  * [Das Hopsa-Repository verstehen](#das-hopsa-repository-verstehen)
+    * [Was ist ein "Repository"?](#was-ist-ein-repository)
+    * [Das Hopsa-Repository finden und öffnen](#das-hopsa-repository-finden-und-offnen)
+    * [Im Repository navigieren](#im-repository-navigieren)
+  * [Häufige Aufgaben bei GitHub](#haufige-aufgaben-bei-github)
+    * [Die Website-Einstellungen finden](#die-website-einstellungen-finden)
+    * [Den aktuellen Status deiner Website prüfen](#den-aktuellen-status-deiner-website-prufen)
+    * [Den Code ansehen und auf deinen Computer herunterladen](#den-code-ansehen-und-auf-deinen-computer-herunterladen)
+    * [Dateiversionen und Änderungshistorie einsehen](#dateiversionen-und-anderungshistorie-einsehen)
+  * [GitHub und lokale Bearbeitung: Die zwei Welten verstehen](#github-und-lokale-bearbeitung-die-zwei-welten-verstehen)
+  * [Häufige Fragen zu GitHub](#haufige-fragen-zu-github)
+    * ["Kann ich etwas kaputt machen, wenn ich Änderungen vornehme?"](#kann-ich-etwas-kaputt-machen-wenn-ich-anderungen-vornehme)
+    * ["Ist GitHub sicher? Wer kann meine Dateien sehen?"](#ist-github-sicher-wer-kann-meine-dateien-sehen)
+    * ["Muss ich alles über Git und Kommandozeilen lernen?"](#muss-ich-alles-uber-git-und-kommandozeilen-lernen)
+  * [ChatGPT als Helfer bei GitHub-Fragen](#chatgpt-als-helfer-bei-github-fragen)
+  * [Zusammenfassung und nächste Schritte](#zusammenfassung-und-nachste-schritte-2)
+* [4. Visual Studio Code als Werkzeug](#4-visual-studio-code-als-werkzeug)
+  * [Dein neues Lieblings-Werkzeug für die Website-Bearbeitung](#dein-neues-lieblings-werkzeug-fur-die-website-bearbeitung)
+    * [Was wir in diesem Kapitel behandeln:](#was-wir-in-diesem-kapitel-behandeln-2)
+  * [Was ist VS Code und warum verwenden wir es?](#was-ist-vs-code-und-warum-verwenden-wir-es)
+    * [Warum VS Code für die Hopsa-Website ideal ist](#warum-vs-code-fur-die-hopsa-website-ideal-ist)
+  * [Installation und erste Einrichtung](#installation-und-erste-einrichtung)
+    * [VS Code herunterladen und installieren](#vs-code-herunterladen-und-installieren)
+    * [Erste Schritte mit VS Code](#erste-schritte-mit-vs-code)
+      * [Die VS Code-Oberfläche auf einen Blick](#die-vs-code-oberflache-auf-einen-blick)
+    * [Die wichtigsten Einstellungen für die Arbeit mit der Hopsa-Website](#die-wichtigsten-einstellungen-fur-die-arbeit-mit-der-hopsa-website)
+  * [Nützliche Erweiterungen für deine Arbeit](#nutzliche-erweiterungen-fur-deine-arbeit)
+    * [Erweiterungen installieren](#erweiterungen-installieren)
+    * [Empfohlene Erweiterungen für die Hopsa-Website](#empfohlene-erweiterungen-fur-die-hopsa-website)
+  * [Die Benutzeroberfläche verstehen](#die-benutzeroberflache-verstehen)
+    * [Ein Projekt in VS Code öffnen](#ein-projekt-in-vs-code-offnen)
+    * [Navigation im Explorer](#navigation-im-explorer)
+    * [Die wichtigsten Dateien für deine Arbeit](#die-wichtigsten-dateien-fur-deine-arbeit)
+    * [Mit Dateien arbeiten](#mit-dateien-arbeiten)
+    * [Markdown-Vorschau](#markdown-vorschau)
+  * [VS Code und GitHub verbinden](#vs-code-und-github-verbinden)
+    * [Was du dafür brauchst](#was-du-dafur-brauchst)
+    * [Git installieren](#git-installieren)
+    * [GitHub in VS Code einrichten](#github-in-vs-code-einrichten)
+    * [Das Hopsa-Repository klonen](#das-hopsa-repository-klonen)
+  * [Grundlegende Git-Operationen in VS Code](#grundlegende-git-operationen-in-vs-code)
+    * [Änderungen überprüfen](#anderungen-uberprufen)
+    * [Änderungen committen (speichern)](#anderungen-committen-speichern)
+    * [Änderungen pushen (hochladen)](#anderungen-pushen-hochladen)
+    * [Änderungen pullen (herunterladen)](#anderungen-pullen-herunterladen)
+  * [Die Build-Funktion: Die run.bat-Datei](#die-build-funktion-die-runbat-datei)
+  * [Häufige Fragen zu VS Code](#haufige-fragen-zu-vs-code)
+    * ["VS Code sieht kompliziert aus. Brauche ich wirklich all diese Funktionen?"](#vs-code-sieht-kompliziert-aus-brauche-ich-wirklich-all-diese-funktionen)
+    * ["Was passiert, wenn ich einen Fehler mache?"](#was-passiert-wenn-ich-einen-fehler-mache)
+    * ["Wie bearbeite ich Bilder oder andere Nicht-Text-Dateien?"](#wie-bearbeite-ich-bilder-oder-andere-nicht-text-dateien)
+    * ["Muss ich jedes Mal run.bat ausführen, wenn ich etwas ändere?"](#muss-ich-jedes-mal-runbat-ausfuhren-wenn-ich-etwas-andere)
+  * [ChatGPT als VS Code-Helfer](#chatgpt-als-vs-code-helfer)
+  * [Zusammenfassung und nächste Schritte](#zusammenfassung-und-nachste-schritte-3)
+* [5. Die Hopsa-Website lokal bearbeiten und testen](#5-die-hopsa-website-lokal-bearbeiten-und-testen)
+  * [Dein persönlicher Spielplatz für die Website](#dein-personlicher-spielplatz-fur-die-website)
+    * [Was wir in diesem Kapitel behandeln:](#was-wir-in-diesem-kapitel-behandeln-3)
+  * [Dein lokales Setup einrichten](#dein-lokales-setup-einrichten)
+    * [Das Hopsa-Repository klonen (herunterladen)](#das-hopsa-repository-klonen-herunterladen)
+      * [Option 1: Mit VS Code und GitHub-Integration (empfohlen)](#option-1-mit-vs-code-und-github-integration-empfohlen)
+      * [Option 2: Mit GitHub Desktop (Alternative für Einsteiger)](#option-2-mit-github-desktop-alternative-fur-einsteiger)
+    * [Die erforderliche Software installieren](#die-erforderliche-software-installieren)
+      * [Node.js installieren](#nodejs-installieren)
+      * [Projektabhängigkeiten installieren](#projektabhangigkeiten-installieren)
+      * [Eleventy global installieren (optional, aber empfohlen)](#eleventy-global-installieren-optional-aber-empfohlen)
+  * [Den Build-Prozess starten](#den-build-prozess-starten)
+    * [Die run.bat-Datei ausführen](#die-runbat-datei-ausfuhren)
+      * [Option 1: Direkt aus dem Datei-Explorer](#option-1-direkt-aus-dem-datei-explorer)
+      * [Option 2: Aus VS Code heraus (empfohlen)](#option-2-aus-vs-code-heraus-empfohlen)
+    * [Auf Probleme beim Build-Prozess reagieren](#auf-probleme-beim-build-prozess-reagieren)
+      * [Problem: "Der Befehl 'eleventy' wurde nicht gefunden"](#problem-der-befehl-eleventy-wurde-nicht-gefunden)
+      * [Problem: "Der Befehl 'npx' wurde nicht gefunden"](#problem-der-befehl-npx-wurde-nicht-gefunden)
+      * [Problem: "EACCES: permission denied"](#problem-eacces-permission-denied)
+      * [Problem: Die Website wird nicht erstellt oder der Server startet nicht](#problem-die-website-wird-nicht-erstellt-oder-der-server-startet-nicht)
+  * [Deine Änderungen in Echtzeit sehen](#deine-anderungen-in-echtzeit-sehen)
+    * [Die lokale Website im Browser öffnen](#die-lokale-website-im-browser-offnen)
+    * [Erste Änderungen vornehmen und beobachten](#erste-anderungen-vornehmen-und-beobachten)
+    * [Tiefergehende Änderungen ausprobieren](#tiefergehende-anderungen-ausprobieren)
+      * [Beispiel 1: Den Haupt-Titel ändern](#beispiel-1-den-haupt-titel-andern)
+      * [Beispiel 2: Ein Bild ändern](#beispiel-2-ein-bild-andern)
+  * [Die wichtigsten Dateien zum Bearbeiten](#die-wichtigsten-dateien-zum-bearbeiten)
+    * [Die Startseite: index.md](#die-startseite-indexmd)
+    * [Die Termine-Seite: termine.md](#die-termine-seite-terminemd)
+    * [Das Ensemble: ensemble.md](#das-ensemble-ensemblemd)
+    * [Die Kontaktseite: kontakt.md](#die-kontaktseite-kontaktmd)
+      * [Buchungsanfragen:](#buchungsanfragen)
+    * [Veranstaltungen verwalten mit termine.njk und termine.md](#veranstaltungen-verwalten-mit-terminenjk-und-terminemd)
+      * [termine.njk](#terminenjk)
+      * [termine.md](#terminemd)
+  * [Verständnis des Build-Prozesses](#verstandnis-des-build-prozesses)
+    * [Der Ablauf von Quelldateien zur fertigen Website](#der-ablauf-von-quelldateien-zur-fertigen-website)
+    * [Warum dieser Prozess wichtig ist](#warum-dieser-prozess-wichtig-ist)
+  * [Häufige Probleme und Lösungen](#haufige-probleme-und-losungen)
+    * [Problem: Der lokale Server startet nicht](#problem-der-lokale-server-startet-nicht)
+    * [Problem: Änderungen werden nicht angezeigt](#problem-anderungen-werden-nicht-angezeigt)
+    * [Problem: Die Website sieht im Browser nicht wie erwartet aus](#problem-die-website-sieht-im-browser-nicht-wie-erwartet-aus)
+    * [Problem: Bilder werden nicht angezeigt](#problem-bilder-werden-nicht-angezeigt)
+  * [Die Entwickler-Tools des Browsers nutzen](#die-entwickler-tools-des-browsers-nutzen)
+  * [Tipps für effizientes Arbeiten](#tipps-fur-effizientes-arbeiten)
+    * [1. Verwende die Split-View-Funktion in VS Code](#1-verwende-die-split-view-funktion-in-vs-code)
+    * [2. Lerne einige VS Code-Tastaturkürzel](#2-lerne-einige-vs-code-tastaturkurzel)
+    * [3. Behalte den Browser und VS Code nebeneinander im Blick](#3-behalte-den-browser-und-vs-code-nebeneinander-im-blick)
+    * [4. Nutze die Auto Save-Funktion](#4-nutze-die-auto-save-funktion)
+    * [5. Verständnis von Dateipfaden entwickeln](#5-verstandnis-von-dateipfaden-entwickeln)
+  * [Der Unterschied zwischen lokaler Vorschau und veröffentlichter Website](#der-unterschied-zwischen-lokaler-vorschau-und-veroffentlichter-website)
+    * [Die lokale Vorschau](#die-lokale-vorschau)
+    * [Die veröffentlichte Website](#die-veroffentlichte-website)
+  * [ChatGPT als Helfer bei lokalen Problemen](#chatgpt-als-helfer-bei-lokalen-problemen)
+  * [Zusammenfassung und nächste Schritte](#zusammenfassung-und-nachste-schritte-4)
+* [6. Website-Inhalte bearbeiten - Der einfache Weg](#6-website-inhalte-bearbeiten---der-einfache-weg)
+  * [Deine Website zum Leben erwecken](#deine-website-zum-leben-erwecken)
+    * [Was wir in diesem Kapitel behandeln:](#was-wir-in-diesem-kapitel-behandeln-4)
+  * [Markdown verstehen - Die einfache Textformatierung](#markdown-verstehen---die-einfache-textformatierung)
+    * [Was ist Markdown und warum ist es so praktisch?](#was-ist-markdown-und-warum-ist-es-so-praktisch)
+    * [Die Grundlagen von Markdown](#die-grundlagen-von-markdown)
+      * [Überschriften](#uberschriften)
+      * [Text hervorheben](#text-hervorheben)
+      * [Listen erstellen](#listen-erstellen)
+      * [Freue dich in den Proben auf:](#freue-dich-in-den-proben-auf)
+      * [Links erstellen](#links-erstellen)
+      * [Bilder einfügen](#bilder-einfugen)
+    * [Markdown und HTML kombinieren](#markdown-und-html-kombinieren)
+    * [Absätze und Leerzeilen](#absatze-und-leerzeilen)
+  * [Die wichtigsten Seiten bearbeiten](#die-wichtigsten-seiten-bearbeiten)
+    * [Die Frontmatter-Sektion verstehen](#die-frontmatter-sektion-verstehen)
+    * [Die Startseite (index.md) bearbeiten](#die-startseite-indexmd-bearbeiten)
+    * [Die Ensemble-Seite (ensemble.md) bearbeiten](#die-ensemble-seite-ensemblemd-bearbeiten)
+    * [Die Termine-Seite (termine.md) bearbeiten](#die-termine-seite-terminemd-bearbeiten)
+    * [Die Kontakt-Seite (kontakt.md) bearbeiten](#die-kontakt-seite-kontaktmd-bearbeiten)
+  * [Bilder hinzufügen und austauschen](#bilder-hinzufugen-und-austauschen)
+    * [Wo Bilder gespeichert werden](#wo-bilder-gespeichert-werden)
+    * [Ein neues Bild hinzufügen](#ein-neues-bild-hinzufugen)
+    * [Ein Bild in eine Seite einfügen](#ein-bild-in-eine-seite-einfugen)
+      * [Mit Markdown:](#mit-markdown)
+      * [Mit HTML (für mehr Kontrolle über Größe und Ausrichtung):](#mit-html-fur-mehr-kontrolle-uber-grosse-und-ausrichtung)
+    * [Ein bestehendes Bild ersetzen](#ein-bestehendes-bild-ersetzen)
+    * [Beispiel: Ein neues Teammitglied hinzufügen](#beispiel-ein-neues-teammitglied-hinzufugen)
+  * [Links und Verweise aktualisieren](#links-und-verweise-aktualisieren)
+    * [Arten von Links auf der Hopsa-Website](#arten-von-links-auf-der-hopsa-website)
+    * [Interne Links erstellen und bearbeiten](#interne-links-erstellen-und-bearbeiten)
+    * [Externe Links erstellen und bearbeiten](#externe-links-erstellen-und-bearbeiten)
+    * [Spezielle Links auf der Hopsa-Website](#spezielle-links-auf-der-hopsa-website)
+      * [Social-Media-Buttons in links.md](#social-media-buttons-in-linksmd)
+      * [E-Mail-Links mit vorausgefülltem Betreff und Inhalt](#e-mail-links-mit-vorausgefulltem-betreff-und-inhalt)
+  * [Fortgeschrittene Textformatierung](#fortgeschrittene-textformatierung)
+    * [HTML-Div-Container für Layout-Kontrolle](#html-div-container-fur-layout-kontrolle)
+    * [Nunjucks-Templates und -Includes](#nunjucks-templates-und--includes)
+  * [Häufige Fragen und Probleme](#haufige-fragen-und-probleme)
+    * ["Meine Markdown-Formatierung funktioniert nicht!"](#meine-markdown-formatierung-funktioniert-nicht)
+    * ["Meine Bilder werden nicht angezeigt!"](#meine-bilder-werden-nicht-angezeigt)
+    * ["Meine Links funktionieren nicht!"](#meine-links-funktionieren-nicht)
+    * ["Meine Änderungen werden nicht auf der Website angezeigt!"](#meine-anderungen-werden-nicht-auf-der-website-angezeigt)
+  * [ChatGPT als Helfer bei der Bearbeitung](#chatgpt-als-helfer-bei-der-bearbeitung)
+    * [Für Markdown-Formatierung:](#fur-markdown-formatierung)
+    * [Für die Arbeit mit Bildern:](#fur-die-arbeit-mit-bildern)
+    * [Für die Arbeit mit Links:](#fur-die-arbeit-mit-links)
+    * [Für Layout-Fragen:](#fur-layout-fragen)
+  * [Zusammenfassung und nächste Schritte](#zusammenfassung-und-nachste-schritte-5)
+* [7. Termine und Veranstaltungen verwalten](#7-termine-und-veranstaltungen-verwalten)
+  * [Der Auftrittskalender deiner Improgruppe](#der-auftrittskalender-deiner-improgruppe)
+    * [Was wir in diesem Kapitel behandeln:](#was-wir-in-diesem-kapitel-behandeln-5)
+  * [Das Termine-System verstehen](#das-termine-system-verstehen)
+    * [Die zwei wichtigen Dateien](#die-zwei-wichtigen-dateien)
+    * [Der Aufbau der termine.njk - die Vorlage (Anschauen, nicht bearbeiten!)](#der-aufbau-der-terminenjk---die-vorlage-anschauen-nicht-bearbeiten)
+    * [Der Aufbau der termine.md - die eigentlichen Daten](#der-aufbau-der-terminemd---die-eigentlichen-daten)
+  * [Neue Veranstaltungen hinzufügen](#neue-veranstaltungen-hinzufugen)
+    * [Schritt-für-Schritt-Anleitung](#schritt-fur-schritt-anleitung)
+    * [Praktisches Beispiel: Einen neuen Termin hinzufügen](#praktisches-beispiel-einen-neuen-termin-hinzufugen)
+    * [Optionale Parameter und ihre Verwendung](#optionale-parameter-und-ihre-verwendung)
+      * [1. Veranstaltung ohne eigene Website](#1-veranstaltung-ohne-eigene-website)
+      * [2. Besondere Art von Veranstaltung (nicht nur Auftritte)](#2-besondere-art-von-veranstaltung-nicht-nur-auftritte)
+      * [3. Keine Angabe zum Eintritt](#3-keine-angabe-zum-eintritt)
+  * [Veranstaltungen aktualisieren oder entfernen](#veranstaltungen-aktualisieren-oder-entfernen)
+    * [Einen bestehenden Termin aktualisieren](#einen-bestehenden-termin-aktualisieren)
+    * [Einen Termin vorübergehend ausblenden (deaktivieren)](#einen-termin-vorubergehend-ausblenden-deaktivieren)
+    * [Einen Termin dauerhaft entfernen](#einen-termin-dauerhaft-entfernen)
+  * [Besondere Termine und fortgeschrittene Funktionen](#besondere-termine-und-fortgeschrittene-funktionen)
+    * [Regelmäßige Termine (z.B. Proben)](#regelmassige-termine-zb-proben)
+    * [Kommentare und Abschnittstrenner verwenden](#kommentare-und-abschnittstrenner-verwenden)
+    * [Eine Veranstaltung hervorheben](#eine-veranstaltung-hervorheben)
+  * [Troubleshooting: Häufige Probleme und Lösungen](#troubleshooting-haufige-probleme-und-losungen)
+    * [Problem: Der Termin wird nicht angezeigt](#problem-der-termin-wird-nicht-angezeigt)
+    * [Problem: Die Formatierung ist fehlerhaft](#problem-die-formatierung-ist-fehlerhaft)
+    * [Problem: Der Link zur Location oder zu Google Maps funktioniert nicht](#problem-der-link-zur-location-oder-zu-google-maps-funktioniert-nicht)
+  * [Bewährte Praktiken für die Terminverwaltung](#bewahrte-praktiken-fur-die-terminverwaltung)
+    * [Organisiere die Termine chronologisch](#organisiere-die-termine-chronologisch)
+    * [Verwende einheitliche Formatierung](#verwende-einheitliche-formatierung)
+    * [Archiviere vergangene Termine](#archiviere-vergangene-termine)
+    * [Überprüfe deine Änderungen lokal](#uberprufe-deine-anderungen-lokal)
+    * [Sichere wichtige Informationen extern](#sichere-wichtige-informationen-extern)
+  * [ChatGPT als Helfer bei der Terminverwaltung](#chatgpt-als-helfer-bei-der-terminverwaltung)
+    * [Für Hilfe beim Erstellen neuer Termine](#fur-hilfe-beim-erstellen-neuer-termine)
+    * [Für Hilfe bei der Fehlerbehebung](#fur-hilfe-bei-der-fehlerbehebung)
+    * [Für Formatierungsvorschläge](#fur-formatierungsvorschlage)
+  * [Zusammenfassung und nächste Schritte](#zusammenfassung-und-nachste-schritte-6)
+* [8. Die Navigation anpassen](#8-die-navigation-anpassen)
+  * [Der Wegweiser deiner Website](#der-wegweiser-deiner-website)
+    * [Was wir in diesem Kapitel behandeln:](#was-wir-in-diesem-kapitel-behandeln-6)
+  * [Die Navigation verstehen](#die-navigation-verstehen)
+    * [Die zwei Navigationsbereiche](#die-zwei-navigationsbereiche)
+    * [Die zuständigen Dateien](#die-zustandigen-dateien)
+    * [Die Struktur der Navigationsdateien](#die-struktur-der-navigationsdateien)
+      * [Die header.njk-Datei](#die-headernjk-datei)
+      * [Die footer.njk-Datei](#die-footernjk-datei)
+  * [Die Hauptnavigation anpassen](#die-hauptnavigation-anpassen)
+    * [Die header.njk-Datei öffnen](#die-headernjk-datei-offnen)
+    * [Einen Menüpunkt hinzufügen](#einen-menupunkt-hinzufugen)
+    * [Einen Menüpunkt entfernen](#einen-menupunkt-entfernen)
+    * [Einen Menüpunkt umbenennen oder ändern](#einen-menupunkt-umbenennen-oder-andern)
+    * [Die Reihenfolge der Menüpunkte ändern](#die-reihenfolge-der-menupunkte-andern)
+    * [Spezieller Fall: Der "Mitmachen"-Button](#spezieller-fall-der-mitmachen-button)
+    * [Beispiel: Eine komplette Überarbeitung der Hauptnavigation](#beispiel-eine-komplette-uberarbeitung-der-hauptnavigation)
+  * [Die Footer-Navigation anpassen](#die-footer-navigation-anpassen)
+    * [Die footer.njk-Datei öffnen](#die-footernjk-datei-offnen)
+    * [Die Footer-Navigation bearbeiten](#die-footer-navigation-bearbeiten)
+    * [Beispiel: Soziale Medien zum Footer hinzufügen](#beispiel-soziale-medien-zum-footer-hinzufugen)
+  * [Tipps für eine benutzerfreundliche Navigation](#tipps-fur-eine-benutzerfreundliche-navigation)
+    * [1. Halte die Hauptnavigation übersichtlich](#1-halte-die-hauptnavigation-ubersichtlich)
+    * [2. Verwende klare und aussagekräftige Bezeichnungen](#2-verwende-klare-und-aussagekraftige-bezeichnungen)
+    * [3. Strukturiere die Navigation logisch](#3-strukturiere-die-navigation-logisch)
+    * [4. Markiere den aktiven Menüpunkt](#4-markiere-den-aktiven-menupunkt)
+    * [5. Teste die Navigation regelmäßig](#5-teste-die-navigation-regelmassig)
+  * [Änderungen testen und veröffentlichen](#anderungen-testen-und-veroffentlichen)
+    * [Lokales Testen der Navigation](#lokales-testen-der-navigation)
+    * [Änderungen veröffentlichen](#anderungen-veroffentlichen)
+  * [Häufige Fragen und Probleme](#haufige-fragen-und-probleme-1)
+    * ["Ich habe einen Menüpunkt hinzugefügt, aber er wird nicht angezeigt."](#ich-habe-einen-menupunkt-hinzugefugt-aber-er-wird-nicht-angezeigt)
+    * ["Die Navigation sieht auf meinem Smartphone anders aus als auf meinem Computer."](#die-navigation-sieht-auf-meinem-smartphone-anders-aus-als-auf-meinem-computer)
+    * ["Ich möchte ein Dropdown-Menü in der Navigation hinzufügen."](#ich-mochte-ein-dropdown-menu-in-der-navigation-hinzufugen)
+    * ["Die Navigation wird nicht richtig angezeigt oder funktioniert nicht wie erwartet."](#die-navigation-wird-nicht-richtig-angezeigt-oder-funktioniert-nicht-wie-erwartet)
+  * [Erweiterte Anpassungen (für Fortgeschrittene)](#erweiterte-anpassungen-fur-fortgeschrittene)
+  * [ChatGPT als Helfer bei Navigationsfragen](#chatgpt-als-helfer-bei-navigationsfragen)
+    * [Für Hilfe bei der Strukturierung der Navigation:](#fur-hilfe-bei-der-strukturierung-der-navigation)
+    * [Für Hilfe bei der Fehlerbehebung:](#fur-hilfe-bei-der-fehlerbehebung-1)
+    * [Für erweiterte Anpassungsideen:](#fur-erweiterte-anpassungsideen)
+  * [Zusammenfassung und nächste Schritte](#zusammenfassung-und-nachste-schritte-7)
+* [9. Neue Seiten erstellen](#9-neue-seiten-erstellen)
+  * [Erweitere deine Website mit frischen Inhalten](#erweitere-deine-website-mit-frischen-inhalten)
+    * [Was wir in diesem Kapitel behandeln:](#was-wir-in-diesem-kapitel-behandeln-7)
+  * [Eine neue Seite von Grund auf erstellen](#eine-neue-seite-von-grund-auf-erstellen)
+    * [Die Voraussetzungen](#die-voraussetzungen)
+    * [Schritt 1: Eine neue Markdown-Datei erstellen](#schritt-1-eine-neue-markdown-datei-erstellen)
+    * [Schritt 2: Die Grundstruktur einrichten – Der "Frontmatter"](#schritt-2-die-grundstruktur-einrichten---der-frontmatter)
+    * [Schritt 3: Den Inhalt der Seite erstellen](#schritt-3-den-inhalt-der-seite-erstellen)
+    * [Schritt 4: Die Seite speichern und lokal testen](#schritt-4-die-seite-speichern-und-lokal-testen)
+  * [Erweiterte Seitengestaltung](#erweiterte-seitengestaltung)
+    * [Verschiedene Layouts verwenden](#verschiedene-layouts-verwenden)
+    * [Bilder hinzufügen](#bilder-hinzufugen)
+    * [Links zu anderen Seiten](#links-zu-anderen-seiten)
+    * [Fortgeschrittene Strukturen mit HTML und CSS](#fortgeschrittene-strukturen-mit-html-und-css)
+      * [Beispiel: Eine zweispaltige Ansicht](#beispiel-eine-zweispaltige-ansicht)
+      * [Beispiel: Eine hervorgehobene Box](#beispiel-eine-hervorgehobene-box)
+  * [Alternative URLs für deine Seite einrichten](#alternative-urls-fur-deine-seite-einrichten)
+    * [Weiterleitungen im Frontmatter definieren](#weiterleitungen-im-frontmatter-definieren)
+    * [Globale Weiterleitungen für externe Links](#globale-weiterleitungen-fur-externe-links)
+  * [Die neue Seite mit der Website verbinden](#die-neue-seite-mit-der-website-verbinden)
+    * [1. In die Navigation aufnehmen](#1-in-die-navigation-aufnehmen)
+    * [2. Links von anderen Seiten einrichten](#2-links-von-anderen-seiten-einrichten)
+    * [3. Auf Social Media teilen](#3-auf-social-media-teilen)
+  * [Praktische Beispiele für verschiedene Seitentypen](#praktische-beispiele-fur-verschiedene-seitentypen)
+    * [Beispiel 1: Eine einfache Textseite](#beispiel-1-eine-einfache-textseite)
+    * [Beispiel 2: Eine Seite mit Bildern und mehreren Spalten](#beispiel-2-eine-seite-mit-bildern-und-mehreren-spalten)
+    * [Beispiel 3: Eine FAQ-Seite](#beispiel-3-eine-faq-seite)
+  * [Häufige Fragen und Problemlösungen](#haufige-fragen-und-problemlosungen)
+    * ["Meine neue Seite wird nicht angezeigt!"](#meine-neue-seite-wird-nicht-angezeigt)
+    * ["Die Formatierung funktioniert nicht wie erwartet"](#die-formatierung-funktioniert-nicht-wie-erwartet)
+    * ["Wie kann ich eine Seite wieder löschen?"](#wie-kann-ich-eine-seite-wieder-loschen)
+    * ["Kann ich eine Seite vorübergehend deaktivieren?"](#kann-ich-eine-seite-vorubergehend-deaktivieren)
+  * [Best Practices für die Erstellung neuer Seiten](#best-practices-fur-die-erstellung-neuer-seiten)
+    * [1. Plane deine Seite vor der Erstellung](#1-plane-deine-seite-vor-der-erstellung)
+    * [2. Halte die URL kurz und eindeutig](#2-halte-die-url-kurz-und-eindeutig)
+    * [3. Strukturiere deinen Inhalt klar](#3-strukturiere-deinen-inhalt-klar)
+    * [4. Optimiere für die Lesbarkeit](#4-optimiere-fur-die-lesbarkeit)
+    * [5. Vergiss die alternativen URLs nicht](#5-vergiss-die-alternativen-urls-nicht)
+    * [6. Teste auf verschiedenen Geräten](#6-teste-auf-verschiedenen-geraten)
+  * [ChatGPT als Helfer bei der Seitenerstellung](#chatgpt-als-helfer-bei-der-seitenerstellung)
+    * [Für Inhaltsideen und -struktur:](#fur-inhaltsideen-und--struktur)
+    * [Für die Erstellung von Frontmatter:](#fur-die-erstellung-von-frontmatter)
+    * [Für die Umwandlung von Text in Markdown:](#fur-die-umwandlung-von-text-in-markdown)
+    * [Für komplexere Layouts:](#fur-komplexere-layouts)
+    * [Für SEO-Optimierung (Suchmaschinenoptimierung):](#fur-seo-optimierung-suchmaschinenoptimierung)
+  * [Zusammenfassung und nächste Schritte](#zusammenfassung-und-nachste-schritte-8)
+* [10. Social Media-Einbindung verwalten](#10-social-media-einbindung-verwalten)
+  * [Deine Online-Präsenz optimal nutzen](#deine-online-prasenz-optimal-nutzen)
+    * [Was wir in diesem Kapitel behandeln:](#was-wir-in-diesem-kapitel-behandeln-8)
+  * [Instagram-Feeds aktualisieren](#instagram-feeds-aktualisieren)
+    * [Wie Instagram-Einbindung funktioniert](#wie-instagram-einbindung-funktioniert)
+    * [Den Instagram-Embed-Code finden und verstehen](#den-instagram-embed-code-finden-und-verstehen)
+    * [Das Instagram-Profil aktualisieren](#das-instagram-profil-aktualisieren)
+    * [Den Instagram-Feed auf verschiedenen Seiten aktualisieren](#den-instagram-feed-auf-verschiedenen-seiten-aktualisieren)
+    * [Einbindungsprobleme beheben](#einbindungsprobleme-beheben)
+      * [Einen neuen Instagram-Embed-Code generieren](#einen-neuen-instagram-embed-code-generieren)
+  * [YouTube-Videos einbinden](#youtube-videos-einbinden)
+    * [Den YouTube-Embed-Code verstehen](#den-youtube-embed-code-verstehen)
+    * [Das verlinkte YouTube-Konto ändern](#das-verlinkte-youtube-konto-andern)
+    * [Ein einzelnes YouTube-Video einbinden](#ein-einzelnes-youtube-video-einbinden)
+    * [Größe und Aussehen des Videos anpassen](#grosse-und-aussehen-des-videos-anpassen)
+    * [Mehrere Videos in einer Galerie anordnen](#mehrere-videos-in-einer-galerie-anordnen)
+    * [Häufige Probleme mit YouTube-Embeds](#haufige-probleme-mit-youtube-embeds)
+  * [Soundcloud-Inhalte verwalten](#soundcloud-inhalte-verwalten)
+    * [Den SoundCloud-Embed-Code verstehen](#den-soundcloud-embed-code-verstehen)
+    * [Das SoundCloud-Profil aktualisieren](#das-soundcloud-profil-aktualisieren)
+    * [Einen einzelnen SoundCloud-Track oder eine Playlist einbinden](#einen-einzelnen-soundcloud-track-oder-eine-playlist-einbinden)
+    * [SoundCloud-Player anpassen](#soundcloud-player-anpassen)
+  * [Social Media Links anpassen](#social-media-links-anpassen)
+    * [Die Social Media Links verstehen](#die-social-media-links-verstehen)
+    * [Einen Social Media Link aktualisieren](#einen-social-media-link-aktualisieren)
+    * [Einen neuen Social Media Link hinzufügen](#einen-neuen-social-media-link-hinzufugen)
+    * [Einen Social Media Link entfernen](#einen-social-media-link-entfernen)
+    * [Social Media Redirects verwalten](#social-media-redirects-verwalten)
+  * [Tipps für optimale Social Media-Integration](#tipps-fur-optimale-social-media-integration)
+    * [Konsistentes Branding](#konsistentes-branding)
+    * [Mobile Optimierung](#mobile-optimierung)
+    * [Performance-Optimierung](#performance-optimierung)
+    * [Content-Strategie](#content-strategie)
+  * [Häufige Probleme und Lösungen](#haufige-probleme-und-losungen-1)
+    * [Embeds werden nicht angezeigt](#embeds-werden-nicht-angezeigt)
+    * [Datenschutzprobleme](#datenschutzprobleme)
+    * [Inkonsistentes Erscheinungsbild](#inkonsistentes-erscheinungsbild)
+  * [ChatGPT als Helfer bei Social Media-Integration](#chatgpt-als-helfer-bei-social-media-integration)
+    * [Für Embed-Code-Anpassungen:](#fur-embed-code-anpassungen)
+    * [Für HTML/CSS-Hilfe:](#fur-htmlcss-hilfe)
+    * [Für Fehlersuche:](#fur-fehlersuche)
+    * [Für neue Social Media-Plattformen:](#fur-neue-social-media-plattformen)
+  * [Zusammenfassung und nächste Schritte](#zusammenfassung-und-nachste-schritte-9)
+* [11. Änderungen veröffentlichen mit VS Code und GitHub](#11-anderungen-veroffentlichen-mit-vs-code-und-github)
+  * [Deine Änderungen ins Internet bringen](#deine-anderungen-ins-internet-bringen)
+    * [Was wir in diesem Kapitel behandeln:](#was-wir-in-diesem-kapitel-behandeln-9)
+  * [Der Veröffentlichungsprozess verstehen](#der-veroffentlichungsprozess-verstehen)
+    * [Von deinem Computer ins Internet: Der Workflow](#von-deinem-computer-ins-internet-der-workflow)
+    * [Lokale Änderungen vs. veröffentlichte Änderungen](#lokale-anderungen-vs-veroffentlichte-anderungen)
+    * [GitHub Pages: Der automatische Website-Builder](#github-pages-der-automatische-website-builder)
+  * [Der einfache Veröffentlichungsprozess](#der-einfache-veroffentlichungsprozess)
+    * [Voraussetzungen](#voraussetzungen)
+    * [Schritt 1: VS Code öffnen und Änderungen überprüfen](#schritt-1-vs-code-offnen-und-anderungen-uberprufen)
+    * [Schritt 2: Änderungen "stagen" (für den Commit vorbereiten)](#schritt-2-anderungen-stagen-fur-den-commit-vorbereiten)
+      * [Option 1: Alle Änderungen stagen](#option-1-alle-anderungen-stagen)
+      * [Option 2: Nur bestimmte Dateien stagen](#option-2-nur-bestimmte-dateien-stagen)
+    * [Schritt 3: Commit-Nachricht schreiben und committen](#schritt-3-commit-nachricht-schreiben-und-committen)
+    * [Schritt 4: Änderungen zu GitHub pushen](#schritt-4-anderungen-zu-github-pushen)
+    * [Schritt 5: Warten auf die Website-Aktualisierung](#schritt-5-warten-auf-die-website-aktualisierung)
+  * [Überprüfung deiner veröffentlichten Änderungen](#uberprufung-deiner-veroffentlichten-anderungen)
+    * [Die Live-Website überprüfen](#die-live-website-uberprufen)
+    * [Auf verschiedenen Geräten und Browsern testen](#auf-verschiedenen-geraten-und-browsern-testen)
+  * [Lokale Vorschau vs. Live-Website](#lokale-vorschau-vs-live-website)
+    * [Hauptunterschiede](#hauptunterschiede)
+    * [Warum kann es Unterschiede geben?](#warum-kann-es-unterschiede-geben)
+  * [Häufige Probleme und Lösungen](#haufige-probleme-und-losungen-2)
+    * [Problem 1: Änderungen erscheinen nicht auf der Live-Website](#problem-1-anderungen-erscheinen-nicht-auf-der-live-website)
+    * [Problem 2: Konflikt beim Pushen](#problem-2-konflikt-beim-pushen)
+    * [Problem 3: Fehler bei der lokalen Vorschau nach dem Pull](#problem-3-fehler-bei-der-lokalen-vorschau-nach-dem-pull)
+    * [Problem 4: Bilder oder Medien werden nicht angezeigt](#problem-4-bilder-oder-medien-werden-nicht-angezeigt)
+  * [Bewährte Praktiken für die Veröffentlichung](#bewahrte-praktiken-fur-die-veroffentlichung)
+    * [1. Regelmäßig committen und pushen](#1-regelmassig-committen-und-pushen)
+    * [2. Aussagekräftige Commit-Nachrichten schreiben](#2-aussagekraftige-commit-nachrichten-schreiben)
+    * [3. Vor dem Pushen lokal testen](#3-vor-dem-pushen-lokal-testen)
+    * [4. Pull vor dem Push](#4-pull-vor-dem-push)
+    * [5. Nach dem Push verifizieren](#5-nach-dem-push-verifizieren)
+  * [Die Bedeutung regelmäßiger Aktualisierungen](#die-bedeutung-regelmassiger-aktualisierungen)
+    * [Warum regelmäßige Updates wichtig sind](#warum-regelmassige-updates-wichtig-sind)
+    * [Tipps für ein nachhaltiges Website-Management](#tipps-fur-ein-nachhaltiges-website-management)
+  * [ChatGPT als Helfer beim Veröffentlichungsprozess](#chatgpt-als-helfer-beim-veroffentlichungsprozess)
+    * [Für Hilfe bei Commit-Nachrichten:](#fur-hilfe-bei-commit-nachrichten)
+    * [Für Probleme beim Pushen:](#fur-probleme-beim-pushen)
+    * [Für Merge-Konflikte:](#fur-merge-konflikte)
+    * [Für Hilfe bei der Überprüfung:](#fur-hilfe-bei-der-uberprufung)
+  * [Zusammenfassung und nächste Schritte](#zusammenfassung-und-nachste-schritte-10)
+* [12. Die Website umziehen (falls gewünscht)](#12-die-website-umziehen-falls-gewunscht)
+  * [Neue Heimat für deine Hopsa-Website](#neue-heimat-fur-deine-hopsa-website)
+    * [Was wir in diesem Kapitel behandeln:](#was-wir-in-diesem-kapitel-behandeln-10)
+  * [Wann ist ein Website-Umzug sinnvoll?](#wann-ist-ein-website-umzug-sinnvoll)
+    * [Zu einem anderen GitHub-Account wechseln](#zu-einem-anderen-github-account-wechseln)
+    * [Zu einem WYSIWYG-Website-Builder wechseln](#zu-einem-wysiwyg-website-builder-wechseln)
+    * [Den Umzug planen: Checkliste vor dem Start](#den-umzug-planen-checkliste-vor-dem-start)
+  * [Zu einem anderen GitHub-Account wechseln](#zu-einem-anderen-github-account-wechseln-1)
+    * [1. Das GitHub-Repository übertragen](#1-das-github-repository-ubertragen)
+      * [Voraussetzungen](#voraussetzungen-1)
+      * [Schritt-für-Schritt-Anleitung](#schritt-fur-schritt-anleitung-1)
+    * [2. GitHub Pages im neuen Repository einrichten](#2-github-pages-im-neuen-repository-einrichten)
+    * [3. Die Domain aktualisieren](#3-die-domain-aktualisieren)
+      * [Option 1: Die GitHub Pages-Domain anpassen (empfohlen)](#option-1-die-github-pages-domain-anpassen-empfohlen)
+      * [Option 2: DNS-Einstellungen bei Namecheap anpassen](#option-2-dns-einstellungen-bei-namecheap-anpassen)
+    * [4. Überprüfen und Testen](#4-uberprufen-und-testen)
+    * [5. Häufige Probleme und Lösungen](#5-haufige-probleme-und-losungen)
+      * [Problem: Website erscheint nicht nach dem Umzug](#problem-website-erscheint-nicht-nach-dem-umzug)
+      * [Problem: Inhalte werden nicht korrekt angezeigt](#problem-inhalte-werden-nicht-korrekt-angezeigt)
+      * [Problem: SSL-Zertifikat-Warnungen](#problem-ssl-zertifikat-warnungen)
+    * [6. GitHub-Organisationen als Alternative](#6-github-organisationen-als-alternative)
+      * [Vorteile einer GitHub-Organisation:](#vorteile-einer-github-organisation)
+      * [Eine Organisation erstellen und das Repository übertragen:](#eine-organisation-erstellen-und-das-repository-ubertragen)
+  * [Zu einem WYSIWYG-Website-Builder wechseln](#zu-einem-wysiwyg-website-builder-wechseln-1)
+    * [1. Einen passenden Website-Builder auswählen](#1-einen-passenden-website-builder-auswahlen)
+      * [Option 1: Wix (wix.com)](#option-1-wix-wixcom)
+      * [Option 2: WordPress.com](#option-2-wordpresscom)
+      * [Option 3: Jimdo (jimdo.com)](#option-3-jimdo-jimdocom)
+      * [Option 4: Squarespace (squarespace.com)](#option-4-squarespace-squarespacecom)
+    * [2. Inhalte vorbereiten und sammeln](#2-inhalte-vorbereiten-und-sammeln)
+    * [3. Neue Website erstellen und einrichten](#3-neue-website-erstellen-und-einrichten)
+    * [4. Inhalte übertragen](#4-inhalte-ubertragen)
+      * [Seiten erstellen und Texte einfügen](#seiten-erstellen-und-texte-einfugen)
+      * [Medien hinzufügen](#medien-hinzufugen)
+    * [5. Die Domain verbinden](#5-die-domain-verbinden)
+      * [Allgemeine Schritte (können je nach Website-Builder variieren):](#allgemeine-schritte-konnen-je-nach-website-builder-variieren)
+    * [6. Weiterleitungen einrichten](#6-weiterleitungen-einrichten)
+    * [7. Überprüfen und optimieren](#7-uberprufen-und-optimieren)
+    * [8. Vor- und Nachteile verschiedener Website-Builder für die Hopsa-Website](#8-vor--und-nachteile-verschiedener-website-builder-fur-die-hopsa-website)
+      * [Wix:](#wix)
+      * [WordPress.com:](#wordpresscom)
+      * [Jimdo:](#jimdo)
+      * [Squarespace:](#squarespace)
+  * [Häufige Fragen und Antworten](#haufige-fragen-und-antworten)
+    * ["Was passiert mit der alten Website nach dem Umzug?"](#was-passiert-mit-der-alten-website-nach-dem-umzug)
+    * ["Verlieren wir durch den Umzug Besucher oder Google-Rankings?"](#verlieren-wir-durch-den-umzug-besucher-oder-google-rankings)
+    * ["Was kostet der Umzug?"](#was-kostet-der-umzug)
+    * ["Wie lange dauert der Umzug?"](#wie-lange-dauert-der-umzug)
+    * ["Können wir später wieder zurück zu GitHub Pages wechseln?"](#konnen-wir-spater-wieder-zuruck-zu-github-pages-wechseln)
+    * ["Was passiert mit unseren E-Mail-Adressen bei einem Wechsel?"](#was-passiert-mit-unseren-e-mail-adressen-bei-einem-wechsel)
+  * [Tipps für eine erfolgreiche Migration](#tipps-fur-eine-erfolgreiche-migration)
+    * [1. Kommuniziere den Umzug](#1-kommuniziere-den-umzug)
+    * [2. Erstelle ein Backup vor dem Umzug](#2-erstelle-ein-backup-vor-dem-umzug)
+    * [3. Plane genügend Zeit ein](#3-plane-genugend-zeit-ein)
+    * [4. Teste gründlich vor der Veröffentlichung](#4-teste-grundlich-vor-der-veroffentlichung)
+    * [5. Überwache nach der Migration](#5-uberwache-nach-der-migration)
+  * [ChatGPT als Helfer bei der Website-Migration](#chatgpt-als-helfer-bei-der-website-migration)
+    * [Für die Planung und Vorbereitung:](#fur-die-planung-und-vorbereitung)
+    * [Für technische Fragen:](#fur-technische-fragen)
+    * [Für die Inhaltsübertragung:](#fur-die-inhaltsubertragung)
+  * [Zusammenfassung und nächste Schritte](#zusammenfassung-und-nachste-schritte-11)
+* [13. ChatGPT als dein persönlicher Assistent](#13-chatgpt-als-dein-personlicher-assistent)
+  * [13.1 Was ist ChatGPT und wie kann es dir helfen?](#131-was-ist-chatgpt-und-wie-kann-es-dir-helfen)
+    * [Was ChatGPT kann:](#was-chatgpt-kann)
+    * [Was ChatGPT nicht kann:](#was-chatgpt-nicht-kann)
+    * [Wie du es nutzen kannst:](#wie-du-es-nutzen-kannst)
+  * [13.2 Praktische Anwendungen für die Hopsa-Website](#132-praktische-anwendungen-fur-die-hopsa-website)
+    * [Inhalte erstellen und aktualisieren](#inhalte-erstellen-und-aktualisieren)
+    * [Code-Unterstützung](#code-unterstutzung)
+  * [13.3 Die Kunst des effektiven Prompting](#133-die-kunst-des-effektiven-prompting)
+    * [Grundprinzipien für gute Prompts:](#grundprinzipien-fur-gute-prompts)
+    * [Von schlecht zu gut - Beispiele:](#von-schlecht-zu-gut---beispiele)
+    * [Das WDGS-Prinzip für perfekte Prompts:](#das-wdgs-prinzip-fur-perfekte-prompts)
+  * [13.4 Effektive Prompts für häufige Aufgaben](#134-effektive-prompts-fur-haufige-aufgaben)
+    * [Neue Veranstaltungen hinzufügen](#neue-veranstaltungen-hinzufugen-1)
+    * [Inhalte auf bestehenden Seiten ändern](#inhalte-auf-bestehenden-seiten-andern)
+    * [Design-Anpassungen vornehmen](#design-anpassungen-vornehmen)
+    * [Bilder optimieren](#bilder-optimieren)
+    * [SEO verbessern](#seo-verbessern)
+  * [13.5 Schritt-für-Schritt-Anleitungen für komplexere Aufgaben](#135-schritt-fur-schritt-anleitungen-fur-komplexere-aufgaben)
+    * [Eine neue Seite erstellen](#eine-neue-seite-erstellen)
+    * [Das Design einer bestehenden Seite ändern](#das-design-einer-bestehenden-seite-andern)
+    * [Einen neuen Social Media Feed einbinden](#einen-neuen-social-media-feed-einbinden)
+  * [13.6 Beispiel-Prompts zum Kopieren](#136-beispiel-prompts-zum-kopieren)
+    * [Für Content-Erstellung](#fur-content-erstellung)
+    * [Für technische Hilfe](#fur-technische-hilfe)
+    * [Für Design-Ideen](#fur-design-ideen)
+    * [Für Problemlösung](#fur-problemlosung)
+  * [13.7 Tipps und Tricks für optimale Ergebnisse](#137-tipps-und-tricks-fur-optimale-ergebnisse)
+    * [Iterieren und Verfeinern](#iterieren-und-verfeinern)
+    * [Mehrere Optionen anfordern](#mehrere-optionen-anfordern)
+    * [Schritt für Schritt vorgehen](#schritt-fur-schritt-vorgehen)
+    * [Konversation speichern](#konversation-speichern)
+    * [Prompt-Bibliothek anlegen](#prompt-bibliothek-anlegen)
+  * [13.8 Häufige Anwendungsfälle speziell für die Hopsa-Website](#138-haufige-anwendungsfalle-speziell-fur-die-hopsa-website)
+    * [Termine aktualisieren](#termine-aktualisieren)
+    * [Social Media Links aktualisieren](#social-media-links-aktualisieren-1)
+    * [Design-Elemente ändern](#design-elemente-andern)
+    * [SEO verbessern](#seo-verbessern-1)
+  * [13.9 Häufige Fragen und Lösungen](#139-haufige-fragen-und-losungen)
+    * ["ChatGPT gibt mir falschen Code"](#chatgpt-gibt-mir-falschen-code)
+    * ["Ich verstehe die Antwort nicht"](#ich-verstehe-die-antwort-nicht)
+    * ["Wie speichere ich die Änderungen?"](#wie-speichere-ich-die-anderungen)
+    * ["Woher weiß ich, welche Datei ich ändern muss?"](#woher-weiss-ich-welche-datei-ich-andern-muss)
+  * [13.10 Weiterführende Ressourcen](#1310-weiterfuhrende-ressourcen)
+    * [Offizielle Ressourcen](#offizielle-ressourcen)
+    * [Nützliche Werkzeuge](#nutzliche-werkzeuge)
+    * [Improvisationstheater-Ressourcen](#improvisationstheater-ressourcen)
+  * [Fazit](#fazit)
+* [14. Fehlerbehebung und häufige Probleme](#14-fehlerbehebung-und-haufige-probleme)
+  * [Einleitung: Wenn es mal nicht rund läuft](#einleitung-wenn-es-mal-nicht-rund-lauft)
+  * [14.1 Die Website wird nicht aktualisiert](#141-die-website-wird-nicht-aktualisiert)
+    * [14.1.1 Lokale vs. Online-Version verstehen](#1411-lokale-vs-online-version-verstehen)
+      * [Wie du überprüfen kannst, ob du die lokale oder die Online-Version betrachtest:](#wie-du-uberprufen-kannst-ob-du-die-lokale-oder-die-online-version-betrachtest)
+    * [14.1.2 Browser-Cache-Probleme lösen](#1412-browser-cache-probleme-losen)
+    * [14.1.3 Deployment-Probleme identifizieren und lösen](#1413-deployment-probleme-identifizieren-und-losen)
+      * [Häufige Deployment-Probleme bei der Hopsa-Website:](#haufige-deployment-probleme-bei-der-hopsa-website)
+    * [14.1.4 Domain und DNS-Probleme erkennen](#1414-domain-und-dns-probleme-erkennen)
+  * [14.2 Bilder werden nicht angezeigt](#142-bilder-werden-nicht-angezeigt)
+    * [14.2.1 Pfadprobleme verstehen und lösen](#1421-pfadprobleme-verstehen-und-losen)
+      * [Häufige Pfad-Probleme bei Bildern:](#haufige-pfad-probleme-bei-bildern)
+    * [14.2.2 Groß- und Kleinschreibung beachten](#1422-gross--und-kleinschreibung-beachten)
+    * [14.2.3 Bildformate und Kompatibilität](#1423-bildformate-und-kompatibilitat)
+    * [14.2.4 Build-Prozess und Kopierpfade prüfen](#1424-build-prozess-und-kopierpfade-prufen)
+  * [14.3 Formatierungsprobleme](#143-formatierungsprobleme)
+    * [14.3.1 Markdown-Syntax-Fehler erkennen und beheben](#1431-markdown-syntax-fehler-erkennen-und-beheben)
+      * [Häufige Markdown-Fehler in der Hopsa-Website:](#haufige-markdown-fehler-in-der-hopsa-website)
+    * [14.3.2 CSS-Styling-Probleme diagnostizieren](#1432-css-styling-probleme-diagnostizieren)
+      * [Häufige CSS-Probleme bei der Hopsa-Website:](#haufige-css-probleme-bei-der-hopsa-website)
+    * [14.3.3 Layout-Probleme und responsives Design](#1433-layout-probleme-und-responsives-design)
+      * [Häufige Layout-Probleme:](#haufige-layout-probleme)
+    * [14.3.4 Template-Probleme bei Nunjucks/Eleventy](#1434-template-probleme-bei-nunjuckseleventy)
+      * [Häufige Template-Probleme:](#haufige-template-probleme)
+  * [14.4 Allgemeine Fehlersuche-Strategien](#144-allgemeine-fehlersuche-strategien)
+    * [14.4.1 Browser-Entwicklertools nutzen](#1441-browser-entwicklertools-nutzen)
+    * [14.4.2 Systematische Fehlereingrenzung](#1442-systematische-fehlereingrenzung)
+    * [14.4.3 Hilfe suchen und finden](#1443-hilfe-suchen-und-finden)
+    * [14.4.4 Wann sollte man neustarten oder zurücksetzen?](#1444-wann-sollte-man-neustarten-oder-zurucksetzen)
+  * [Zusammenfassung: Dein Problemlösungs-Toolkit](#zusammenfassung-dein-problemlosungs-toolkit)
+* [15. Glossar: Technische Begriffe einfach erklärt](#15-glossar-technische-begriffe-einfach-erklart)
+  * [Website-Begriffe](#website-begriffe)
+    * [Grundlagen des Internets](#grundlagen-des-internets)
+      * [Wie das Internet funktioniert (in wenigen Worten)](#wie-das-internet-funktioniert-in-wenigen-worten)
+      * [URLs verstehen](#urls-verstehen)
+      * [Webhosting erklärt](#webhosting-erklart)
+      * [Frontend vs. Backend](#frontend-vs-backend)
+    * [Dateitypen auf unserer Website](#dateitypen-auf-unserer-website)
+      * [HTML-Dateien (.html)](#html-dateien-html)
+      * [CSS-Dateien (.css)](#css-dateien-css)
+      * [JavaScript-Dateien (.js)](#javascript-dateien-js)
+      * [Markdown-Dateien (.md)](#markdown-dateien-md)
+    * [Responsive Design](#responsive-design)
+    * [SEO-Grundlagen](#seo-grundlagen)
+  * [GitHub-Begriffe](#github-begriffe)
+    * [Was ist Git und GitHub?](#was-ist-git-und-github)
+    * [Das Repository](#das-repository)
+    * [Commits und Commit-Messages](#commits-und-commit-messages)
+    * [Branches](#branches)
+    * [Pull Requests](#pull-requests)
+    * [GitHub Pages](#github-pages)
+    * [Issues und Projektmanagement](#issues-und-projektmanagement)
+  * [Eleventy und statische Websites](#eleventy-und-statische-websites)
+    * [Statische Websites verstehen](#statische-websites-verstehen)
+    * [Was ist ein Static Site Generator?](#was-ist-ein-static-site-generator)
+    * [Eleventy (11ty) - Unser Static Site Generator](#eleventy-11ty---unser-static-site-generator)
+      * [Die Struktur von Eleventy in unserem Projekt](#die-struktur-von-eleventy-in-unserem-projekt)
+      * [Templates und Layouts](#templates-und-layouts)
+      * [Front Matter in Markdown-Dateien](#front-matter-in-markdown-dateien)
+      * [Der Build-Prozess](#der-build-prozess)
+    * [Tailwind CSS in unserem Projekt](#tailwind-css-in-unserem-projekt)
+    * [Umleitung und URL-Handling](#umleitung-und-url-handling)
+  * [Praktische Tipps für die Arbeit mit unserer Website](#praktische-tipps-fur-die-arbeit-mit-unserer-website)
+    * [Wie du Inhalte bearbeitest](#wie-du-inhalte-bearbeitest)
+    * [Wie du mit Terminen umgehst](#wie-du-mit-terminen-umgehst)
+    * [Häufige Fragen und Antworten](#haufige-fragen-und-antworten-1)
+      * [Wie füge ich ein neues Teammitglied hinzu?](#wie-fuge-ich-ein-neues-teammitglied-hinzu)
+      * [Wie erstelle ich eine neue Seite?](#wie-erstelle-ich-eine-neue-seite)
+      * [Was bedeuten diese seltsamen Symbole in den Dateien?](#was-bedeuten-diese-seltsamen-symbole-in-den-dateien)
+      * [Wie kann ich sehen, wie meine Änderungen aussehen werden?](#wie-kann-ich-sehen-wie-meine-anderungen-aussehen-werden)
+  * [Empfohlene Ressourcen zum Weiterlernen](#empfohlene-ressourcen-zum-weiterlernen)
+    * [Für Website-Grundlagen](#fur-website-grundlagen)
+    * [Für Markdown](#fur-markdown-1)
+    * [Für GitHub](#fur-github)
+    * [Für Eleventy](#fur-eleventy)
+    * [ChatGPT-Prompts für weitere Hilfe](#chatgpt-prompts-fur-weitere-hilfe)
+* [Anhang: Nützliche Ressourcen und Links](#anhang-nutzliche-ressourcen-und-links)
+  * [1. Hilfreiche Webseiten und Werkzeuge](#1-hilfreiche-webseiten-und-werkzeuge)
+    * [1.1. Offizielle Dokumentationen (Die Quellen der Wahrheit)](#11-offizielle-dokumentationen-die-quellen-der-wahrheit)
+    * [1.2. Lernplattformen und Tutorials (Wissen erweitern)](#12-lernplattformen-und-tutorials-wissen-erweitern)
+    * [1.3. Spezifische Werkzeuge und Helferlein (Für den Hopsa-Alltag)](#13-spezifische-werkzeuge-und-helferlein-fur-den-hopsa-alltag)
+  * [2. Support und Hilfe bekommen (Du bist nicht allein!)](#2-support-und-hilfe-bekommen-du-bist-nicht-allein)
+    * [2.1. Interne Hilfe im Hopsa-Team](#21-interne-hilfe-im-hopsa-team)
+    * [2.2. GitHub Issues (Probleme und Vorschläge dokumentieren)](#22-github-issues-probleme-und-vorschlage-dokumentieren)
+    * [2.3. Die Macht von Suchmaschinen (Google ist dein Freund)](#23-die-macht-von-suchmaschinen-google-ist-dein-freund)
+    * [2.4. ChatGPT als Problemlöser](#24-chatgpt-als-problemloser)
+    * [2.5. Community-Foren und Gruppen (Wenn alles andere fehlschlägt)](#25-community-foren-und-gruppen-wenn-alles-andere-fehlschlagt)
 
-### 2. Domain-Verwaltung mit Namecheap
-- **Was ist eine Domain und warum ist sie wichtig?**
-- **Zugriff auf dein Namecheap-Konto**
-- **Domain-Erneuerung und Bezahlung**
-- **Die aktuellen DNS-Einstellungen**
-
-### 3. GitHub verstehen - ohne technisches Fachwissen
-- **Was ist GitHub und wozu brauchen wir es?**
-- **Dein GitHub-Konto einrichten**
-- **Das Hopsa-Repository verstehen**
-- **Häufige Aufgaben bei GitHub**
-
-### 4. Visual Studio Code als Werkzeug
-- **Was ist VS Code und warum verwenden wir es?**
-- **Installation und erste Einrichtung**
-- **Nützliche Erweiterungen für deine Arbeit**
-- **Die Benutzeroberfläche verstehen**
-- **VS Code und GitHub verbinden**
-
-### 5. Die Hopsa-Website lokal bearbeiten und testen
-- **Dein lokales Setup einrichten**
-- **Den Build-Prozess starten**
-- **Deine Änderungen in Echtzeit sehen**
-
-### 6. Website-Inhalte bearbeiten - Der einfache Weg
-- **Markdown verstehen - Die einfache Textformatierung**
-- **Die wichtigsten Seiten bearbeiten**
-- **Bilder hinzufügen und austauschen**
-- **Links und Verweise aktualisieren**
-
-### 7. Termine und Veranstaltungen verwalten
-- **Das Termine-System verstehen**
-- **Neue Veranstaltungen hinzufügen**
-- **Veranstaltungen aktualisieren oder entfernen**
-
-### 8. Die Navigation anpassen
-- **Die Hauptnavigation verstehen und anpassen**
-- **Die Footer-Navigation anpassen**
-
-### 9. Neue Seiten erstellen
-- **Eine neue Seite von Grund auf erstellen**
-- **Alternative URLs für deine Seite einrichten**
-- **Die neue Seite mit der Website verbinden**
-
-### 10. Social Media-Einbindung verwalten
-- **Instagram-Feeds aktualisieren**
-- **YouTube-Videos einbinden**
-- **Soundcloud-Inhalte verwalten**
-- **Social Media Links anpassen**
-
-### 11. Änderungen veröffentlichen mit VS Code und GitHub
-- **Der einfache Veröffentlichungsprozess**
-- **Deine Änderungen überprüfen**
-- **Lokale Vorschau vs. Live-Website**
-
-### 12. Die Website umziehen (falls gewünscht)
-- **Zu einem anderen GitHub-Account wechseln**
-- **Zu einem WYSIWYG-Website-Builder wechseln**
-
-### 13. ChatGPT als dein persönlicher Assistent
-- **Wie ChatGPT dir bei der Website-Verwaltung helfen kann**
-- **Effektive Prompts für häufige Aufgaben**
-- **Beispiel-Prompts zum Kopieren**
-
-### 14. Fehlerbehebung und häufige Probleme
-- **Die Website wird nicht aktualisiert**
-- **Bilder werden nicht angezeigt**
-- **Formatierungsprobleme**
-
-### 15. Glossar: Technische Begriffe einfach erklärt
-- **Website-Begriffe**
-- **GitHub-Begriffe**
-- **Eleventy und statische Websites**
-
-### Anhang: Nützliche Ressourcen und Links
-- **Hilfreiche Webseiten**
-- **Support und Hilfe bekommen**
+---
 
 # 1. Einführung und Überblick
 
+Übersicht des Kapitels:
+
+  * [Willkommen zu deiner neuen Hopsa-Berlin Website!](#willkommen-zu-deiner-neuen-hopsa-berlin-website)
+    * [Was dich in diesem Leitfaden erwartet](#was-dich-in-diesem-leitfaden-erwartet)
+  * [Was ist eine statische Website?](#was-ist-eine-statische-website)
+    * [Der Unterschied: Statische vs. dynamische Websites](#der-unterschied-statische-vs-dynamische-websites)
+    * [Vorteile einer statischen Website](#vorteile-einer-statischen-website)
+    * [Wie deine Änderungen den Weg auf die Website finden](#wie-deine-anderungen-den-weg-auf-die-website-finden)
+  * [Die Struktur der Hopsa-Website verstehen](#die-struktur-der-hopsa-website-verstehen)
+    * [Die wichtigsten Seiten](#die-wichtigsten-seiten)
+    * [Die Navigation](#die-navigation)
+  * [Die wichtigsten Dateien und Ordner auf einen Blick](#die-wichtigsten-dateien-und-ordner-auf-einen-blick)
+    * [Ordnerstruktur](#ordnerstruktur)
+    * [Die Dateien, die du am häufigsten bearbeiten wirst](#die-dateien-die-du-am-haufigsten-bearbeiten-wirst)
+  * [Die Technologien hinter der Website (einfach erklärt)](#die-technologien-hinter-der-website-einfach-erklart)
+    * [11ty (Eleventy)](#11ty-eleventy)
+    * [Markdown (.md)](#markdown-md)
+    * [Nunjucks (.njk)](#nunjucks-njk)
+    * [Tailwind CSS](#tailwind-css)
+  * [Die run.bat-Datei - Das Herzstück des Build-Prozesses](#die-runbat-datei-das-herzstuck-des-build-prozesses)
+  * [Wie du mit der Hopsa-Website arbeiten kannst](#wie-du-mit-der-hopsa-website-arbeiten-kannst)
+    * [1. Mit Visual Studio Code auf deinem Computer (empfohlen)](#1-mit-visual-studio-code-auf-deinem-computer-empfohlen)
+    * [2. Direkt in GitHub bearbeiten (nur für bestimmte Fälle)](#2-direkt-in-github-bearbeiten-nur-fur-bestimmte-falle)
+  * [Häufige Fragen zum Einstieg](#haufige-fragen-zum-einstieg)
+    * ["Muss ich programmieren können?"](#muss-ich-programmieren-konnen)
+    * ["Was passiert, wenn ich etwas kaputt mache?"](#was-passiert-wenn-ich-etwas-kaputt-mache)
+    * ["Wie lange dauert es, bis Änderungen sichtbar sind?"](#wie-lange-dauert-es-bis-anderungen-sichtbar-sind)
+    * ["Was ist der Unterschied zwischen der Website und der Domain?"](#was-ist-der-unterschied-zwischen-der-website-und-der-domain)
+  * [ChatGPT als dein persönlicher Assistent](#chatgpt-als-dein-personlicher-assistent)
+  * [Zusammenfassung und nächste Schritte](#zusammenfassung-und-nachste-schritte)
+  
 ## Willkommen zu deiner neuen Hopsa-Berlin Website!
 
 Herzlich willkommen zu diesem Leitfaden! Egal, ob du bereits Erfahrung mit Websites hast oder dies dein erster Kontakt mit der "Technik hinter den Kulissen" ist – dieser Leitfaden wird dir Schritt für Schritt zeigen, wie du die Hopsa-Berlin Website verwalten, aktualisieren und anpassen kannst.
@@ -104,6 +683,8 @@ In den kommenden Kapiteln erfährst du:
 - Und vieles mehr!
 
 Du kannst den Leitfaden von Anfang bis Ende durcharbeiten oder direkt zu dem Kapitel springen, das deine aktuelle Frage beantwortet. Die Inhaltsübersicht hilft dir dabei, schnell das zu finden, was du gerade brauchst.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Was ist eine statische Website?
 
@@ -145,6 +726,8 @@ Später im Leitfaden zeigen wir dir, wie du all das mit wenigen Klicks erledigen
 
 > **Wichtig zu wissen:** Da die Hopsa-Website jedes Mal "neu gebaut" werden muss, können wir nicht direkt auf GitHub bearbeiten. Der Prozess erfordert, dass du die Dateien auf deinem Computer änderst, dann die run.bat-Datei ausführst (um die Website zu bauen), und erst dann die Änderungen zu GitHub hochlädst. Keine Sorge – wir erklären diesen Prozess Schritt für Schritt in den kommenden Kapiteln!
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Die Struktur der Hopsa-Website verstehen
 
 Die Hopsa-Website besteht aus mehreren Seiten, die unterschiedliche Informationen enthalten. Lass uns einen Überblick verschaffen:
@@ -173,6 +756,8 @@ Die Hauptnavigation findest du in der Datei header.njk. Hier sind die Menüpunkt
 
 > **Was ist .njk?**  
 > Die Dateiendung .njk steht für Nunjucks, eine sogenannte Template-Sprache. Mit Nunjucks können wiederverwendbare Teile der Website (wie Header und Footer) einmal definiert und dann auf allen Seiten verwendet werden. Änderst du beispielsweise etwas im Header, ändert es sich automatisch auf allen Seiten.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Die wichtigsten Dateien und Ordner auf einen Blick
 
@@ -207,6 +792,8 @@ Als nicht-technische Person wirst du hauptsächlich diese Dateien bearbeiten:
 3. **index.md**: Um die Startseite zu bearbeiten
 4. **kontakt.md**: Für Kontaktinformationen
 5. **links.md**: Für Social Media Links
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Die Technologien hinter der Website (einfach erklärt)
 
@@ -244,6 +831,8 @@ Tailwind CSS ist das Design-System der Website. Es bestimmt, wie alles aussieht:
 > **Was ist CSS?**  
 > CSS (Cascading Style Sheets) ist die Sprache, die bestimmt, wie HTML-Elemente aussehen sollen. Beispiel: Farben, Schriftarten, Abstände oder Animationen werden durch CSS festgelegt. In der Hopsa-Website ist das meiste CSS bereits durch Tailwind CSS vordefiniert, sodass du dich damit nicht befassen musst.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Die run.bat-Datei - Das Herzstück des Build-Prozesses
 
 Eine besonders wichtige Datei ist die run.bat. Diese Batch-Datei ist ein kleines Programm für Windows, das mehrere Aufgaben nacheinander erledigt:
@@ -254,6 +843,8 @@ Eine besonders wichtige Datei ist die run.bat. Diese Batch-Datei ist ein kleines
 4. Es überwacht Änderungen und aktualisiert die Vorschau automatisch
 
 Diese Datei musst du jedes Mal ausführen, wenn du Änderungen an der Website vornehmen möchtest. Wir werden im Kapitel zur lokalen Bearbeitung genau zeigen, wie das geht.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Wie du mit der Hopsa-Website arbeiten kannst
 
@@ -279,6 +870,8 @@ Für kleine, schnelle Änderungen kann es manchmal praktisch sein, direkt in Git
 
 Diese Methode werden wir nur der Vollständigkeit halber später erklären, sie ist aber nicht der Hauptweg, um die Website zu pflegen.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Häufige Fragen zum Einstieg
 
 ### "Muss ich programmieren können?"
@@ -301,6 +894,8 @@ Wenn du Änderungen über GitHub veröffentlichst, dauert es in der Regel 1-5 Mi
 >
 > Die Website selbst sind die Dateien und Inhalte, die angezeigt werden, wenn jemand diese Adresse besucht.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## ChatGPT als dein persönlicher Assistent
 
 Wenn du während der Arbeit an der Website auf Fragen oder Probleme stößt, kann ChatGPT eine große Hilfe sein. Hier sind einige nützliche Prompts:
@@ -320,6 +915,8 @@ Zögere nicht, ChatGPT zu fragen, wenn etwas unklar ist!
 > **Tipp für ChatGPT-Prompts:**  
 > Wenn du ChatGPT um Hilfe bittest, sei so spezifisch wie möglich. Zum Beispiel: "Ich bearbeite die termine.md-Datei der Hopsa-Website und möchte einen neuen Auftritt am 15. Juni hinzufügen. Die Datei nutzt das termine.neuesEvent-Format. Wie genau muss ich das machen?" Je mehr Details du gibst, desto hilfreicher kann die Antwort sein!
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Zusammenfassung und nächste Schritte
 
 In diesem ersten Kapitel hast du gelernt:
@@ -336,8 +933,41 @@ Im nächsten Kapitel geht es um die Domain-Verwaltung mit Namecheap – wie du s
 
 **Bereit für den nächsten Schritt?** Im folgenden Kapitel erfährst du alles über die Domain-Verwaltung mit Namecheap. Falls du jedoch zuerst mehr über die praktische Arbeit mit der Website erfahren möchtest, kannst du auch zu Kapitel 4 springen, wo wir Visual Studio Code einrichten und erste Schritte zur Bearbeitung der Website machen.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
+---
+
 # 2. Domain-Verwaltung mit Namecheap
 
+Übersicht des Kapitels:
+
+  * [Die digitale Adresse deiner Website](#die-digitale-adresse-deiner-website)
+    * [Was wir in diesem Kapitel behandeln:](#was-wir-in-diesem-kapitel-behandeln)
+  * [Was ist eine Domain und warum ist sie wichtig?](#was-ist-eine-domain-und-warum-ist-sie-wichtig)
+    * [Der Unterschied zwischen Domain und Website](#der-unterschied-zwischen-domain-und-website)
+    * [Warum die Domain so wichtig ist](#warum-die-domain-so-wichtig-ist)
+  * [Zugriff auf dein Namecheap-Konto](#zugriff-auf-dein-namecheap-konto)
+    * [Anmeldung bei Namecheap](#anmeldung-bei-namecheap)
+    * [Das Namecheap-Dashboard verstehen](#das-namecheap-dashboard-verstehen)
+  * [Domain-Erneuerung und Bezahlung](#domain-erneuerung-und-bezahlung)
+    * [Wann und wie die Domain erneuert werden muss](#wann-und-wie-die-domain-erneuert-werden-muss)
+    * [Kreditkarte für automatische Verlängerung hinterlegen](#kreditkarte-fur-automatische-verlangerung-hinterlegen)
+    * [Warum regelmäßige Verlängerung wichtig ist](#warum-regelmassige-verlangerung-wichtig-ist)
+  * [Die aktuellen DNS-Einstellungen](#die-aktuellen-dns-einstellungen)
+    * [Die aktuellen DNS-Einstellungen verstehen](#die-aktuellen-dns-einstellungen-verstehen)
+    * [Warum du diese Einstellungen (normalerweise) nicht ändern solltest](#warum-du-diese-einstellungen-normalerweise-nicht-andern-solltest)
+    * [So findest du die DNS-Einstellungen](#so-findest-du-die-dns-einstellungen)
+  * [Häufige Fragen zur Domain-Verwaltung](#haufige-fragen-zur-domain-verwaltung)
+    * ["Was passiert, wenn die Website plötzlich nicht mehr erreichbar ist?"](#was-passiert-wenn-die-website-plotzlich-nicht-mehr-erreichbar-ist)
+    * ["Wie lange dauern Änderungen an den DNS-Einstellungen?"](#wie-lange-dauern-anderungen-an-den-dns-einstellungen)
+    * ["Muss ich mich um HTTPS/SSL kümmern?"](#muss-ich-mich-um-httpsssl-kummern)
+  * [Sicherheit deines Namecheap-Kontos](#sicherheit-deines-namecheap-kontos)
+    * [Starkes Passwort verwenden](#starkes-passwort-verwenden)
+    * [Zwei-Faktor-Authentifizierung einrichten](#zwei-faktor-authentifizierung-einrichten)
+    * [Kontaktinformationen aktuell halten](#kontaktinformationen-aktuell-halten)
+  * [ChatGPT als Helfer bei Domain-Fragen](#chatgpt-als-helfer-bei-domain-fragen)
+  * [Zusammenfassung und nächste Schritte](#zusammenfassung-und-nachste-schritte-1)
+  
 ## Die digitale Adresse deiner Website
 
 Willkommen zum zweiten Kapitel unseres Leitfadens! Hier dreht sich alles um die Domain "hopsa-berlin.de" – die Internetadresse, unter der Besucher die Hopsa-Website finden. Wir werden Schritt für Schritt erklären, wie du diese Domain verwaltest, warum sie wichtig ist und was du beachten musst, damit sie weiterhin reibungslos funktioniert.
@@ -350,6 +980,8 @@ Willkommen zum zweiten Kapitel unseres Leitfadens! Hier dreht sich alles um die 
 - Wie du die Domain verlängerst und die Bezahlung einrichtest
 - Was die aktuellen DNS-Einstellungen bedeuten
 - Welche Einstellungen du (nicht) ändern solltest
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Was ist eine Domain und warum ist sie wichtig?
 
@@ -376,6 +1008,8 @@ Die Domain hat mehrere wichtige Funktionen:
 1. **Erkennbarkeit**: Eine gute Domain wie "hopsa-berlin.de" ist leicht zu merken und zu teilen
 2. **Professionalität**: Eine eigene Domain vermittelt einen seriösen Eindruck
 3. **Kontinuität**: Wenn ihr später das Hosting wechseln solltet, könnt ihr die gleiche Domain behalten
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Zugriff auf dein Namecheap-Konto
 
@@ -410,6 +1044,8 @@ So findest du die Domain-Verwaltung:
 1. Klicke im Dashboard auf "DOMAIN LIST"
 2. Suche nach "hopsa-berlin.de" und klicke darauf
 3. Du siehst nun eine Übersicht mit verschiedenen Optionen zur Verwaltung der Domain
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Domain-Erneuerung und Bezahlung
 
@@ -456,6 +1092,8 @@ Wenn eine Domain nicht rechtzeitig verlängert wird, passiert Folgendes:
 4. Schließlich wird die Domain **freigegeben** und kann von jedem anderen registriert werden
 
 **Wichtig**: Wenn die Domain einmal von jemand anderem übernommen wurde, habt ihr in der Regel keine Möglichkeit mehr, sie zurückzubekommen!
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Die aktuellen DNS-Einstellungen
 
@@ -504,6 +1142,8 @@ Falls du doch einmal die DNS-Einstellungen überprüfen musst:
 3. Wähle den Tab "Advanced DNS"
 4. Hier siehst du alle aktuellen DNS-Einträge
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Häufige Fragen zur Domain-Verwaltung
 
 ### "Was passiert, wenn die Website plötzlich nicht mehr erreichbar ist?"
@@ -527,6 +1167,8 @@ Nein, das wird automatisch von GitHub Pages übernommen. In den übermittelten I
 
 > **Was ist HTTPS/SSL?**  
 > HTTPS (Hypertext Transfer Protocol Secure) verschlüsselt die Kommunikation zwischen dem Browser eines Besuchers und deiner Website. Dies verhindert, dass Dritte sensible Daten abfangen können. SSL (Secure Sockets Layer) ist das Protokoll, das diese Verschlüsselung ermöglicht.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Sicherheit deines Namecheap-Kontos
 
@@ -554,6 +1196,8 @@ Für zusätzliche Sicherheit solltest du die Zwei-Faktor-Authentifizierung (2FA)
 
 Stelle sicher, dass deine E-Mail-Adresse und andere Kontaktinformationen bei Namecheap immer aktuell sind. Wichtige Benachrichtigungen wie die bevorstehende Domain-Verlängerung oder Sicherheitswarnungen werden an diese Adresse gesendet.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## ChatGPT als Helfer bei Domain-Fragen
 
 Wenn du auf konkrete Fragen zur Domain oder Namecheap stößt, kann ChatGPT dir helfen. Hier sind einige nützliche Prompts:
@@ -567,6 +1211,8 @@ Wenn du auf konkrete Fragen zur Domain oder Namecheap stößt, kann ChatGPT dir 
 
 "Was mache ich, wenn ich meine Namecheap-Anmeldedaten vergessen habe?"
 ```
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Zusammenfassung und nächste Schritte
 
@@ -583,8 +1229,40 @@ Mit diesem Wissen bist du gut gerüstet, um die digitale Adresse von Hopsa Berli
 
 **Für die praktische Arbeit an der Website selbst** geht es im nächsten Kapitel um GitHub, wo der eigentliche Inhalt der Website gespeichert ist. Wenn du jedoch bereits neugierig bist, wie du Änderungen an der Website vornehmen kannst, darfst du auch direkt zu Kapitel 4 springen, wo wir Visual Studio Code einrichten.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
+---
+
 # 3. GitHub verstehen - ohne technisches Fachwissen
 
+Übersicht des Kapitels:
+
+  * [GitHub - Dein digitaler Speicherort für die Website](#github---dein-digitaler-speicherort-fur-die-website)
+    * [Was wir in diesem Kapitel behandeln:](#was-wir-in-diesem-kapitel-behandeln-1)
+  * [Was ist GitHub und wozu brauchen wir es?](#was-ist-github-und-wozu-brauchen-wir-es)
+    * [GitHub als "Speicherort" einfach erklärt](#github-als-speicherort-einfach-erklart)
+    * [GitHub Pages als kostenloser Hosting-Service](#github-pages-als-kostenloser-hosting-service)
+  * [Dein GitHub-Konto einrichten](#dein-github-konto-einrichten)
+    * [Registrierung in einfachen Schritten](#registrierung-in-einfachen-schritten)
+    * [Sicherheitseinstellungen für dein Konto](#sicherheitseinstellungen-fur-dein-konto)
+  * [Zugriffsrechte für das Hopsa-Repository erhalten](#zugriffsrechte-fur-das-hopsa-repository-erhalten)
+  * [Das Hopsa-Repository verstehen](#das-hopsa-repository-verstehen)
+    * [Was ist ein "Repository"?](#was-ist-ein-repository)
+    * [Das Hopsa-Repository finden und öffnen](#das-hopsa-repository-finden-und-offnen)
+    * [Im Repository navigieren](#im-repository-navigieren)
+  * [Häufige Aufgaben bei GitHub](#haufige-aufgaben-bei-github)
+    * [Die Website-Einstellungen finden](#die-website-einstellungen-finden)
+    * [Den aktuellen Status deiner Website prüfen](#den-aktuellen-status-deiner-website-prufen)
+    * [Den Code ansehen und auf deinen Computer herunterladen](#den-code-ansehen-und-auf-deinen-computer-herunterladen)
+    * [Dateiversionen und Änderungshistorie einsehen](#dateiversionen-und-anderungshistorie-einsehen)
+  * [GitHub und lokale Bearbeitung: Die zwei Welten verstehen](#github-und-lokale-bearbeitung-die-zwei-welten-verstehen)
+  * [Häufige Fragen zu GitHub](#haufige-fragen-zu-github)
+    * ["Kann ich etwas kaputt machen, wenn ich Änderungen vornehme?"](#kann-ich-etwas-kaputt-machen-wenn-ich-anderungen-vornehme)
+    * ["Ist GitHub sicher? Wer kann meine Dateien sehen?"](#ist-github-sicher-wer-kann-meine-dateien-sehen)
+    * ["Muss ich alles über Git und Kommandozeilen lernen?"](#muss-ich-alles-uber-git-und-kommandozeilen-lernen)
+  * [ChatGPT als Helfer bei GitHub-Fragen](#chatgpt-als-helfer-bei-github-fragen)
+  * [Zusammenfassung und nächste Schritte](#zusammenfassung-und-nachste-schritte-2)
+  
 ## GitHub - Dein digitaler Speicherort für die Website
 
 In diesem Kapitel lernst du einen der wichtigsten Bausteine für die Verwaltung der Hopsa-Website kennen: GitHub. Keine Sorge, wenn du noch nie davon gehört hast – wir erklären dir alles von Grund auf, ganz ohne Fachjargon. Du wirst verstehen, warum GitHub für deine Website so wichtig ist und wie du es nutzen kannst, selbst wenn du bisher wenig mit technischen Dingen zu tun hattest.
@@ -596,6 +1274,8 @@ In diesem Kapitel lernst du einen der wichtigsten Bausteine für die Verwaltung 
 - Wie du dein eigenes GitHub-Konto einrichtest
 - Was ein "Repository" ist und wie du das Hopsa-Repository verstehst
 - Die häufigsten Aufgaben, die du bei GitHub erledigen wirst
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Was ist GitHub und wozu brauchen wir es?
 
@@ -622,6 +1302,8 @@ Eine der besten Funktionen von GitHub für Projekte wie die Hopsa-Website ist Gi
 > Hosting bedeutet, dass Dateien auf einem Server gespeichert werden, der permanent mit dem Internet verbunden ist. Wenn jemand eine Website besucht, werden die Dateien von diesem Server geladen und im Browser angezeigt. Ohne Hosting wäre eine Website nur auf dem eigenen Computer sichtbar, nicht aber im Internet.
 
 GitHub Pages nimmt die Dateien in deinem GitHub-Speicher und macht sie automatisch als Website verfügbar – kostenlos! Das ist ideal für kleinere Projekte wie die Hopsa-Website, da keine zusätzlichen Kosten für Webhosting anfallen.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Dein GitHub-Konto einrichten
 
@@ -667,6 +1349,8 @@ Sobald dein Konto erstellt ist, solltest du einige wichtige Sicherheitseinstellu
 
 Diese Sicherheitsmaßnahmen sind wichtig, da über dein GitHub-Konto Änderungen an der öffentlichen Hopsa-Website vorgenommen werden können.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Zugriffsrechte für das Hopsa-Repository erhalten
 
 Nachdem du dein Konto eingerichtet hast, musst du Zugriff auf das Hopsa-Website-Repository bekommen. Dafür musst du von einem bestehenden Administrator (z.B. Jannik) als Mitarbeiter hinzugefügt werden.
@@ -676,6 +1360,8 @@ Nachdem du dein Konto eingerichtet hast, musst du Zugriff auf das Hopsa-Website-
 3. **Akzeptiere die Einladung**, indem du auf den Link in der E-Mail klickst.
 
 Du hast nun Zugriff auf das Repository und kannst Änderungen vornehmen!
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Das Hopsa-Repository verstehen
 
@@ -721,6 +1407,8 @@ Die wichtigsten Ordner und Dateien im Hopsa-Repository sind:
 
 > **Wichtig zu wissen:**  
 > Bearbeite niemals Dateien direkt im docs/-Ordner! Diese werden automatisch generiert und deine Änderungen würden bei der nächsten Aktualisierung überschrieben werden.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Häufige Aufgaben bei GitHub
 
@@ -775,6 +1463,8 @@ Diese Funktion ist sehr hilfreich, wenn du:
 - Verstehen möchtest, was eine bestimmte Änderung bewirkt hat
 - Zu einer früheren Version zurückkehren möchtest, falls etwas schiefgegangen ist
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## GitHub und lokale Bearbeitung: Die zwei Welten verstehen
 
 Ein wichtiges Konzept zum Verständnis von GitHub ist der Unterschied zwischen "online" und "lokal":
@@ -790,6 +1480,8 @@ Der typische Arbeitsablauf sieht so aus:
 
 > **Wichtig für die Hopsa-Website:**  
 > Denke daran, dass für die Hopsa-Website ein zusätzlicher Schritt notwendig ist: Du musst die Website mit run.bat lokal "bauen", bevor du deine Änderungen hochlädst. Mehr dazu in den Kapiteln 4 und 5!
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Häufige Fragen zu GitHub
 
@@ -825,6 +1517,8 @@ In den nächsten Kapiteln zeigen wir dir, wie du diese Tools nutzt, ohne technis
 > **GitHub** ist eine Webplattform, die Git nutzt und zusätzliche Funktionen wie Hosting, Zusammenarbeit und Benutzeroberfläche bietet.  
 > Du kannst GitHub nutzen, ohne jemals direkt mit Git arbeiten zu müssen!
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## ChatGPT als Helfer bei GitHub-Fragen
 
 GitHub kann anfangs etwas verwirrend sein. Hier sind einige Prompts, die du bei ChatGPT verwenden kannst, um schnell Hilfe zu bekommen:
@@ -842,6 +1536,8 @@ GitHub kann anfangs etwas verwirrend sein. Hier sind einige Prompts, die du bei 
 > **Tipp für präzise Antworten:**  
 > Wenn du ChatGPT nach Hilfe mit GitHub fragst, füge möglichst viele Details hinzu. Ein Screenshot (oder eine genaue Beschreibung dessen, was du siehst) hilft ChatGPT, dir besser zu helfen.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Zusammenfassung und nächste Schritte
 
 In diesem Kapitel hast du gelernt:
@@ -857,8 +1553,51 @@ Du hast nun ein grundlegendes Verständnis von GitHub und bist bereit, mit der p
 
 **Bereit für den nächsten Schritt?** Im nächsten Kapitel richten wir Visual Studio Code ein, mit dem du die Website-Dateien bearbeiten wirst. Wir werden auch zeigen, wie VS Code und GitHub zusammenarbeiten, damit du deine Änderungen einfach veröffentlichen kannst.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
+---
+
 # 4. Visual Studio Code als Werkzeug
 
+Übersicht des Kapitels:
+
+  * [Dein neues Lieblings-Werkzeug für die Website-Bearbeitung](#dein-neues-lieblings-werkzeug-fur-die-website-bearbeitung)
+    * [Was wir in diesem Kapitel behandeln:](#was-wir-in-diesem-kapitel-behandeln-2)
+  * [Was ist VS Code und warum verwenden wir es?](#was-ist-vs-code-und-warum-verwenden-wir-es)
+    * [Warum VS Code für die Hopsa-Website ideal ist](#warum-vs-code-fur-die-hopsa-website-ideal-ist)
+  * [Installation und erste Einrichtung](#installation-und-erste-einrichtung)
+    * [VS Code herunterladen und installieren](#vs-code-herunterladen-und-installieren)
+    * [Erste Schritte mit VS Code](#erste-schritte-mit-vs-code)
+      * [Die VS Code-Oberfläche auf einen Blick](#die-vs-code-oberflache-auf-einen-blick)
+    * [Die wichtigsten Einstellungen für die Arbeit mit der Hopsa-Website](#die-wichtigsten-einstellungen-fur-die-arbeit-mit-der-hopsa-website)
+  * [Nützliche Erweiterungen für deine Arbeit](#nutzliche-erweiterungen-fur-deine-arbeit)
+    * [Erweiterungen installieren](#erweiterungen-installieren)
+    * [Empfohlene Erweiterungen für die Hopsa-Website](#empfohlene-erweiterungen-fur-die-hopsa-website)
+  * [Die Benutzeroberfläche verstehen](#die-benutzeroberflache-verstehen)
+    * [Ein Projekt in VS Code öffnen](#ein-projekt-in-vs-code-offnen)
+    * [Navigation im Explorer](#navigation-im-explorer)
+    * [Die wichtigsten Dateien für deine Arbeit](#die-wichtigsten-dateien-fur-deine-arbeit)
+    * [Mit Dateien arbeiten](#mit-dateien-arbeiten)
+    * [Markdown-Vorschau](#markdown-vorschau)
+  * [VS Code und GitHub verbinden](#vs-code-und-github-verbinden)
+    * [Was du dafür brauchst](#was-du-dafur-brauchst)
+    * [Git installieren](#git-installieren)
+    * [GitHub in VS Code einrichten](#github-in-vs-code-einrichten)
+    * [Das Hopsa-Repository klonen](#das-hopsa-repository-klonen)
+  * [Grundlegende Git-Operationen in VS Code](#grundlegende-git-operationen-in-vs-code)
+    * [Änderungen überprüfen](#anderungen-uberprufen)
+    * [Änderungen committen (speichern)](#anderungen-committen-speichern)
+    * [Änderungen pushen (hochladen)](#anderungen-pushen-hochladen)
+    * [Änderungen pullen (herunterladen)](#anderungen-pullen-herunterladen)
+  * [Die Build-Funktion: Die run.bat-Datei](#die-build-funktion-die-runbat-datei)
+  * [Häufige Fragen zu VS Code](#haufige-fragen-zu-vs-code)
+    * ["VS Code sieht kompliziert aus. Brauche ich wirklich all diese Funktionen?"](#vs-code-sieht-kompliziert-aus-brauche-ich-wirklich-all-diese-funktionen)
+    * ["Was passiert, wenn ich einen Fehler mache?"](#was-passiert-wenn-ich-einen-fehler-mache)
+    * ["Wie bearbeite ich Bilder oder andere Nicht-Text-Dateien?"](#wie-bearbeite-ich-bilder-oder-andere-nicht-text-dateien)
+    * ["Muss ich jedes Mal run.bat ausführen, wenn ich etwas ändere?"](#muss-ich-jedes-mal-runbat-ausfuhren-wenn-ich-etwas-andere)
+  * [ChatGPT als VS Code-Helfer](#chatgpt-als-vs-code-helfer)
+  * [Zusammenfassung und nächste Schritte](#zusammenfassung-und-nachste-schritte-3)
+  
 ## Dein neues Lieblings-Werkzeug für die Website-Bearbeitung
 
 Herzlich willkommen zum vierten Kapitel unseres Leitfadens! Jetzt wird es praktisch: Wir stellen dir Visual Studio Code (kurz: VS Code) vor – ein kostenloses und benutzerfreundliches Programm, mit dem du die Inhalte der Hopsa-Website bearbeiten und aktualisieren kannst. Auch wenn der Name etwas einschüchternd klingen mag, wirst du sehen, dass VS Code ein überraschend freundliches Werkzeug ist, das dir die Arbeit mit der Website erheblich erleichtern wird.
@@ -871,6 +1610,8 @@ Herzlich willkommen zum vierten Kapitel unseres Leitfadens! Jetzt wird es prakti
 - Welche Erweiterungen (Extensions) deine Arbeit erleichtern können
 - Wie du dich in der Benutzeroberfläche zurechtfindest
 - Wie du VS Code mit GitHub verbindest, um deine Änderungen zu veröffentlichen
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Was ist VS Code und warum verwenden wir es?
 
@@ -899,6 +1640,8 @@ Für die Arbeit an der Hopsa-Website ist VS Code aus mehreren Gründen besonders
 5. **Integriertes Terminal**: Du kannst die wichtige run.bat-Datei direkt aus VS Code heraus ausführen, um deine Änderungen zu testen.
 
 Für die Bearbeitung der Hopsa-Website brauchst du keine Programmierkenntnisse. Du wirst hauptsächlich Texte in Markdown-Dateien bearbeiten, was mit VS Code besonders einfach ist.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Installation und erste Einrichtung
 
@@ -972,6 +1715,8 @@ Für eine optimale Nutzung von VS Code für die Hopsa-Website empfehlen wir eini
 > **Was ist Auto Save?**  
 > Auto Save ist eine Funktion, die deine Änderungen automatisch speichert, ohne dass du manuell speichern musst. In der Standardeinstellung musst du deine Dateien regelmäßig mit Strg+S speichern, aber mit aktiviertem Auto Save geschieht dies automatisch, nachdem du einige Sekunden nicht mehr getippt hast.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Nützliche Erweiterungen für deine Arbeit
 
 Eine der größten Stärken von VS Code sind die Erweiterungen (Extensions), mit denen du die Funktionalität des Editors an deine Bedürfnisse anpassen kannst. Für die Arbeit mit der Hopsa-Website empfehlen wir einige spezifische Erweiterungen.
@@ -1013,6 +1758,8 @@ Hier sind einige Erweiterungen, die deine Arbeit mit der Hopsa-Website erheblich
 
 > **Tipp für Einsteiger:**  
 > Beginne mit nur wenigen Erweiterungen und füge bei Bedarf weitere hinzu. Zu viele Erweiterungen können VS Code verlangsamen und die Oberfläche unübersichtlich machen.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Die Benutzeroberfläche verstehen
 
@@ -1081,6 +1828,8 @@ Da die meisten Inhalte der Hopsa-Website in Markdown geschrieben sind, ist die M
 > **Was ist Markdown nochmal?**  
 > Markdown ist eine einfache Auszeichnungssprache, die es ermöglicht, Texte zu formatieren, ohne komplizierte HTML-Tags verwenden zu müssen. Du kannst Überschriften mit # erstellen, Text mit **Sternchen** fett oder *kursiv* machen und vieles mehr. In Kapitel 6 gehen wir noch ausführlicher auf Markdown ein.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## VS Code und GitHub verbinden
 
 Ein wichtiger Schritt für die Arbeit mit der Hopsa-Website ist die Verbindung von VS Code mit GitHub. Dadurch kannst du deine Änderungen direkt aus VS Code heraus veröffentlichen.
@@ -1140,6 +1889,8 @@ Als Nächstes musst du das Hopsa-Repository auf deinen Computer "klonen" (herunt
 > **Was ist Klonen?**  
 > Klonen bedeutet, eine komplette Kopie eines Repositories von GitHub auf deinen Computer herunterzuladen. Es ist wie das Herunterladen der gesamten Website-Dateien samt ihrer Versionsgeschichte. Nachdem du ein Repository geklont hast, kannst du lokal daran arbeiten und deine Änderungen später wieder zu GitHub hochladen.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Grundlegende Git-Operationen in VS Code
 
 Nachdem du das Repository geklont hast, kannst du mit der Bearbeitung beginnen. Hier sind die grundlegenden Git-Operationen, die du in VS Code durchführen kannst:
@@ -1191,6 +1942,8 @@ Wenn andere Personen Änderungen am Repository vorgenommen haben, kannst du dies
 > **Was ist Pullen?**  
 > Pullen bedeutet, die neuesten Änderungen von GitHub auf deinen Computer herunterzuladen. Es ist wichtig, regelmäßig zu pullen, besonders wenn mehrere Personen am selben Projekt arbeiten, um sicherzustellen, dass du mit der aktuellsten Version arbeitest.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Die Build-Funktion: Die run.bat-Datei
 
 Ein wichtiger Teil der Arbeit mit der Hopsa-Website ist die Verwendung der run.bat-Datei, um die Website lokal zu testen, bevor du deine Änderungen veröffentlichst. In VS Code kannst du diese Datei direkt aus dem integrierten Terminal ausführen:
@@ -1213,6 +1966,8 @@ Ein wichtiger Teil der Arbeit mit der Hopsa-Website ist die Verwendung der run.b
 > 4. Sie überwacht Änderungen und aktualisiert die Vorschau automatisch
 >
 > Dadurch kannst du deine Änderungen sofort sehen, ohne sie zuerst zu GitHub hochladen zu müssen.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Häufige Fragen zu VS Code
 
@@ -1239,6 +1994,8 @@ Für Bilder und andere Mediendateien verwendest du am besten spezialisierte Prog
 
 Nein, run.bat startet einen Server, der automatisch auf Änderungen achtet. Du musst es nur einmal ausführen und kannst dann beliebig viele Änderungen vornehmen – die Vorschau im Browser wird automatisch aktualisiert. Erst wenn du VS Code schließt und später wieder öffnest, musst du run.bat erneut ausführen.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## ChatGPT als VS Code-Helfer
 
 Bei Fragen oder Problemen mit VS Code kann ChatGPT eine große Hilfe sein. Hier sind einige nützliche Prompts:
@@ -1258,6 +2015,8 @@ Bei Fragen oder Problemen mit VS Code kann ChatGPT eine große Hilfe sein. Hier 
 > **Tipp für hilfreiche Antworten:**  
 > Wenn du Probleme mit VS Code hast, beschreibe so genau wie möglich, was du tun möchtest und was nicht funktioniert. Screenshots und genaue Fehlermeldungen sind besonders hilfreich, damit ChatGPT dir zielgerichtete Hilfe geben kann.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Zusammenfassung und nächste Schritte
 
 In diesem Kapitel hast du gelernt:
@@ -1275,8 +2034,69 @@ Du hast jetzt ein leistungsstarkes Werkzeug in deinem Arsenal, mit dem du die Ho
 
 **Bereit für den nächsten Schritt?** Im folgenden Kapitel "Die Hopsa-Website lokal bearbeiten und testen" zeigen wir dir, wie du dein lokales Setup einrichtest, den Build-Prozess startest und deine Änderungen in Echtzeit siehst.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
+---
+
 # 5. Die Hopsa-Website lokal bearbeiten und testen
 
+Übersicht des Kapitels:
+
+  * [Dein persönlicher Spielplatz für die Website](#dein-personlicher-spielplatz-fur-die-website)
+    * [Was wir in diesem Kapitel behandeln:](#was-wir-in-diesem-kapitel-behandeln-3)
+  * [Dein lokales Setup einrichten](#dein-lokales-setup-einrichten)
+    * [Das Hopsa-Repository klonen (herunterladen)](#das-hopsa-repository-klonen-herunterladen)
+      * [Option 1: Mit VS Code und GitHub-Integration (empfohlen)](#option-1-mit-vs-code-und-github-integration-empfohlen)
+      * [Option 2: Mit GitHub Desktop (Alternative für Einsteiger)](#option-2-mit-github-desktop-alternative-fur-einsteiger)
+    * [Die erforderliche Software installieren](#die-erforderliche-software-installieren)
+      * [Node.js installieren](#nodejs-installieren)
+      * [Projektabhängigkeiten installieren](#projektabhangigkeiten-installieren)
+      * [Eleventy global installieren (optional, aber empfohlen)](#eleventy-global-installieren-optional-aber-empfohlen)
+  * [Den Build-Prozess starten](#den-build-prozess-starten)
+    * [Die run.bat-Datei ausführen](#die-runbat-datei-ausfuhren)
+      * [Option 1: Direkt aus dem Datei-Explorer](#option-1-direkt-aus-dem-datei-explorer)
+      * [Option 2: Aus VS Code heraus (empfohlen)](#option-2-aus-vs-code-heraus-empfohlen)
+    * [Auf Probleme beim Build-Prozess reagieren](#auf-probleme-beim-build-prozess-reagieren)
+      * [Problem: "Der Befehl 'eleventy' wurde nicht gefunden"](#problem-der-befehl-eleventy-wurde-nicht-gefunden)
+      * [Problem: "Der Befehl 'npx' wurde nicht gefunden"](#problem-der-befehl-npx-wurde-nicht-gefunden)
+      * [Problem: "EACCES: permission denied"](#problem-eacces-permission-denied)
+      * [Problem: Die Website wird nicht erstellt oder der Server startet nicht](#problem-die-website-wird-nicht-erstellt-oder-der-server-startet-nicht)
+  * [Deine Änderungen in Echtzeit sehen](#deine-anderungen-in-echtzeit-sehen)
+    * [Die lokale Website im Browser öffnen](#die-lokale-website-im-browser-offnen)
+    * [Erste Änderungen vornehmen und beobachten](#erste-anderungen-vornehmen-und-beobachten)
+    * [Tiefergehende Änderungen ausprobieren](#tiefergehende-anderungen-ausprobieren)
+      * [Beispiel 1: Den Haupt-Titel ändern](#beispiel-1-den-haupt-titel-andern)
+      * [Beispiel 2: Ein Bild ändern](#beispiel-2-ein-bild-andern)
+  * [Die wichtigsten Dateien zum Bearbeiten](#die-wichtigsten-dateien-zum-bearbeiten)
+    * [Die Startseite: index.md](#die-startseite-indexmd)
+    * [Die Termine-Seite: termine.md](#die-termine-seite-terminemd)
+    * [Das Ensemble: ensemble.md](#das-ensemble-ensemblemd)
+    * [Die Kontaktseite: kontakt.md](#die-kontaktseite-kontaktmd)
+      * [Buchungsanfragen:](#buchungsanfragen)
+    * [Veranstaltungen verwalten mit termine.njk und termine.md](#veranstaltungen-verwalten-mit-terminenjk-und-terminemd)
+      * [termine.njk](#terminenjk)
+      * [termine.md](#terminemd)
+  * [Verständnis des Build-Prozesses](#verstandnis-des-build-prozesses)
+    * [Der Ablauf von Quelldateien zur fertigen Website](#der-ablauf-von-quelldateien-zur-fertigen-website)
+    * [Warum dieser Prozess wichtig ist](#warum-dieser-prozess-wichtig-ist)
+  * [Häufige Probleme und Lösungen](#haufige-probleme-und-losungen)
+    * [Problem: Der lokale Server startet nicht](#problem-der-lokale-server-startet-nicht)
+    * [Problem: Änderungen werden nicht angezeigt](#problem-anderungen-werden-nicht-angezeigt)
+    * [Problem: Die Website sieht im Browser nicht wie erwartet aus](#problem-die-website-sieht-im-browser-nicht-wie-erwartet-aus)
+    * [Problem: Bilder werden nicht angezeigt](#problem-bilder-werden-nicht-angezeigt)
+  * [Die Entwickler-Tools des Browsers nutzen](#die-entwickler-tools-des-browsers-nutzen)
+  * [Tipps für effizientes Arbeiten](#tipps-fur-effizientes-arbeiten)
+    * [1. Verwende die Split-View-Funktion in VS Code](#1-verwende-die-split-view-funktion-in-vs-code)
+    * [2. Lerne einige VS Code-Tastaturkürzel](#2-lerne-einige-vs-code-tastaturkurzel)
+    * [3. Behalte den Browser und VS Code nebeneinander im Blick](#3-behalte-den-browser-und-vs-code-nebeneinander-im-blick)
+    * [4. Nutze die Auto Save-Funktion](#4-nutze-die-auto-save-funktion)
+    * [5. Verständnis von Dateipfaden entwickeln](#5-verstandnis-von-dateipfaden-entwickeln)
+  * [Der Unterschied zwischen lokaler Vorschau und veröffentlichter Website](#der-unterschied-zwischen-lokaler-vorschau-und-veroffentlichter-website)
+    * [Die lokale Vorschau](#die-lokale-vorschau)
+    * [Die veröffentlichte Website](#die-veroffentlichte-website)
+  * [ChatGPT als Helfer bei lokalen Problemen](#chatgpt-als-helfer-bei-lokalen-problemen)
+  * [Zusammenfassung und nächste Schritte](#zusammenfassung-und-nachste-schritte-4)
+  
 ## Dein persönlicher Spielplatz für die Website
 
 Herzlich willkommen zu Kapitel 5 unseres Leitfadens! Nachdem du nun weißt, was die Hopsa-Website ist, wie sie aufgebaut ist und wie du Visual Studio Code als Werkzeug nutzen kannst, wird es Zeit für das eigentliche Bearbeiten der Website. In diesem Kapitel zeigen wir dir, wie du die Website auf deinem eigenen Computer (also "lokal") anzeigen, bearbeiten und testen kannst, bevor du deine Änderungen für alle sichtbar veröffentlichst.
@@ -1289,6 +2109,8 @@ Herzlich willkommen zu Kapitel 5 unseres Leitfadens! Nachdem du nun weißt, was 
 - Wie du deine Änderungen sofort im Browser siehst
 - Typische Probleme und ihre Lösungen
 - Die Unterschiede zwischen lokaler Vorschau und veröffentlichter Website
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Dein lokales Setup einrichten
 
@@ -1400,6 +2222,8 @@ Für eine reibungslosere Erfahrung empfehle ich, Eleventy (den Static Site Gener
 > **Was ist Eleventy?**  
 > Eleventy ist ein statischer Website-Generator, der einfache Dateien (wie Markdown) in HTML-Seiten umwandelt. Es nimmt die Inhalte (wie Texte und Bilder) und Vorlagen aus dem src/-Ordner und generiert daraus die fertige Website im docs/-Ordner. Es ist sozusagen die "Küche", in der die Website "gekocht" wird.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Den Build-Prozess starten
 
 Nachdem du alle notwendigen Werkzeuge installiert hast, kannst du nun die Website auf deinem Computer zum Laufen bringen. Dafür gibt es eine praktische Datei namens **run.bat** im Hopsa-Projekt, die alle erforderlichen Schritte automatisch für dich ausführt.
@@ -1466,6 +2290,8 @@ Manchmal kann es beim ersten Ausführen von run.bat zu Problemen kommen. Hier si
 > **Tipp für Fehlerbehebung:**  
 > Wenn du Fehlermeldungen erhältst, kopiere sie und suche nach ihnen im Internet oder frage ChatGPT. Fehlermeldungen enthalten oft nützliche Informationen, die dir oder anderen helfen können, das Problem zu lösen.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Deine Änderungen in Echtzeit sehen
 
 Sobald der Build-Prozess erfolgreich gestartet wurde, kannst du die Website in deinem Browser anzeigen und Änderungen in Echtzeit sehen.
@@ -1524,6 +2350,8 @@ Nachdem du gesehen hast, wie einfache Änderungen funktionieren, kannst du etwas
 
 > **Tipp für die ersten Schritte:**  
 > Beginne mit kleinen, ungefährlichen Änderungen, um ein Gefühl für den Prozess zu bekommen. So kannst du sicher üben, ohne Angst haben zu müssen, etwas kaputt zu machen. Denk daran: Solange du die Änderungen nicht zu GitHub hochlädst, bleiben sie nur auf deinem Computer und sind für niemanden sonst sichtbar.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Die wichtigsten Dateien zum Bearbeiten
 
@@ -1675,6 +2503,8 @@ Diese Datei verwendet die Vorlage, um tatsächliche Veranstaltungen anzulegen:
 
 In Kapitel 7 werden wir detailliert erklären, wie du neue Veranstaltungen hinzufügst oder bestehende änderst.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Verständnis des Build-Prozesses
 
 Um effektiv mit der Hopsa-Website arbeiten zu können, ist es hilfreich zu verstehen, was hinter den Kulissen passiert, wenn du run.bat ausführst.
@@ -1710,6 +2540,8 @@ Dieser zweistufige Prozess (Quellcode → Generierung → Fertige Website) hat m
 2. **Konsistenz**: Das Design bleibt auf allen Seiten einheitlich.
 3. **Effizienz**: Gemeinsame Elemente (Header, Footer) müssen nur einmal definiert werden.
 4. **Sicherheit**: Der fertige Code wird optimiert und ist sicherer.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Häufige Probleme und Lösungen
 
@@ -1766,6 +2598,8 @@ Hier sind einige typische Probleme, die beim lokalen Bearbeiten auftreten könne
 > **Tipp zur Fehlerbehebung:**  
 > Schaue immer in die Konsole des Browsers (F12 drücken, dann auf "Console" klicken), wenn etwas nicht wie erwartet funktioniert. Dort werden oft hilfreiche Fehlermeldungen angezeigt, die den Grund für das Problem verraten.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Die Entwickler-Tools des Browsers nutzen
 
 Die Entwickler-Tools deines Browsers sind ein mächtiges Hilfsmittel, um Probleme auf deiner Website zu diagnostizieren:
@@ -1780,6 +2614,8 @@ Die Entwickler-Tools deines Browsers sind ein mächtiges Hilfsmittel, um Problem
 
 > **Tipp für die Fehlersuche:**  
 > Die Entwickler-Tools bieten eine Funktion namens "Responsive Design Mode" oder "Toggle Device Toolbar". Damit kannst du sehen, wie die Website auf verschiedenen Bildschirmgrößen aussieht, ohne dein Browserfenster manuell verkleinern zu müssen.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Tipps für effizientes Arbeiten
 
@@ -1819,6 +2655,8 @@ Dateipfade sind ein wichtiges Konzept, besonders wenn du Bilder oder Links einf�
 
 Für die Hopsa-Website empfehle ich, immer absolute Pfade zu verwenden, da sie zuverlässiger sind.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Der Unterschied zwischen lokaler Vorschau und veröffentlichter Website
 
 Es ist wichtig zu verstehen, dass die lokale Vorschau und die veröffentlichte Website zwei verschiedene Dinge sind:
@@ -1844,6 +2682,8 @@ Der Prozess, um deine lokalen Änderungen auf der veröffentlichten Website sich
 > **Wichtig zu wissen:**  
 > Solange du deine Änderungen nicht zu GitHub hochlädst, bleiben sie nur auf deinem Computer und sind für niemanden sonst sichtbar. Das gibt dir die Freiheit, nach Herzenslust zu experimentieren!
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## ChatGPT als Helfer bei lokalen Problemen
 
 ChatGPT kann ein wertvoller Helfer sein, wenn du auf Probleme mit deiner lokalen Entwicklungsumgebung stößt. Hier sind einige nützliche Prompts:
@@ -1862,6 +2702,8 @@ ChatGPT kann ein wertvoller Helfer sein, wenn du auf Probleme mit deiner lokalen
 
 > **Tipp für hilfreiche Antworten:**  
 > Wenn du ChatGPT um Hilfe bei technischen Problemen bittest, sei so spezifisch wie möglich. Kopiere Fehlermeldungen vollständig und beschreibe genau, was du getan hast und was passiert ist. Je mehr Kontext du lieferst, desto besser kann ChatGPT dir helfen.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Zusammenfassung und nächste Schritte
 
@@ -1882,8 +2724,63 @@ Im nächsten Kapitel werden wir uns mit dem eigentlichen Bearbeiten der Website-
 
 **Bereit für den nächsten Schritt?** Im folgenden Kapitel "Website-Inhalte bearbeiten - Der einfache Weg" lernst du, wie du mit Markdown Text formatierst, Bilder hinzufügst und Links aktualisierst. Du wirst sehen, wie einfach es ist, die Inhalte der Hopsa-Website zu bearbeiten!
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
+---
+
 # 6. Website-Inhalte bearbeiten - Der einfache Weg
 
+Übersicht des Kapitels:
+
+  * [Deine Website zum Leben erwecken](#deine-website-zum-leben-erwecken)
+    * [Was wir in diesem Kapitel behandeln:](#was-wir-in-diesem-kapitel-behandeln-4)
+  * [Markdown verstehen - Die einfache Textformatierung](#markdown-verstehen---die-einfache-textformatierung)
+    * [Was ist Markdown und warum ist es so praktisch?](#was-ist-markdown-und-warum-ist-es-so-praktisch)
+    * [Die Grundlagen von Markdown](#die-grundlagen-von-markdown)
+      * [Überschriften](#uberschriften)
+      * [Text hervorheben](#text-hervorheben)
+      * [Listen erstellen](#listen-erstellen)
+      * [Freue dich in den Proben auf:](#freue-dich-in-den-proben-auf)
+      * [Links erstellen](#links-erstellen)
+      * [Bilder einfügen](#bilder-einfugen)
+    * [Markdown und HTML kombinieren](#markdown-und-html-kombinieren)
+    * [Absätze und Leerzeilen](#absatze-und-leerzeilen)
+  * [Die wichtigsten Seiten bearbeiten](#die-wichtigsten-seiten-bearbeiten)
+    * [Die Frontmatter-Sektion verstehen](#die-frontmatter-sektion-verstehen)
+    * [Die Startseite (index.md) bearbeiten](#die-startseite-indexmd-bearbeiten)
+    * [Die Ensemble-Seite (ensemble.md) bearbeiten](#die-ensemble-seite-ensemblemd-bearbeiten)
+    * [Die Termine-Seite (termine.md) bearbeiten](#die-termine-seite-terminemd-bearbeiten)
+    * [Die Kontakt-Seite (kontakt.md) bearbeiten](#die-kontakt-seite-kontaktmd-bearbeiten)
+  * [Bilder hinzufügen und austauschen](#bilder-hinzufugen-und-austauschen)
+    * [Wo Bilder gespeichert werden](#wo-bilder-gespeichert-werden)
+    * [Ein neues Bild hinzufügen](#ein-neues-bild-hinzufugen)
+    * [Ein Bild in eine Seite einfügen](#ein-bild-in-eine-seite-einfugen)
+      * [Mit Markdown:](#mit-markdown)
+      * [Mit HTML (für mehr Kontrolle über Größe und Ausrichtung):](#mit-html-fur-mehr-kontrolle-uber-grosse-und-ausrichtung)
+    * [Ein bestehendes Bild ersetzen](#ein-bestehendes-bild-ersetzen)
+    * [Beispiel: Ein neues Teammitglied hinzufügen](#beispiel-ein-neues-teammitglied-hinzufugen)
+  * [Links und Verweise aktualisieren](#links-und-verweise-aktualisieren)
+    * [Arten von Links auf der Hopsa-Website](#arten-von-links-auf-der-hopsa-website)
+    * [Interne Links erstellen und bearbeiten](#interne-links-erstellen-und-bearbeiten)
+    * [Externe Links erstellen und bearbeiten](#externe-links-erstellen-und-bearbeiten)
+    * [Spezielle Links auf der Hopsa-Website](#spezielle-links-auf-der-hopsa-website)
+      * [Social-Media-Buttons in links.md](#social-media-buttons-in-linksmd)
+      * [E-Mail-Links mit vorausgefülltem Betreff und Inhalt](#e-mail-links-mit-vorausgefulltem-betreff-und-inhalt)
+  * [Fortgeschrittene Textformatierung](#fortgeschrittene-textformatierung)
+    * [HTML-Div-Container für Layout-Kontrolle](#html-div-container-fur-layout-kontrolle)
+    * [Nunjucks-Templates und -Includes](#nunjucks-templates-und--includes)
+  * [Häufige Fragen und Probleme](#haufige-fragen-und-probleme)
+    * ["Meine Markdown-Formatierung funktioniert nicht!"](#meine-markdown-formatierung-funktioniert-nicht)
+    * ["Meine Bilder werden nicht angezeigt!"](#meine-bilder-werden-nicht-angezeigt)
+    * ["Meine Links funktionieren nicht!"](#meine-links-funktionieren-nicht)
+    * ["Meine Änderungen werden nicht auf der Website angezeigt!"](#meine-anderungen-werden-nicht-auf-der-website-angezeigt)
+  * [ChatGPT als Helfer bei der Bearbeitung](#chatgpt-als-helfer-bei-der-bearbeitung)
+    * [Für Markdown-Formatierung:](#fur-markdown-formatierung)
+    * [Für die Arbeit mit Bildern:](#fur-die-arbeit-mit-bildern)
+    * [Für die Arbeit mit Links:](#fur-die-arbeit-mit-links)
+    * [Für Layout-Fragen:](#fur-layout-fragen)
+  * [Zusammenfassung und nächste Schritte](#zusammenfassung-und-nachste-schritte-5)
+  
 ## Deine Website zum Leben erwecken
 
 Herzlich willkommen zu Kapitel 6 unseres Leitfadens! Nachdem du in den vorherigen Kapiteln gelernt hast, wie du deine Website lokal einrichtest und anzeigst, wird es nun Zeit, die eigentlichen Inhalte zu bearbeiten. In diesem Kapitel zeigen wir dir, wie du Texte ändert, Bilder hinzufügst und Links aktualisierst - alles mithilfe von Markdown, einer besonders einfachen und intuitiven Textformatierung.
@@ -1896,6 +2793,8 @@ Herzlich willkommen zu Kapitel 6 unseres Leitfadens! Nachdem du in den vorherige
 - Wie du Bilder hinzufügst und austauschst
 - Wie du Links zu anderen Seiten oder sozialen Medien erstellst
 - Praktische Beispiele und typische Herausforderungen
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Markdown verstehen - Die einfache Textformatierung
 
@@ -2062,6 +2961,8 @@ Diese Technik wird auf verschiedenen Seiten verwendet, um die Abschnitte optisch
 > **Was bedeutet "# " in der Hopsa-Website?**  
 > Das einzelne Rautezeichen gefolgt von einem Leerzeichen erzeugt einen leeren H1-Bereich, was zu einem größeren vertikalen Abstand führt. Es ist ein cleverer Trick, um mehr Platz zwischen den Abschnitten zu schaffen, ohne komplexe CSS-Anweisungen zu benötigen.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Die wichtigsten Seiten bearbeiten
 
 Nachdem du jetzt die Grundlagen von Markdown kennst, schauen wir uns an, wie du die wichtigsten Seiten der Hopsa-Website bearbeiten kannst.
@@ -2218,6 +3119,8 @@ Die Kontakt-Seite ist relativ einfach zu bearbeiten:
 > **Was bedeuten diese seltsamen Zeichen in den E-Mail-Links?**  
 > Zeichen wie `%20` und `%0A` in E-Mail-Links sind URL-kodierte Sonderzeichen. `%20` steht für ein Leerzeichen und `%0A` für einen Zeilenumbruch. Diese Kodierung ist notwendig, weil URLs keine Leerzeichen oder Zeilenumbrüche enthalten dürfen.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Bilder hinzufügen und austauschen
 
 Bilder sind ein wichtiger Bestandteil jeder Website. Hier erfährst du, wie du Bilder auf der Hopsa-Website hinzufügen oder austauschen kannst.
@@ -2305,6 +3208,8 @@ Nehmen wir an, du möchtest ein neues Teammitglied namens Sophie zur Ensemble-Se
    ```
 
 4. **Speichere und überprüfe**: Speichere die Datei und überprüfe die Änderungen in deinem lokalen Browser.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Links und Verweise aktualisieren
 
@@ -2401,6 +3306,8 @@ Um einen solchen Link zu bearbeiten:
 > **Tipp für E-Mail-Links:**  
 > Wenn du komplexere E-Mail-Links erstellen möchtest, kannst du einen Online-URL-Encoder verwenden, um Text in URL-kodiertes Format zu konvertieren. Suche einfach nach "URL encoder" in einer Suchmaschine.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Fortgeschrittene Textformatierung
 
 Neben den grundlegenden Markdown-Formatierungen verwendet die Hopsa-Website einige fortgeschrittene Formatierungstechniken:
@@ -2439,6 +3346,8 @@ Diese Zeile fügt den Inhalt der Datei landingpage.md an dieser Stelle ein.
 > Nunjucks ist eine Template-Sprache für JavaScript, ähnlich wie Jinja2 für Python. Sie ermöglicht es, Code in Templates einzubetten, Layouts zu definieren und Inhalte wiederzuverwenden.
 
 Für die grundlegende Bearbeitung der Website musst du die Details von Nunjucks nicht verstehen. Es reicht zu wissen, dass Zeilen mit `{% ... %}` spezielle Anweisungen sind, die während des Build-Prozesses ausgeführt werden.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Häufige Fragen und Probleme
 
@@ -2490,6 +3399,8 @@ Für die grundlegende Bearbeitung der Website musst du die Details von Nunjucks 
 
 4. **Browser-Cache**: Manchmal zeigt der Browser alte Versionen von Seiten aus seinem Cache an. Drücke Strg+F5, um den Cache zu umgehen und die Seite neu zu laden.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## ChatGPT als Helfer bei der Bearbeitung
 
 ChatGPT kann ein wertvoller Assistent sein, wenn du Hilfe bei der Bearbeitung der Hopsa-Website benötigst. Hier sind einige Beispiel-Prompts:
@@ -2537,6 +3448,8 @@ ChatGPT kann ein wertvoller Assistent sein, wenn du Hilfe bei der Bearbeitung de
 > **Tipp für effektive ChatGPT-Prompts:**  
 > Je spezifischer du bist, desto hilfreicher kann ChatGPT sein. Kopiere ruhig den relevanten Code-Ausschnitt in deine Anfrage und erkläre genau, was du erreichen möchtest. Beispiel: "Ich habe diesen Code auf der Termine-Seite: [Code einfügen]. Ich möchte die Termine-Liste in zwei Spalten aufteilen. Wie kann ich das machen?"
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Zusammenfassung und nächste Schritte
 
 In diesem Kapitel hast du gelernt:
@@ -2552,8 +3465,51 @@ Du hast jetzt alle grundlegenden Kenntnisse, um die Inhalte der Hopsa-Website zu
 
 **Bereit für den nächsten Schritt?** Im folgenden Kapitel "Termine und Veranstaltungen verwalten" lernst du, wie du neue Veranstaltungen zur Website hinzufügst, bestehende aktualisierst oder entfernst und das spezielle Termine-System der Hopsa-Website optimal nutzt.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
+---
+
 # 7. Termine und Veranstaltungen verwalten
 
+Übersicht des Kapitels:
+
+  * [Der Auftrittskalender deiner Improgruppe](#der-auftrittskalender-deiner-improgruppe)
+    * [Was wir in diesem Kapitel behandeln:](#was-wir-in-diesem-kapitel-behandeln-5)
+  * [Das Termine-System verstehen](#das-termine-system-verstehen)
+    * [Die zwei wichtigen Dateien](#die-zwei-wichtigen-dateien)
+    * [Der Aufbau der termine.njk - die Vorlage (Anschauen, nicht bearbeiten!)](#der-aufbau-der-terminenjk---die-vorlage-anschauen-nicht-bearbeiten)
+    * [Der Aufbau der termine.md - die eigentlichen Daten](#der-aufbau-der-terminemd---die-eigentlichen-daten)
+  * [Neue Veranstaltungen hinzufügen](#neue-veranstaltungen-hinzufugen)
+    * [Schritt-für-Schritt-Anleitung](#schritt-fur-schritt-anleitung)
+    * [Praktisches Beispiel: Einen neuen Termin hinzufügen](#praktisches-beispiel-einen-neuen-termin-hinzufugen)
+    * [Optionale Parameter und ihre Verwendung](#optionale-parameter-und-ihre-verwendung)
+      * [1. Veranstaltung ohne eigene Website](#1-veranstaltung-ohne-eigene-website)
+      * [2. Besondere Art von Veranstaltung (nicht nur Auftritte)](#2-besondere-art-von-veranstaltung-nicht-nur-auftritte)
+      * [3. Keine Angabe zum Eintritt](#3-keine-angabe-zum-eintritt)
+  * [Veranstaltungen aktualisieren oder entfernen](#veranstaltungen-aktualisieren-oder-entfernen)
+    * [Einen bestehenden Termin aktualisieren](#einen-bestehenden-termin-aktualisieren)
+    * [Einen Termin vorübergehend ausblenden (deaktivieren)](#einen-termin-vorubergehend-ausblenden-deaktivieren)
+    * [Einen Termin dauerhaft entfernen](#einen-termin-dauerhaft-entfernen)
+  * [Besondere Termine und fortgeschrittene Funktionen](#besondere-termine-und-fortgeschrittene-funktionen)
+    * [Regelmäßige Termine (z.B. Proben)](#regelmassige-termine-zb-proben)
+    * [Kommentare und Abschnittstrenner verwenden](#kommentare-und-abschnittstrenner-verwenden)
+    * [Eine Veranstaltung hervorheben](#eine-veranstaltung-hervorheben)
+  * [Troubleshooting: Häufige Probleme und Lösungen](#troubleshooting-haufige-probleme-und-losungen)
+    * [Problem: Der Termin wird nicht angezeigt](#problem-der-termin-wird-nicht-angezeigt)
+    * [Problem: Die Formatierung ist fehlerhaft](#problem-die-formatierung-ist-fehlerhaft)
+    * [Problem: Der Link zur Location oder zu Google Maps funktioniert nicht](#problem-der-link-zur-location-oder-zu-google-maps-funktioniert-nicht)
+  * [Bewährte Praktiken für die Terminverwaltung](#bewahrte-praktiken-fur-die-terminverwaltung)
+    * [Organisiere die Termine chronologisch](#organisiere-die-termine-chronologisch)
+    * [Verwende einheitliche Formatierung](#verwende-einheitliche-formatierung)
+    * [Archiviere vergangene Termine](#archiviere-vergangene-termine)
+    * [Überprüfe deine Änderungen lokal](#uberprufe-deine-anderungen-lokal)
+    * [Sichere wichtige Informationen extern](#sichere-wichtige-informationen-extern)
+  * [ChatGPT als Helfer bei der Terminverwaltung](#chatgpt-als-helfer-bei-der-terminverwaltung)
+    * [Für Hilfe beim Erstellen neuer Termine](#fur-hilfe-beim-erstellen-neuer-termine)
+    * [Für Hilfe bei der Fehlerbehebung](#fur-hilfe-bei-der-fehlerbehebung)
+    * [Für Formatierungsvorschläge](#fur-formatierungsvorschlage)
+  * [Zusammenfassung und nächste Schritte](#zusammenfassung-und-nachste-schritte-6)
+  
 ## Der Auftrittskalender deiner Improgruppe
 
 Willkommen zu Kapitel 7 unseres Leitfadens! In diesem Kapitel lernst du alles über die Verwaltung von Terminen und Veranstaltungen auf der Hopsa-Website. Als aktive Improtheatergruppe sind eure Auftritte ein zentraler Bestandteil eurer Online-Präsenz - Fans und Interessierte möchten schließlich wissen, wann und wo sie euch live erleben können! Wir zeigen dir, wie du Termine zur Website hinzufügst, bestehende aktualisierst oder nicht mehr aktuelle entfernst - alles in einem einfach zu verstehenden Format.
@@ -2566,6 +3522,8 @@ Willkommen zu Kapitel 7 unseres Leitfadens! In diesem Kapitel lernst du alles ü
 - Wie du bestehende Termine aktualisierst oder entfernst
 - Praktische Beispiele und typische Szenarien
 - Troubleshooting: Lösungen für häufige Probleme
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Das Termine-System verstehen
 
@@ -2640,6 +3598,8 @@ Jeder Termin ist ein eigener Block, und du kannst so viele Termine hinzufügen, 
 
 > **Was passiert hinter den Kulissen?**  
 > Wenn du einen neuen Termin hinzufügst, wird das Macro (die Vorlage) aus termine.njk verwendet, um diesen Termin in schönes HTML umzuwandeln, mit der richtigen Formatierung, Links zur Location und zu Google Maps für die Adresse, und vielem mehr. Du musst dich um diese Details nicht kümmern - du musst nur die Daten korrekt eingeben.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Neue Veranstaltungen hinzufügen
 
@@ -2757,6 +3717,8 @@ Wenn keine Informationen zum Eintritt angegeben werden sollen, kannst du den Par
 )}}
 ```
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Veranstaltungen aktualisieren oder entfernen
 
 Manchmal müssen Termine aktualisiert oder entfernt werden. Hier erfährst du, wie das geht.
@@ -2833,6 +3795,8 @@ Wenn du einen Termin dauerhaft löschen möchtest, kannst du den gesamten Block 
 > **Sicherheitshinweis:**  
 > Wenn du dir unsicher bist, ob du den richtigen Codeblock entfernst, ist es sicherer, den Termin zunächst mit `deaktivieren=true` auszublenden. So kannst du überprüfen, ob die richtige Veranstaltung nicht mehr angezeigt wird, bevor du sie endgültig löschst.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Besondere Termine und fortgeschrittene Funktionen
 
 Es gibt einige Besonderheiten und fortgeschrittene Funktionen, die du bei der Verwaltung von Terminen nutzen kannst.
@@ -2897,6 +3861,8 @@ Das Standard-Macro bietet keine direkte Option zur besonderen Hervorhebung eines
 
 Die Sternchen (⭐) oder andere Symbole im Titel können helfen, wichtige Veranstaltungen optisch hervorzuheben.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Troubleshooting: Häufige Probleme und Lösungen
 
 Hier sind einige typische Probleme, die bei der Verwaltung von Terminen auftreten können, und wie du sie lösen kannst.
@@ -2946,6 +3912,8 @@ Wenn Links nicht funktionieren oder zum falschen Ziel führen:
 > **Tipp für Links:**  
 > Teste die URLs, die du verwendest, indem du sie in einem Browser öffnest, bevor du sie in die Termine einfügst. So kannst du sicherstellen, dass sie korrekt funktionieren.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Bewährte Praktiken für die Terminverwaltung
 
 Hier sind einige Tipps und bewährte Praktiken für eine effiziente und übersichtliche Verwaltung der Termine auf der Hopsa-Website.
@@ -2971,6 +3939,8 @@ Bevor du Änderungen an den Terminen hochlädst, überprüfe immer in der lokale
 ### Sichere wichtige Informationen extern
 
 Für wichtige oder kompliziertere Termine ist es sinnvoll, die Details auch außerhalb der Website zu speichern (z.B. in einem Dokument oder einer Tabelle). So hast du eine Sicherung, falls einmal etwas schiefgehen sollte.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## ChatGPT als Helfer bei der Terminverwaltung
 
@@ -3004,6 +3974,8 @@ Was könnte das Problem sein?"
 > **Tipp für effektive ChatGPT-Prompts:**  
 > Je detaillierter du beschreibst, was du erreichen möchtest, desto besser kann ChatGPT dir helfen. Kopiere ruhig den relevanten Code-Ausschnitt und beschreibe genau, was du damit machen möchtest oder welches Problem aufgetreten ist.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Zusammenfassung und nächste Schritte
 
 In diesem Kapitel hast du gelernt:
@@ -3021,8 +3993,55 @@ Im nächsten Kapitel lernen wir, wie du die Navigation der Website anpassen kann
 
 **Bereit für den nächsten Schritt?** Im folgenden Kapitel "Die Navigation anpassen" erfährst du, wie du die Hauptnavigation und die Footer-Navigation der Website anpassen kannst, um sie optimal an deine Bedürfnisse anzupassen.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
+---
+
 # 8. Die Navigation anpassen
 
+Übersicht des Kapitels:
+
+  * [Der Wegweiser deiner Website](#der-wegweiser-deiner-website)
+    * [Was wir in diesem Kapitel behandeln:](#was-wir-in-diesem-kapitel-behandeln-6)
+  * [Die Navigation verstehen](#die-navigation-verstehen)
+    * [Die zwei Navigationsbereiche](#die-zwei-navigationsbereiche)
+    * [Die zuständigen Dateien](#die-zustandigen-dateien)
+    * [Die Struktur der Navigationsdateien](#die-struktur-der-navigationsdateien)
+      * [Die header.njk-Datei](#die-headernjk-datei)
+      * [Die footer.njk-Datei](#die-footernjk-datei)
+  * [Die Hauptnavigation anpassen](#die-hauptnavigation-anpassen)
+    * [Die header.njk-Datei öffnen](#die-headernjk-datei-offnen)
+    * [Einen Menüpunkt hinzufügen](#einen-menupunkt-hinzufugen)
+    * [Einen Menüpunkt entfernen](#einen-menupunkt-entfernen)
+    * [Einen Menüpunkt umbenennen oder ändern](#einen-menupunkt-umbenennen-oder-andern)
+    * [Die Reihenfolge der Menüpunkte ändern](#die-reihenfolge-der-menupunkte-andern)
+    * [Spezieller Fall: Der "Mitmachen"-Button](#spezieller-fall-der-mitmachen-button)
+    * [Beispiel: Eine komplette Überarbeitung der Hauptnavigation](#beispiel-eine-komplette-uberarbeitung-der-hauptnavigation)
+  * [Die Footer-Navigation anpassen](#die-footer-navigation-anpassen)
+    * [Die footer.njk-Datei öffnen](#die-footernjk-datei-offnen)
+    * [Die Footer-Navigation bearbeiten](#die-footer-navigation-bearbeiten)
+    * [Beispiel: Soziale Medien zum Footer hinzufügen](#beispiel-soziale-medien-zum-footer-hinzufugen)
+  * [Tipps für eine benutzerfreundliche Navigation](#tipps-fur-eine-benutzerfreundliche-navigation)
+    * [1. Halte die Hauptnavigation übersichtlich](#1-halte-die-hauptnavigation-ubersichtlich)
+    * [2. Verwende klare und aussagekräftige Bezeichnungen](#2-verwende-klare-und-aussagekraftige-bezeichnungen)
+    * [3. Strukturiere die Navigation logisch](#3-strukturiere-die-navigation-logisch)
+    * [4. Markiere den aktiven Menüpunkt](#4-markiere-den-aktiven-menupunkt)
+    * [5. Teste die Navigation regelmäßig](#5-teste-die-navigation-regelmassig)
+  * [Änderungen testen und veröffentlichen](#anderungen-testen-und-veroffentlichen)
+    * [Lokales Testen der Navigation](#lokales-testen-der-navigation)
+    * [Änderungen veröffentlichen](#anderungen-veroffentlichen)
+  * [Häufige Fragen und Probleme](#haufige-fragen-und-probleme-1)
+    * ["Ich habe einen Menüpunkt hinzugefügt, aber er wird nicht angezeigt."](#ich-habe-einen-menupunkt-hinzugefugt-aber-er-wird-nicht-angezeigt)
+    * ["Die Navigation sieht auf meinem Smartphone anders aus als auf meinem Computer."](#die-navigation-sieht-auf-meinem-smartphone-anders-aus-als-auf-meinem-computer)
+    * ["Ich möchte ein Dropdown-Menü in der Navigation hinzufügen."](#ich-mochte-ein-dropdown-menu-in-der-navigation-hinzufugen)
+    * ["Die Navigation wird nicht richtig angezeigt oder funktioniert nicht wie erwartet."](#die-navigation-wird-nicht-richtig-angezeigt-oder-funktioniert-nicht-wie-erwartet)
+  * [Erweiterte Anpassungen (für Fortgeschrittene)](#erweiterte-anpassungen-fur-fortgeschrittene)
+  * [ChatGPT als Helfer bei Navigationsfragen](#chatgpt-als-helfer-bei-navigationsfragen)
+    * [Für Hilfe bei der Strukturierung der Navigation:](#fur-hilfe-bei-der-strukturierung-der-navigation)
+    * [Für Hilfe bei der Fehlerbehebung:](#fur-hilfe-bei-der-fehlerbehebung-1)
+    * [Für erweiterte Anpassungsideen:](#fur-erweiterte-anpassungsideen)
+  * [Zusammenfassung und nächste Schritte](#zusammenfassung-und-nachste-schritte-7)
+  
 ## Der Wegweiser deiner Website
 
 Willkommen zu Kapitel 8 unseres Leitfadens! In diesem Kapitel lernst du, wie du die Navigation der Hopsa-Website anpassen kannst. Die Navigation ist wie ein Wegweiser für deine Besucher – sie hilft ihnen, sich auf deiner Website zurechtzufinden und schnell zu den Inhalten zu gelangen, die sie interessieren. Wir zeigen dir, wie du Menüpunkte hinzufügen, entfernen oder umbenennen kannst, sowohl in der Hauptnavigation am oberen Rand der Seite als auch in der Footer-Navigation am unteren Rand.
@@ -3035,6 +4054,8 @@ Willkommen zu Kapitel 8 unseres Leitfadens! In diesem Kapitel lernst du, wie du 
 - Wie du die Footer-Navigation am unteren Bildschirmrand anpasst
 - Tipps für eine benutzerfreundliche Navigation
 - Häufige Fragen und Lösungen zu Navigationsproblemen
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Die Navigation verstehen
 
@@ -3104,6 +4125,8 @@ Auch hier hat jeder Eintrag einen Namen und einen Pfad, und darunter folgt HTML-
 
 > **Warum sieht der Rest der Datei so kompliziert aus?**  
 > Der restliche Code in diesen Dateien bestimmt das Aussehen und Verhalten der Navigation (Farben, Abstände, Hover-Effekte usw.). Du kannst diesen Teil in der Regel ignorieren und dich auf die Liste der Navigationseinträge konzentrieren. Falls du doch das Design ändern möchtest, empfehlen wir, dies in Kapitel 15 unter "Fortgeschrittene Anpassungen" nachzuschlagen oder einen Entwickler zu konsultieren.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Die Hauptnavigation anpassen
 
@@ -3233,6 +4256,8 @@ Nehmen wir an, du möchtest die Hauptnavigation komplett überarbeiten, z.B. um 
 > **Wichtiger Hinweis:**  
 > Wenn du auf Seiten verlinkst, die noch nicht existieren (wie `/blog` in diesem Beispiel), werden Besucher eine 404-Fehlerseite sehen, wenn sie auf diesen Link klicken. Stelle sicher, dass du neue Seiten erstellst, bevor du Links zu ihnen hinzufügst, oder entferne den Link bis die Seite fertig ist.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Die Footer-Navigation anpassen
 
 Die Anpassung der Footer-Navigation funktioniert ähnlich wie die der Hauptnavigation. Hier sind die Schritte:
@@ -3279,6 +4304,8 @@ Du könntest zum Beispiel Links zu sozialen Medien im Footer hinzufügen:
 > **Hinweis zu externen Links:**  
 > Bei Links zu externen Websites (wie Social-Media-Profilen) musst du die vollständige URL angeben, einschließlich `https://`. Dies unterscheidet sich von internen Links, die nur mit einem `/` beginnen.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Tipps für eine benutzerfreundliche Navigation
 
 Eine gute Navigation hilft den Besuchern, sich auf deiner Website zurechtzufinden und die gewünschten Informationen schnell zu finden. Hier sind einige Tipps, wie du die Navigation der Hopsa-Website benutzerfreundlicher gestalten kannst:
@@ -3305,6 +4332,8 @@ Nach jeder Änderung an der Navigation solltest du die Website testen, um sicher
 
 > **Was ist Responsive Design?**  
 > Responsive Design bedeutet, dass eine Website sich automatisch an verschiedene Bildschirmgrößen anpasst. Die Navigation der Hopsa-Website ist bereits responsiv gestaltet, d.h. sie wird auf kleineren Bildschirmen (wie Smartphones) anders dargestellt als auf Desktop-Computern. Dieses Verhalten ist bereits in den Dateien header.njk und footer.njk implementiert und erfordert keine zusätzliche Konfiguration.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Änderungen testen und veröffentlichen
 
@@ -3334,6 +4363,8 @@ Wenn du mit dem Ergebnis zufrieden bist, kannst du deine Änderungen veröffentl
 > **Tipp für die Veröffentlichung:**  
 > Wenn du mehrere Änderungen an der Website vornimmst, ist es oft sinnvoll, diese zusammen zu veröffentlichen, um die Anzahl der GitHub-Commits und die damit verbundenen Wartezeiten zu reduzieren. Teste alle Änderungen lokal gründlich, bevor du sie veröffentlichst.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Häufige Fragen und Probleme
 
 Hier sind einige häufige Fragen und Probleme im Zusammenhang mit der Navigation und ihre Lösungen:
@@ -3362,6 +4393,8 @@ Wenn die Navigation nicht richtig angezeigt wird oder nicht wie erwartet funktio
 
 Wenn du das Problem nicht lösen kannst, kannst du die header.njk- und footer.njk-Dateien auf ihren ursprünglichen Zustand zurücksetzen, indem du sie aus dem GitHub-Repository neu herunterlädst oder eine Sicherungskopie verwendest.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Erweiterte Anpassungen (für Fortgeschrittene)
 
 Wenn du fortgeschrittenere Änderungen an der Navigation vornehmen möchtest, wie z.B. das Hinzufügen von Dropdown-Menüs, das Ändern des Aussehens oder des Verhaltens der Navigation, sind dafür tiefergehende Kenntnisse in HTML, CSS und möglicherweise JavaScript erforderlich. 
@@ -3375,6 +4408,8 @@ Hier sind einige Bereiche, in denen du weitergehende Anpassungen vornehmen könn
 3. **Interaktives Verhalten**: Für fortgeschrittene interaktive Elemente wie Dropdown-Menüs oder eine mobile Navigation mit einem "Hamburger"-Button wäre JavaScript erforderlich.
 
 Diese fortgeschrittenen Anpassungen gehen über den Rahmen dieses Leitfadens hinaus. Wenn du solche Änderungen vornehmen möchtest, empfehlen wir dir, einen Webentwickler zu konsultieren oder dich weiter in die entsprechenden Technologien einzuarbeiten.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## ChatGPT als Helfer bei Navigationsfragen
 
@@ -3401,6 +4436,8 @@ ChatGPT kann ein wertvoller Helfer sein, wenn du spezifische Fragen zur Navigati
 > **Tipp für hilfreiche ChatGPT-Antworten:**  
 > Je spezifischer du bist und je mehr Kontext du gibst, desto hilfreicher kann ChatGPT sein. Wenn du Probleme mit dem Code hast, teile den relevanten Code oder mache einen Screenshot. Beschreibe genau, was du erreichen möchtest oder welches Problem du hast.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Zusammenfassung und nächste Schritte
 
 In diesem Kapitel hast du gelernt:
@@ -3418,8 +4455,60 @@ Im nächsten Kapitel lernen wir, wie du neue Seiten für die Hopsa-Website erste
 
 **Bereit für den nächsten Schritt?** Im folgenden Kapitel "Neue Seiten erstellen" lernst du, wie du neue Inhaltsseiten für die Hopsa-Website erstellen und mit Inhalten füllen kannst – von einer einfachen Textseite bis hin zu komplexeren Layouts mit Bildern und anderen Medien.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
+---
+
 # 9. Neue Seiten erstellen
 
+Übersicht des Kapitels:
+
+  * [Erweitere deine Website mit frischen Inhalten](#erweitere-deine-website-mit-frischen-inhalten)
+    * [Was wir in diesem Kapitel behandeln:](#was-wir-in-diesem-kapitel-behandeln-7)
+  * [Eine neue Seite von Grund auf erstellen](#eine-neue-seite-von-grund-auf-erstellen)
+    * [Die Voraussetzungen](#die-voraussetzungen)
+    * [Schritt 1: Eine neue Markdown-Datei erstellen](#schritt-1-eine-neue-markdown-datei-erstellen)
+    * [Schritt 2: Die Grundstruktur einrichten – Der "Frontmatter"](#schritt-2-die-grundstruktur-einrichten---der-frontmatter)
+    * [Schritt 3: Den Inhalt der Seite erstellen](#schritt-3-den-inhalt-der-seite-erstellen)
+    * [Schritt 4: Die Seite speichern und lokal testen](#schritt-4-die-seite-speichern-und-lokal-testen)
+  * [Erweiterte Seitengestaltung](#erweiterte-seitengestaltung)
+    * [Verschiedene Layouts verwenden](#verschiedene-layouts-verwenden)
+    * [Bilder hinzufügen](#bilder-hinzufugen)
+    * [Links zu anderen Seiten](#links-zu-anderen-seiten)
+    * [Fortgeschrittene Strukturen mit HTML und CSS](#fortgeschrittene-strukturen-mit-html-und-css)
+      * [Beispiel: Eine zweispaltige Ansicht](#beispiel-eine-zweispaltige-ansicht)
+      * [Beispiel: Eine hervorgehobene Box](#beispiel-eine-hervorgehobene-box)
+  * [Alternative URLs für deine Seite einrichten](#alternative-urls-fur-deine-seite-einrichten)
+    * [Weiterleitungen im Frontmatter definieren](#weiterleitungen-im-frontmatter-definieren)
+    * [Globale Weiterleitungen für externe Links](#globale-weiterleitungen-fur-externe-links)
+  * [Die neue Seite mit der Website verbinden](#die-neue-seite-mit-der-website-verbinden)
+    * [1. In die Navigation aufnehmen](#1-in-die-navigation-aufnehmen)
+    * [2. Links von anderen Seiten einrichten](#2-links-von-anderen-seiten-einrichten)
+    * [3. Auf Social Media teilen](#3-auf-social-media-teilen)
+  * [Praktische Beispiele für verschiedene Seitentypen](#praktische-beispiele-fur-verschiedene-seitentypen)
+    * [Beispiel 1: Eine einfache Textseite](#beispiel-1-eine-einfache-textseite)
+    * [Beispiel 2: Eine Seite mit Bildern und mehreren Spalten](#beispiel-2-eine-seite-mit-bildern-und-mehreren-spalten)
+    * [Beispiel 3: Eine FAQ-Seite](#beispiel-3-eine-faq-seite)
+  * [Häufige Fragen und Problemlösungen](#haufige-fragen-und-problemlosungen)
+    * ["Meine neue Seite wird nicht angezeigt!"](#meine-neue-seite-wird-nicht-angezeigt)
+    * ["Die Formatierung funktioniert nicht wie erwartet"](#die-formatierung-funktioniert-nicht-wie-erwartet)
+    * ["Wie kann ich eine Seite wieder löschen?"](#wie-kann-ich-eine-seite-wieder-loschen)
+    * ["Kann ich eine Seite vorübergehend deaktivieren?"](#kann-ich-eine-seite-vorubergehend-deaktivieren)
+  * [Best Practices für die Erstellung neuer Seiten](#best-practices-fur-die-erstellung-neuer-seiten)
+    * [1. Plane deine Seite vor der Erstellung](#1-plane-deine-seite-vor-der-erstellung)
+    * [2. Halte die URL kurz und eindeutig](#2-halte-die-url-kurz-und-eindeutig)
+    * [3. Strukturiere deinen Inhalt klar](#3-strukturiere-deinen-inhalt-klar)
+    * [4. Optimiere für die Lesbarkeit](#4-optimiere-fur-die-lesbarkeit)
+    * [5. Vergiss die alternativen URLs nicht](#5-vergiss-die-alternativen-urls-nicht)
+    * [6. Teste auf verschiedenen Geräten](#6-teste-auf-verschiedenen-geraten)
+  * [ChatGPT als Helfer bei der Seitenerstellung](#chatgpt-als-helfer-bei-der-seitenerstellung)
+    * [Für Inhaltsideen und -struktur:](#fur-inhaltsideen-und--struktur)
+    * [Für die Erstellung von Frontmatter:](#fur-die-erstellung-von-frontmatter)
+    * [Für die Umwandlung von Text in Markdown:](#fur-die-umwandlung-von-text-in-markdown)
+    * [Für komplexere Layouts:](#fur-komplexere-layouts)
+    * [Für SEO-Optimierung (Suchmaschinenoptimierung):](#fur-seo-optimierung-suchmaschinenoptimierung)
+  * [Zusammenfassung und nächste Schritte](#zusammenfassung-und-nachste-schritte-8)
+  
 ## Erweitere deine Website mit frischen Inhalten
 
 Willkommen zu Kapitel 9 unseres Leitfadens! Nachdem du nun weißt, wie du die Navigation anpassen kannst, ist es Zeit, deine Website mit neuen Seiten zu erweitern. In diesem Kapitel zeigen wir dir, wie du von Grund auf neue Seiten für die Hopsa-Website erstellst – sei es für ein neues Projekt, ein spezielles Event oder eine thematische Unterseite. Keine Sorge, wenn du noch nie zuvor Webseiten erstellt hast – wir führen dich Schritt für Schritt durch den Prozess und machen es so einfach wie möglich.
@@ -3433,6 +4522,8 @@ Willkommen zu Kapitel 9 unseres Leitfadens! Nachdem du nun weißt, wie du die Na
 - Wie du alternative URLs (Umleitungen) für deine Seite einrichtest
 - Wie du deine neue Seite in die bestehende Website einbindest
 - Praktische Beispiele für verschiedene Arten von Seiten
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Eine neue Seite von Grund auf erstellen
 
@@ -3555,6 +4646,8 @@ Nachdem du den Frontmatter und den Inhalt erstellt hast:
 > - Überprüfe, ob die Datei tatsächlich im src-Ordner und nicht in einem Unterordner gespeichert ist
 > - Starte den lokalen Server neu, indem du die run.bat-Datei schließt und erneut ausführst
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Erweiterte Seitengestaltung
 
 Nachdem du nun weißt, wie du eine grundlegende Seite erstellen kannst, schauen wir uns einige fortgeschrittenere Gestaltungsmöglichkeiten an.
@@ -3676,6 +4769,8 @@ Dieses Layout zeigt auf Mobilgeräten die Spalten untereinander und auf größer
 > **Tipp für HTML und CSS:**  
 > Wenn du unsicher bist, wie du bestimmte Layouts oder Designelemente umsetzen kannst, schaue dir den Code bestehender Seiten an. Die meisten Gestaltungselemente der Hopsa-Website werden wiederverwendet, sodass du häufig Inspiration und Vorlagen in den vorhandenen Dateien finden kannst.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Alternative URLs für deine Seite einrichten
 
 Die Hopsa-Website hat ein cleveres System für Weiterleitungen, das es ermöglicht, mehrere URLs auf dieselbe Seite zu leiten. Dies ist nützlich, wenn:
@@ -3710,6 +4805,8 @@ Mit dieser Konfiguration würden folgende URLs alle zur selben Seite führen:
 
 Wenn du eine Weiterleitung zu einer externen Website erstellen möchtest (z.B. für Social-Media-Links), musst du die Datei redirects.json bearbeiten. Dies wird jedoch in Kapitel 12 genauer erklärt.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Die neue Seite mit der Website verbinden
 
 Eine neu erstellte Seite existiert zwar technisch auf der Website, aber ohne Links zu ihr werden Besucher sie kaum finden. Hier sind einige Möglichkeiten, deine neue Seite in die bestehende Website einzubinden:
@@ -3742,6 +4839,8 @@ Beispiel für einen Link-Button im Hopsa-Stil:
 ### 3. Auf Social Media teilen
 
 Nach der Veröffentlichung der neuen Seite solltest du sie auch auf den Social-Media-Kanälen von Hopsa teilen, um Besucher auf die neue Seite aufmerksam zu machen.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Praktische Beispiele für verschiedene Seitentypen
 
@@ -3897,6 +4996,8 @@ Der Hauptunterschied liegt in der Spontaneität. Beim klassischen Theater wird e
 </div>
 ```
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Häufige Fragen und Problemlösungen
 
 ### "Meine neue Seite wird nicht angezeigt!"
@@ -3942,6 +5043,8 @@ Die Hopsa-Website hat keinen integrierten Mechanismus, um Seiten vorübergehend 
 1. **Datei umbenennen** (z.B. `seite.md` zu `seite.md.bak`), sodass sie nicht mehr Teil des Builds ist.
 2. **Seite aus der Navigation entfernen**, sodass sie zwar noch existiert, aber nicht mehr direkt verlinkt ist.
 3. **Einen Hinweis auf der Seite platzieren**, dass sie sich im Aufbau/in Überarbeitung befindet.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Best Practices für die Erstellung neuer Seiten
 
@@ -3992,6 +5095,8 @@ Die Hopsa-Website ist responsiv, was bedeutet, dass sie sich an verschiedene Bil
 
 Achte besonders auf Bilder und komplexe Layouts, die auf kleinen Bildschirmen anders aussehen können.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## ChatGPT als Helfer bei der Seitenerstellung
 
 ChatGPT kann dir bei der Erstellung neuer Seiten für die Hopsa-Website auf vielfältige Weise helfen. Hier sind einige nützliche Prompts:
@@ -4037,6 +5142,8 @@ Unsere Partner:
 > **Tipp für hilfreiche ChatGPT-Antworten:**  
 > Je detaillierter du deine Anfrage formulierst, desto hilfreicher kann die Antwort sein. Gib Kontext über die Hopsa-Website, den Zweck der neuen Seite und deine Zielgruppe an. Wenn du bereits einen Entwurf hast, kannst du ihn auch zur Überarbeitung an ChatGPT senden.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Zusammenfassung und nächste Schritte
 
 In diesem Kapitel hast du gelernt:
@@ -4055,8 +5162,57 @@ Denke daran, dass jede neue Seite ein Baustein ist, der die Online-Präsenz von 
 
 **Bereit für den nächsten Schritt?** Im folgenden Kapitel "Social Media-Einbindung verwalten" lernst du, wie du Instagram-Feeds, YouTube-Videos und andere Social Media-Inhalte in deine Hopsa-Website einbinden kannst, um deine Online-Präsenz zu stärken und aktuell zu halten.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
+---
+
 # 10. Social Media-Einbindung verwalten
 
+Übersicht des Kapitels:
+
+  * [Deine Online-Präsenz optimal nutzen](#deine-online-prasenz-optimal-nutzen)
+    * [Was wir in diesem Kapitel behandeln:](#was-wir-in-diesem-kapitel-behandeln-8)
+  * [Instagram-Feeds aktualisieren](#instagram-feeds-aktualisieren)
+    * [Wie Instagram-Einbindung funktioniert](#wie-instagram-einbindung-funktioniert)
+    * [Den Instagram-Embed-Code finden und verstehen](#den-instagram-embed-code-finden-und-verstehen)
+    * [Das Instagram-Profil aktualisieren](#das-instagram-profil-aktualisieren)
+    * [Den Instagram-Feed auf verschiedenen Seiten aktualisieren](#den-instagram-feed-auf-verschiedenen-seiten-aktualisieren)
+    * [Einbindungsprobleme beheben](#einbindungsprobleme-beheben)
+      * [Einen neuen Instagram-Embed-Code generieren](#einen-neuen-instagram-embed-code-generieren)
+  * [YouTube-Videos einbinden](#youtube-videos-einbinden)
+    * [Den YouTube-Embed-Code verstehen](#den-youtube-embed-code-verstehen)
+    * [Das verlinkte YouTube-Konto ändern](#das-verlinkte-youtube-konto-andern)
+    * [Ein einzelnes YouTube-Video einbinden](#ein-einzelnes-youtube-video-einbinden)
+    * [Größe und Aussehen des Videos anpassen](#grosse-und-aussehen-des-videos-anpassen)
+    * [Mehrere Videos in einer Galerie anordnen](#mehrere-videos-in-einer-galerie-anordnen)
+    * [Häufige Probleme mit YouTube-Embeds](#haufige-probleme-mit-youtube-embeds)
+  * [Soundcloud-Inhalte verwalten](#soundcloud-inhalte-verwalten)
+    * [Den SoundCloud-Embed-Code verstehen](#den-soundcloud-embed-code-verstehen)
+    * [Das SoundCloud-Profil aktualisieren](#das-soundcloud-profil-aktualisieren)
+    * [Einen einzelnen SoundCloud-Track oder eine Playlist einbinden](#einen-einzelnen-soundcloud-track-oder-eine-playlist-einbinden)
+    * [SoundCloud-Player anpassen](#soundcloud-player-anpassen)
+  * [Social Media Links anpassen](#social-media-links-anpassen)
+    * [Die Social Media Links verstehen](#die-social-media-links-verstehen)
+    * [Einen Social Media Link aktualisieren](#einen-social-media-link-aktualisieren)
+    * [Einen neuen Social Media Link hinzufügen](#einen-neuen-social-media-link-hinzufugen)
+    * [Einen Social Media Link entfernen](#einen-social-media-link-entfernen)
+    * [Social Media Redirects verwalten](#social-media-redirects-verwalten)
+  * [Tipps für optimale Social Media-Integration](#tipps-fur-optimale-social-media-integration)
+    * [Konsistentes Branding](#konsistentes-branding)
+    * [Mobile Optimierung](#mobile-optimierung)
+    * [Performance-Optimierung](#performance-optimierung)
+    * [Content-Strategie](#content-strategie)
+  * [Häufige Probleme und Lösungen](#haufige-probleme-und-losungen-1)
+    * [Embeds werden nicht angezeigt](#embeds-werden-nicht-angezeigt)
+    * [Datenschutzprobleme](#datenschutzprobleme)
+    * [Inkonsistentes Erscheinungsbild](#inkonsistentes-erscheinungsbild)
+  * [ChatGPT als Helfer bei Social Media-Integration](#chatgpt-als-helfer-bei-social-media-integration)
+    * [Für Embed-Code-Anpassungen:](#fur-embed-code-anpassungen)
+    * [Für HTML/CSS-Hilfe:](#fur-htmlcss-hilfe)
+    * [Für Fehlersuche:](#fur-fehlersuche)
+    * [Für neue Social Media-Plattformen:](#fur-neue-social-media-plattformen)
+  * [Zusammenfassung und nächste Schritte](#zusammenfassung-und-nachste-schritte-9)
+  
 ## Deine Online-Präsenz optimal nutzen
 
 Herzlich willkommen zu Kapitel 10 unseres Leitfadens! In diesem Kapitel lernst du, wie du Social Media-Inhalte in die Hopsa-Website einbindest und aktuell hältst. Social Media ist für eine Improtheatergruppe wie Hopsa enorm wichtig – dort teilst du Auftrittstermine, Fotos, Videos und bleibst mit deinem Publikum in Kontakt. Mit einer guten Integration dieser Kanäle in deine Website schaffst du ein einheitliches Online-Erlebnis für deine Besucher.
@@ -4069,6 +5225,8 @@ Herzlich willkommen zu Kapitel 10 unseres Leitfadens! In diesem Kapitel lernst d
 - Wie du SoundCloud-Inhalte auf der Website verwaltest
 - Wie du die Social Media-Links anpasst und aktualisierst
 - Tipps für eine optimale Social Media-Integration
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Instagram-Feeds aktualisieren
 
@@ -4150,6 +5308,8 @@ Wenn der Feed nicht mehr funktioniert, ist es oft am einfachsten, einen komplett
 > **Tipp zur Performance:**  
 > Instagram-Feeds können die Ladezeit deiner Website verlangsamen. Überlege dir, ob du den Feed wirklich auf allen Seiten benötigst oder ob es reicht, ihn nur auf der Social-Media-Seite einzubinden und auf den anderen Seiten nur Links zu Instagram anzubieten.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## YouTube-Videos einbinden
 
 YouTube-Videos sind eine großartige Möglichkeit, Auftritte, Proben oder andere wichtige Momente zu teilen. Die Hopsa-Website kann sowohl einzelne Videos als auch einen YouTube-Kanalbutton einbinden.
@@ -4226,6 +5386,8 @@ Bei Problemen mit der YouTube-Einbindung überprüfe folgende Punkte:
 2. **Urheberrechtsprobleme**: Wenn das Video aus urheberrechtlichen Gründen nicht eingebunden werden kann, wird ein Fehler angezeigt.
 3. **Fehlende Zustimmung zu Cookies**: Besucher müssen möglicherweise erst YouTube-Cookies akzeptieren.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Soundcloud-Inhalte verwalten
 
 SoundCloud ist eine großartige Plattform für Audioinhalte wie Podcasts, Musikstücke oder Aufnahmen von Auftritten. Die Hopsa-Website bindet bereits einen SoundCloud-Player ein.
@@ -4277,6 +5439,8 @@ Beispiel für einen schlichten, schmalen Player in grauer Farbe:
 
 > **Tipp für Audio-Inhalte:**  
 > Audio-Inhalte können helfen, die Persönlichkeit eurer Gruppe zu vermitteln. Überlege dir besondere Audio-Inhalte wie kurze Improvisationsspiele, Interviews mit Ensemblemitgliedern oder Hörproben aus euren Auftritten für eure SoundCloud-Präsenz.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Social Media Links anpassen
 
@@ -4355,6 +5519,8 @@ Um einen neuen Redirect zu erstellen oder einen bestehenden zu ändern:
 
 3. **Speichere die Datei** und teste die Änderungen.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Tipps für optimale Social Media-Integration
 
 ### Konsistentes Branding
@@ -4389,6 +5555,8 @@ Eine clevere Content-Strategie sorgt dafür, dass Besucher von der Website zu de
 2. **Verweise in Social Media-Posts auf deine Website** für ausführlichere Informationen.
 3. **Zeige auf der Website "Appetithappen"** aus deinen Social Media-Kanälen, die neugierig auf mehr machen.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Häufige Probleme und Lösungen
 
 ### Embeds werden nicht angezeigt
@@ -4418,6 +5586,8 @@ Eine clevere Content-Strategie sorgt dafür, dass Besucher von der Website zu de
 1. **Passe die Größe und den Rahmen der Embeds an**, damit sie zum Rest der Website passen.
 2. **Verwende CSS-Klassen**, um das Erscheinungsbild anzugleichen.
 3. **Erstelle benutzerdefinierte Preview-Bilder** mit Links zu den Social-Media-Inhalten.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## ChatGPT als Helfer bei Social Media-Integration
 
@@ -4450,6 +5620,8 @@ ChatGPT kann dir bei Fragen zur Social Media-Integration helfen. Hier sind einig
 > **Tipp für effektive Prompts:**  
 > Gib ChatGPT immer den aktuellen Code, mit dem du arbeitest, und beschreibe genau, was du erreichen möchtest. So bekommst du die präzisesten Antworten.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Zusammenfassung und nächste Schritte
 
 In diesem Kapitel hast du gelernt:
@@ -4467,8 +5639,56 @@ Die Integration von Social Media ist ein wichtiger Bestandteil einer modernen We
 
 **Bereit für den nächsten Schritt?** Im folgenden Kapitel "Änderungen veröffentlichen mit VS Code und GitHub" lernst du, wie du all diese Anpassungen an der Social Media-Integration und andere Änderungen an der Website für alle sichtbar ins Internet bringst.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
+---
+
 # 11. Änderungen veröffentlichen mit VS Code und GitHub
 
+Übersicht des Kapitels:
+
+  * [Deine Änderungen ins Internet bringen](#deine-anderungen-ins-internet-bringen)
+    * [Was wir in diesem Kapitel behandeln:](#was-wir-in-diesem-kapitel-behandeln-9)
+  * [Der Veröffentlichungsprozess verstehen](#der-veroffentlichungsprozess-verstehen)
+    * [Von deinem Computer ins Internet: Der Workflow](#von-deinem-computer-ins-internet-der-workflow)
+    * [Lokale Änderungen vs. veröffentlichte Änderungen](#lokale-anderungen-vs-veroffentlichte-anderungen)
+    * [GitHub Pages: Der automatische Website-Builder](#github-pages-der-automatische-website-builder)
+  * [Der einfache Veröffentlichungsprozess](#der-einfache-veroffentlichungsprozess)
+    * [Voraussetzungen](#voraussetzungen)
+    * [Schritt 1: VS Code öffnen und Änderungen überprüfen](#schritt-1-vs-code-offnen-und-anderungen-uberprufen)
+    * [Schritt 2: Änderungen "stagen" (für den Commit vorbereiten)](#schritt-2-anderungen-stagen-fur-den-commit-vorbereiten)
+      * [Option 1: Alle Änderungen stagen](#option-1-alle-anderungen-stagen)
+      * [Option 2: Nur bestimmte Dateien stagen](#option-2-nur-bestimmte-dateien-stagen)
+    * [Schritt 3: Commit-Nachricht schreiben und committen](#schritt-3-commit-nachricht-schreiben-und-committen)
+    * [Schritt 4: Änderungen zu GitHub pushen](#schritt-4-anderungen-zu-github-pushen)
+    * [Schritt 5: Warten auf die Website-Aktualisierung](#schritt-5-warten-auf-die-website-aktualisierung)
+  * [Überprüfung deiner veröffentlichten Änderungen](#uberprufung-deiner-veroffentlichten-anderungen)
+    * [Die Live-Website überprüfen](#die-live-website-uberprufen)
+    * [Auf verschiedenen Geräten und Browsern testen](#auf-verschiedenen-geraten-und-browsern-testen)
+  * [Lokale Vorschau vs. Live-Website](#lokale-vorschau-vs-live-website)
+    * [Hauptunterschiede](#hauptunterschiede)
+    * [Warum kann es Unterschiede geben?](#warum-kann-es-unterschiede-geben)
+  * [Häufige Probleme und Lösungen](#haufige-probleme-und-losungen-2)
+    * [Problem 1: Änderungen erscheinen nicht auf der Live-Website](#problem-1-anderungen-erscheinen-nicht-auf-der-live-website)
+    * [Problem 2: Konflikt beim Pushen](#problem-2-konflikt-beim-pushen)
+    * [Problem 3: Fehler bei der lokalen Vorschau nach dem Pull](#problem-3-fehler-bei-der-lokalen-vorschau-nach-dem-pull)
+    * [Problem 4: Bilder oder Medien werden nicht angezeigt](#problem-4-bilder-oder-medien-werden-nicht-angezeigt)
+  * [Bewährte Praktiken für die Veröffentlichung](#bewahrte-praktiken-fur-die-veroffentlichung)
+    * [1. Regelmäßig committen und pushen](#1-regelmassig-committen-und-pushen)
+    * [2. Aussagekräftige Commit-Nachrichten schreiben](#2-aussagekraftige-commit-nachrichten-schreiben)
+    * [3. Vor dem Pushen lokal testen](#3-vor-dem-pushen-lokal-testen)
+    * [4. Pull vor dem Push](#4-pull-vor-dem-push)
+    * [5. Nach dem Push verifizieren](#5-nach-dem-push-verifizieren)
+  * [Die Bedeutung regelmäßiger Aktualisierungen](#die-bedeutung-regelmassiger-aktualisierungen)
+    * [Warum regelmäßige Updates wichtig sind](#warum-regelmassige-updates-wichtig-sind)
+    * [Tipps für ein nachhaltiges Website-Management](#tipps-fur-ein-nachhaltiges-website-management)
+  * [ChatGPT als Helfer beim Veröffentlichungsprozess](#chatgpt-als-helfer-beim-veroffentlichungsprozess)
+    * [Für Hilfe bei Commit-Nachrichten:](#fur-hilfe-bei-commit-nachrichten)
+    * [Für Probleme beim Pushen:](#fur-probleme-beim-pushen)
+    * [Für Merge-Konflikte:](#fur-merge-konflikte)
+    * [Für Hilfe bei der Überprüfung:](#fur-hilfe-bei-der-uberprufung)
+  * [Zusammenfassung und nächste Schritte](#zusammenfassung-und-nachste-schritte-10)
+  
 ## Deine Änderungen ins Internet bringen
 
 Herzlich willkommen zu Kapitel 11 unseres Leitfadens! Nachdem du nun in den vorherigen Kapiteln gelernt hast, wie du die Hopsa-Website bearbeitest - sei es Texte ändern, Bilder hinzufügen, Termine aktualisieren oder Social Media einbinden - ist es nun Zeit für den finalen und wichtigsten Schritt: Deine Änderungen zu veröffentlichen, damit sie tatsächlich im Internet für alle sichtbar werden. In diesem Kapitel zeigen wir dir, wie du mit wenigen Klicks deine lokalen Änderungen auf die Live-Website bringst.
@@ -4482,6 +5702,8 @@ Herzlich willkommen zu Kapitel 11 unseres Leitfadens! Nachdem du nun in den vorh
 - Wie lange es dauert, bis deine Änderungen im Internet sichtbar sind
 - Was der Unterschied zwischen lokaler Vorschau und Live-Website ist
 - Wie du mit häufigen Problemen bei der Veröffentlichung umgehst
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Der Veröffentlichungsprozess verstehen
 
@@ -4530,6 +5752,8 @@ Die Hopsa-Website verwendet GitHub Pages, einen Service von GitHub, der automati
 
 > **Was ist GitHub Pages?**  
 > GitHub Pages ist ein kostenloser Hosting-Service von GitHub, der Dateien aus deinem Repository nimmt und daraus eine Website erstellt. Er ist besonders gut für statische Websites wie die Hopsa-Website geeignet. GitHub Pages übernimmt das Hosting und die Bereitstellung der Website, ohne dass du einen separaten Webserver benötigst.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Der einfache Veröffentlichungsprozess
 
@@ -4623,6 +5847,8 @@ Nach dem erfolgreichen Push zu GitHub wird GitHub Pages automatisch eine neue Ve
 > **Warum dauert die Aktualisierung einige Minuten?**  
 > GitHub Pages muss deine Quelldateien in eine statische Website umwandeln und diese dann auf den Webservern bereitstellen. Dieser Prozess läuft automatisch ab und benötigt etwas Zeit. Bei größeren Websites oder wenn viele Nutzer gleichzeitig Änderungen pushen, kann es etwas länger dauern.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Überprüfung deiner veröffentlichten Änderungen
 
 Nachdem deine Änderungen live gegangen sind, ist es wichtig, sie zu überprüfen, um sicherzustellen, dass alles wie erwartet funktioniert.
@@ -4663,6 +5889,8 @@ Für eine gründliche Überprüfung ist es ratsam, die Website auf verschiedenen
 > **Warum auf verschiedenen Geräten testen?**  
 > Websites können auf verschiedenen Geräten, Bildschirmgrößen und Browsern unterschiedlich aussehen. Was auf deinem Computer perfekt aussieht, könnte auf einem Smartphone anders erscheinen. Durch Tests auf verschiedenen Plattformen stellst du sicher, dass alle Besucher eine gute Erfahrung mit der Website haben.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Lokale Vorschau vs. Live-Website
 
 Es ist wichtig zu verstehen, dass zwischen der lokalen Vorschau auf deinem Computer und der tatsächlichen Live-Website im Internet Unterschiede bestehen können.
@@ -4697,6 +5925,8 @@ Es gibt mehrere Gründe, warum die lokale Vorschau und die Live-Website nicht id
 
 > **Tipp für externe Dienste:**  
 > Wenn Social Media-Feeds oder andere externe Einbettungen lokal nicht funktionieren, ist das oft normal und kein Grund zur Sorge. Überprüfe sie stattdessen auf der Live-Website, nachdem du deine Änderungen gepusht hast.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Häufige Probleme und Lösungen
 
@@ -4789,6 +6019,8 @@ Ein häufiges Problem ist, dass Bilder oder andere Medien nach dem Pushen nicht 
 > **Tipp für Bildpfade:**  
 > Verwende in der Hopsa-Website immer absolute Pfade für Medien, beginnend mit `/assets/` (z.B. `/assets/team/bild.jpg`). Relative Pfade ohne führenden Schrägstrich können auf verschiedenen Seiten unterschiedlich interpretiert werden.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Bewährte Praktiken für die Veröffentlichung
 
 Um den Veröffentlichungsprozess so reibungslos wie möglich zu gestalten, hier einige bewährte Praktiken:
@@ -4831,6 +6063,8 @@ Um den Veröffentlichungsprozess so reibungslos wie möglich zu gestalten, hier 
 > **Tipp für Teamarbeit:**  
 > Wenn mehrere Personen an der Website arbeiten, ist eine gute Kommunikation entscheidend. Informiert euch gegenseitig, wenn jemand größere Änderungen vornimmt, um Konflikte zu vermeiden.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Die Bedeutung regelmäßiger Aktualisierungen
 
 Eine regelmäßig aktualisierte Website ist wichtig für Besucher und Suchmaschinen:
@@ -4866,6 +6100,8 @@ Eine regelmäßig aktualisierte Website ist wichtig für Besucher und Suchmaschi
 > **Idee für ein einfaches Änderungsprotokoll:**  
 > Erstelle eine einfache Tabelle (z.B. in einer Textdatei oder einem Spreadsheet) mit Datum, Art der Änderung, betroffenen Seiten und dem Namen der Person, die die Änderung vorgenommen hat. Dies kann besonders hilfreich sein, wenn mehrere Personen die Website pflegen.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## ChatGPT als Helfer beim Veröffentlichungsprozess
 
 ChatGPT kann dir helfen, wenn du Fragen zum Veröffentlichungsprozess hast. Hier sind einige nützliche Prompts:
@@ -4897,6 +6133,8 @@ ChatGPT kann dir helfen, wenn du Fragen zum Veröffentlichungsprozess hast. Hier
 > **Tipp für effektive ChatGPT-Prompts:**  
 > Je spezifischer du bist, desto besser kann ChatGPT dir helfen. Beschreibe genau, was du getan hast, welche Fehlermeldungen du siehst und was du erreichen möchtest. Kopiere Fehlermeldungen wörtlich, um die präziseste Hilfe zu bekommen.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Zusammenfassung und nächste Schritte
 
 In diesem Kapitel hast du gelernt:
@@ -4910,8 +6148,75 @@ Mit diesem Wissen kannst du nun eigenständig Änderungen an der Hopsa-Website v
 
 Im nächsten Kapitel schauen wir uns alternative Bearbeitungsmethoden an, die in bestimmten Situationen nützlich sein können - zum Beispiel, wenn du keinen Zugriff auf deinen Computer mit der eingerichteten VS Code-Umgebung hast.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
+---
+
 # 12. Die Website umziehen (falls gewünscht)
 
+Übersicht des Kapitels:
+
+  * [Neue Heimat für deine Hopsa-Website](#neue-heimat-fur-deine-hopsa-website)
+    * [Was wir in diesem Kapitel behandeln:](#was-wir-in-diesem-kapitel-behandeln-10)
+  * [Wann ist ein Website-Umzug sinnvoll?](#wann-ist-ein-website-umzug-sinnvoll)
+    * [Zu einem anderen GitHub-Account wechseln](#zu-einem-anderen-github-account-wechseln)
+    * [Zu einem WYSIWYG-Website-Builder wechseln](#zu-einem-wysiwyg-website-builder-wechseln)
+    * [Den Umzug planen: Checkliste vor dem Start](#den-umzug-planen-checkliste-vor-dem-start)
+  * [Zu einem anderen GitHub-Account wechseln](#zu-einem-anderen-github-account-wechseln-1)
+    * [1. Das GitHub-Repository übertragen](#1-das-github-repository-ubertragen)
+      * [Voraussetzungen](#voraussetzungen-1)
+      * [Schritt-für-Schritt-Anleitung](#schritt-fur-schritt-anleitung-1)
+    * [2. GitHub Pages im neuen Repository einrichten](#2-github-pages-im-neuen-repository-einrichten)
+    * [3. Die Domain aktualisieren](#3-die-domain-aktualisieren)
+      * [Option 1: Die GitHub Pages-Domain anpassen (empfohlen)](#option-1-die-github-pages-domain-anpassen-empfohlen)
+      * [Option 2: DNS-Einstellungen bei Namecheap anpassen](#option-2-dns-einstellungen-bei-namecheap-anpassen)
+    * [4. Überprüfen und Testen](#4-uberprufen-und-testen)
+    * [5. Häufige Probleme und Lösungen](#5-haufige-probleme-und-losungen)
+      * [Problem: Website erscheint nicht nach dem Umzug](#problem-website-erscheint-nicht-nach-dem-umzug)
+      * [Problem: Inhalte werden nicht korrekt angezeigt](#problem-inhalte-werden-nicht-korrekt-angezeigt)
+      * [Problem: SSL-Zertifikat-Warnungen](#problem-ssl-zertifikat-warnungen)
+    * [6. GitHub-Organisationen als Alternative](#6-github-organisationen-als-alternative)
+      * [Vorteile einer GitHub-Organisation:](#vorteile-einer-github-organisation)
+      * [Eine Organisation erstellen und das Repository übertragen:](#eine-organisation-erstellen-und-das-repository-ubertragen)
+  * [Zu einem WYSIWYG-Website-Builder wechseln](#zu-einem-wysiwyg-website-builder-wechseln-1)
+    * [1. Einen passenden Website-Builder auswählen](#1-einen-passenden-website-builder-auswahlen)
+      * [Option 1: Wix (wix.com)](#option-1-wix-wixcom)
+      * [Option 2: WordPress.com](#option-2-wordpresscom)
+      * [Option 3: Jimdo (jimdo.com)](#option-3-jimdo-jimdocom)
+      * [Option 4: Squarespace (squarespace.com)](#option-4-squarespace-squarespacecom)
+    * [2. Inhalte vorbereiten und sammeln](#2-inhalte-vorbereiten-und-sammeln)
+    * [3. Neue Website erstellen und einrichten](#3-neue-website-erstellen-und-einrichten)
+    * [4. Inhalte übertragen](#4-inhalte-ubertragen)
+      * [Seiten erstellen und Texte einfügen](#seiten-erstellen-und-texte-einfugen)
+      * [Medien hinzufügen](#medien-hinzufugen)
+    * [5. Die Domain verbinden](#5-die-domain-verbinden)
+      * [Allgemeine Schritte (können je nach Website-Builder variieren):](#allgemeine-schritte-konnen-je-nach-website-builder-variieren)
+    * [6. Weiterleitungen einrichten](#6-weiterleitungen-einrichten)
+    * [7. Überprüfen und optimieren](#7-uberprufen-und-optimieren)
+    * [8. Vor- und Nachteile verschiedener Website-Builder für die Hopsa-Website](#8-vor--und-nachteile-verschiedener-website-builder-fur-die-hopsa-website)
+      * [Wix:](#wix)
+      * [WordPress.com:](#wordpresscom)
+      * [Jimdo:](#jimdo)
+      * [Squarespace:](#squarespace)
+  * [Häufige Fragen und Antworten](#haufige-fragen-und-antworten)
+    * ["Was passiert mit der alten Website nach dem Umzug?"](#was-passiert-mit-der-alten-website-nach-dem-umzug)
+    * ["Verlieren wir durch den Umzug Besucher oder Google-Rankings?"](#verlieren-wir-durch-den-umzug-besucher-oder-google-rankings)
+    * ["Was kostet der Umzug?"](#was-kostet-der-umzug)
+    * ["Wie lange dauert der Umzug?"](#wie-lange-dauert-der-umzug)
+    * ["Können wir später wieder zurück zu GitHub Pages wechseln?"](#konnen-wir-spater-wieder-zuruck-zu-github-pages-wechseln)
+    * ["Was passiert mit unseren E-Mail-Adressen bei einem Wechsel?"](#was-passiert-mit-unseren-e-mail-adressen-bei-einem-wechsel)
+  * [Tipps für eine erfolgreiche Migration](#tipps-fur-eine-erfolgreiche-migration)
+    * [1. Kommuniziere den Umzug](#1-kommuniziere-den-umzug)
+    * [2. Erstelle ein Backup vor dem Umzug](#2-erstelle-ein-backup-vor-dem-umzug)
+    * [3. Plane genügend Zeit ein](#3-plane-genugend-zeit-ein)
+    * [4. Teste gründlich vor der Veröffentlichung](#4-teste-grundlich-vor-der-veroffentlichung)
+    * [5. Überwache nach der Migration](#5-uberwache-nach-der-migration)
+  * [ChatGPT als Helfer bei der Website-Migration](#chatgpt-als-helfer-bei-der-website-migration)
+    * [Für die Planung und Vorbereitung:](#fur-die-planung-und-vorbereitung)
+    * [Für technische Fragen:](#fur-technische-fragen)
+    * [Für die Inhaltsübertragung:](#fur-die-inhaltsubertragung)
+  * [Zusammenfassung und nächste Schritte](#zusammenfassung-und-nachste-schritte-11)
+  
 ## Neue Heimat für deine Hopsa-Website
 
 Willkommen zu Kapitel 12 unseres Leitfadens! In diesem Kapitel geht es um einen Aspekt, über den du vielleicht irgendwann nachdenken wirst: den Umzug deiner Website. Wie bei einem echten Umzug gibt es verschiedene Gründe, warum du deine digitale Präsenz an einen neuen Ort bringen möchtest – sei es ein Wechsel zu einem anderen GitHub-Account oder der Umstieg auf einen benutzerfreundlicheren Website-Builder mit grafischer Oberfläche.
@@ -4924,6 +6229,8 @@ Willkommen zu Kapitel 12 unseres Leitfadens! In diesem Kapitel geht es um einen 
 - Wie du von der aktuellen technischen Lösung zu einem einfacheren WYSIWYG-Website-Builder wechselst
 - Worauf du bei der Domain-Umstellung achten musst
 - Wie du den Umzug planst und durchführst, ohne dass deine Website ausfällt
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Wann ist ein Website-Umzug sinnvoll?
 
@@ -4960,6 +6267,8 @@ Unabhängig davon, wohin du deine Website umziehen möchtest, solltest du folgen
 5. **Verantwortlichkeiten klären**: Bestimme, wer den Umzug durchführt und wer danach für die Website verantwortlich ist
 
 Mit diesen Vorbereitungen bist du gut gerüstet, um den Umzug deiner Website anzugehen. Nun schauen wir uns die beiden Umzugswege im Detail an.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Zu einem anderen GitHub-Account wechseln
 
@@ -5149,6 +6458,8 @@ Statt ein Repository zwischen persönlichen Accounts zu übertragen, könnte es 
 
 > **Tipp für Teamarbeit:**  
 > Mit einer GitHub-Organisation könnt ihr ein Team für die Website-Pflege erstellen und so die Arbeit besser verteilen. Jedes Teammitglied kann dann Änderungen vornehmen, ohne von einer einzelnen Person abhängig zu sein.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Zu einem WYSIWYG-Website-Builder wechseln
 
@@ -5392,6 +6703,8 @@ Um dir die Entscheidung für einen Website-Builder zu erleichtern, hier eine Üb
 > **Tipp zur Auswahl:**  
 > Die meisten Website-Builder bieten kostenlose Testphasen an. Nutze diese, um verschiedene Plattformen auszuprobieren und zu sehen, welche am besten zu deinen Fähigkeiten und den Anforderungen der Hopsa-Website passt.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Häufige Fragen und Antworten
 
 ### "Was passiert mit der alten Website nach dem Umzug?"
@@ -5420,6 +6733,8 @@ Ja, der Prozess ist reversibel. Da die Domain unabhängig von der Hosting-Plattf
 ### "Was passiert mit unseren E-Mail-Adressen bei einem Wechsel?"
 
 E-Mail-Adressen mit der Domain "hopsa-berlin.de" werden durch die DNS-Einstellungen (MX-Records) gesteuert und sind unabhängig vom Website-Hosting. Wenn ihr E-Mail-Adressen mit eurer Domain nutzt, müsst ihr sicherstellen, dass die entsprechenden MX-Records bei der Migration beibehalten werden.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Tipps für eine erfolgreiche Migration
 
@@ -5460,6 +6775,8 @@ Nach Abschluss des Umzugs:
 - Überprüfe die wichtigsten Seiten regelmäßig auf Fehler
 - Sammle Feedback von regelmäßigen Besuchern
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## ChatGPT als Helfer bei der Website-Migration
 
 ChatGPT kann dir bei der Migration deiner Website wertvolle Hilfe leisten. Hier sind einige nützliche Prompts:
@@ -5499,6 +6816,8 @@ ChatGPT kann dir bei der Migration deiner Website wertvolle Hilfe leisten. Hier 
 > **Tipp für effektive ChatGPT-Prompts:**  
 > Je spezifischer du bist, desto besser kann ChatGPT dir helfen. Teile Screenshots, Fehlermeldungen oder konkrete Code-Ausschnitte, um genauere Antworten zu bekommen. Gib auch Kontext über deine technische Erfahrung, damit die Antworten an dein Niveau angepasst werden können.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Zusammenfassung und nächste Schritte
 
 In diesem Kapitel hast du gelernt:
@@ -5516,19 +6835,63 @@ Das Wichtigste ist, dass die Website nach dem Umzug für eure Zwecke besser funk
 
 **Bereit für den nächsten Schritt?** Im folgenden Kapitel "ChatGPT als dein persönlicher Assistent" erfährst du, wie du künstliche Intelligenz als mächtiges Werkzeug für alle Aspekte der Website-Verwaltung nutzen kannst – von der Erstellung neuer Inhalte bis zur Lösung technischer Probleme.
 
-# Kapitel 13: ChatGPT als dein persönlicher Assistent
-
-Willkommen zu einem Kapitel, das dir zeigen wird, wie du mit ChatGPT deine Website-Verwaltung revolutionieren kannst! Ob du technisch versiert bist oder gerade erst anfängst – dieser digitale Helfer kann dir viel Arbeit abnehmen und dir bei zahlreichen Aufgaben rund um deine Website unterstützen.
-
-## Inhaltsübersicht:
-- Was ist ChatGPT und wie kann es dir helfen?
-- Praktische Anwendungen für die Hopsa-Website
-- Die Kunst des effektiven Prompting
-- Fertige Beispiel-Prompts für häufige Aufgaben
-- Schritt-für-Schritt-Anleitungen für komplexere Aufgaben
-- Tipps und Tricks für optimale Ergebnisse
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ---
+
+# 13. ChatGPT als dein persönlicher Assistent
+
+Übersicht des Kapitels:
+
+  * [13.1 Was ist ChatGPT und wie kann es dir helfen?](#131-was-ist-chatgpt-und-wie-kann-es-dir-helfen)
+    * [Was ChatGPT kann:](#was-chatgpt-kann)
+    * [Was ChatGPT nicht kann:](#was-chatgpt-nicht-kann)
+    * [Wie du es nutzen kannst:](#wie-du-es-nutzen-kannst)
+  * [13.2 Praktische Anwendungen für die Hopsa-Website](#132-praktische-anwendungen-fur-die-hopsa-website)
+    * [Inhalte erstellen und aktualisieren](#inhalte-erstellen-und-aktualisieren)
+    * [Code-Unterstützung](#code-unterstutzung)
+  * [13.3 Die Kunst des effektiven Prompting](#133-die-kunst-des-effektiven-prompting)
+    * [Grundprinzipien für gute Prompts:](#grundprinzipien-fur-gute-prompts)
+    * [Von schlecht zu gut - Beispiele:](#von-schlecht-zu-gut---beispiele)
+    * [Das WDGS-Prinzip für perfekte Prompts:](#das-wdgs-prinzip-fur-perfekte-prompts)
+  * [13.4 Effektive Prompts für häufige Aufgaben](#134-effektive-prompts-fur-haufige-aufgaben)
+    * [Neue Veranstaltungen hinzufügen](#neue-veranstaltungen-hinzufugen-1)
+    * [Inhalte auf bestehenden Seiten ändern](#inhalte-auf-bestehenden-seiten-andern)
+    * [Design-Anpassungen vornehmen](#design-anpassungen-vornehmen)
+    * [Bilder optimieren](#bilder-optimieren)
+    * [SEO verbessern](#seo-verbessern)
+  * [13.5 Schritt-für-Schritt-Anleitungen für komplexere Aufgaben](#135-schritt-fur-schritt-anleitungen-fur-komplexere-aufgaben)
+    * [Eine neue Seite erstellen](#eine-neue-seite-erstellen)
+    * [Das Design einer bestehenden Seite ändern](#das-design-einer-bestehenden-seite-andern)
+    * [Einen neuen Social Media Feed einbinden](#einen-neuen-social-media-feed-einbinden)
+  * [13.6 Beispiel-Prompts zum Kopieren](#136-beispiel-prompts-zum-kopieren)
+    * [Für Content-Erstellung](#fur-content-erstellung)
+    * [Für technische Hilfe](#fur-technische-hilfe)
+    * [Für Design-Ideen](#fur-design-ideen)
+    * [Für Problemlösung](#fur-problemlosung)
+  * [13.7 Tipps und Tricks für optimale Ergebnisse](#137-tipps-und-tricks-fur-optimale-ergebnisse)
+    * [Iterieren und Verfeinern](#iterieren-und-verfeinern)
+    * [Mehrere Optionen anfordern](#mehrere-optionen-anfordern)
+    * [Schritt für Schritt vorgehen](#schritt-fur-schritt-vorgehen)
+    * [Konversation speichern](#konversation-speichern)
+    * [Prompt-Bibliothek anlegen](#prompt-bibliothek-anlegen)
+  * [13.8 Häufige Anwendungsfälle speziell für die Hopsa-Website](#138-haufige-anwendungsfalle-speziell-fur-die-hopsa-website)
+    * [Termine aktualisieren](#termine-aktualisieren)
+    * [Social Media Links aktualisieren](#social-media-links-aktualisieren-1)
+    * [Design-Elemente ändern](#design-elemente-andern)
+    * [SEO verbessern](#seo-verbessern-1)
+  * [13.9 Häufige Fragen und Lösungen](#139-haufige-fragen-und-losungen)
+    * ["ChatGPT gibt mir falschen Code"](#chatgpt-gibt-mir-falschen-code)
+    * ["Ich verstehe die Antwort nicht"](#ich-verstehe-die-antwort-nicht)
+    * ["Wie speichere ich die Änderungen?"](#wie-speichere-ich-die-anderungen)
+    * ["Woher weiß ich, welche Datei ich ändern muss?"](#woher-weiss-ich-welche-datei-ich-andern-muss)
+  * [13.10 Weiterführende Ressourcen](#1310-weiterfuhrende-ressourcen)
+    * [Offizielle Ressourcen](#offizielle-ressourcen)
+    * [Nützliche Werkzeuge](#nutzliche-werkzeuge)
+    * [Improvisationstheater-Ressourcen](#improvisationstheater-ressourcen)
+  * [Fazit](#fazit)
+  
+Willkommen zu einem Kapitel, das dir zeigen wird, wie du mit ChatGPT deine Website-Verwaltung revolutionieren kannst! Ob du technisch versiert bist oder gerade erst anfängst – dieser digitale Helfer kann dir viel Arbeit abnehmen und dir bei zahlreichen Aufgaben rund um deine Website unterstützen.
 
 ## 13.1 Was ist ChatGPT und wie kann es dir helfen?
 
@@ -5554,6 +6917,8 @@ ChatGPT ist ein KI-Assistent, der Text verstehen und generieren kann. Stell dir 
 Du stellst ChatGPT eine Frage (einen "Prompt") und es antwortet mit einer hilfreichen Antwort. Je spezifischer deine Frage, desto gezielter kann ChatGPT helfen. Du kannst die Antwort dann kopieren, anpassen oder als Inspiration nutzen.
 
 ---
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## 13.2 Praktische Anwendungen für die Hopsa-Website
 
@@ -5605,6 +6970,8 @@ Was könnte das Problem sein und wie kann ich es beheben?
 > Ein Prompt ist einfach die Frage oder Aufforderung, die du an ChatGPT stellst. Die Kunst des "Promptings" besteht darin, deine Anfrage so zu formulieren, dass du die bestmögliche Antwort erhältst. Je klarer und spezifischer dein Prompt, desto besser kann ChatGPT dir helfen.
 
 ---
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## 13.3 Die Kunst des effektiven Prompting
 
@@ -5658,6 +7025,8 @@ Stil: Der Text sollte einladend, humorvoll und im Stil der bestehenden Hopsa-Web
 > Wenn du ChatGPT bittest, Code zu erstellen oder zu ändern, ist es sehr hilfreich, die relevanten bestehenden Dateien zu zeigen. Du kannst den Inhalt der Datei kopieren und in deinen Prompt einfügen. So kann ChatGPT besser verstehen, wie der Code aktuell aussieht und welchen Stil er beibehalten sollte.
 
 ---
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## 13.4 Effektive Prompts für häufige Aufgaben
 
@@ -5742,6 +7111,8 @@ Fokussiere dich besonders auf:
 ```
 
 ---
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## 13.5 Schritt-für-Schritt-Anleitungen für komplexere Aufgaben
 
@@ -5833,6 +7204,8 @@ embeddings.md Datei, sodass der TikTok-Feed neben Instagram und Soundcloud angez
 
 ---
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## 13.6 Beispiel-Prompts zum Kopieren
 
 Hier sind weitere fertige Prompts speziell für die Hopsa-Website, die du direkt nutzen kannst:
@@ -5902,6 +7275,8 @@ Was könnte das Problem sein?
 
 ---
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## 13.7 Tipps und Tricks für optimale Ergebnisse
 
 Um das Maximum aus ChatGPT herauszuholen, hier einige bewährte Praktiken:
@@ -5969,6 +7344,8 @@ Wie kann ich den folgenden Text für SEO optimieren, ohne dass er unnatürlich k
 > Wenn du möchtest, dass ChatGPT einen bestimmten Text exakt übernimmt oder analysiert, setze ihn in Anführungszeichen. So weiß die KI, dass dieser Teil wichtig ist und unverändert bleiben sollte.
 
 ---
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## 13.8 Häufige Anwendungsfälle speziell für die Hopsa-Website
 
@@ -6052,6 +7429,8 @@ sehr technisch versiert bin und einfache Anweisungen benötige.
 
 ---
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## 13.9 Häufige Fragen und Lösungen
 
 ### "ChatGPT gibt mir falschen Code"
@@ -6094,6 +7473,8 @@ bearbeiten und wo finde ich sie im Repository?
 
 ---
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## 13.10 Weiterführende Ressourcen
 
 Um deine Fähigkeiten mit ChatGPT weiter zu verbessern:
@@ -6113,14 +7494,52 @@ Um deine Fähigkeiten mit ChatGPT weiter zu verbessern:
 
 ---
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Fazit
 
 ChatGPT kann ein unglaublich hilfreiches Werkzeug für die Verwaltung und Weiterentwicklung deiner Hopsa-Website sein. Mit den richtigen Prompts und etwas Übung wirst du immer bessere Ergebnisse erzielen und viele Aufgaben effizienter erledigen können.
 
 Denk daran: ChatGPT ist wie ein hilfsbereiter Kollege - manchmal musst du nachfragen oder präzisieren, aber mit etwas Geduld und den richtigen Fragen wird es dir eine große Hilfe sein.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
+---
+
 # 14. Fehlerbehebung und häufige Probleme
 
+Übersicht des Kapitels:
+
+  * [Einleitung: Wenn es mal nicht rund läuft](#einleitung-wenn-es-mal-nicht-rund-lauft)
+  * [14.1 Die Website wird nicht aktualisiert](#141-die-website-wird-nicht-aktualisiert)
+    * [14.1.1 Lokale vs. Online-Version verstehen](#1411-lokale-vs-online-version-verstehen)
+      * [Wie du überprüfen kannst, ob du die lokale oder die Online-Version betrachtest:](#wie-du-uberprufen-kannst-ob-du-die-lokale-oder-die-online-version-betrachtest)
+    * [14.1.2 Browser-Cache-Probleme lösen](#1412-browser-cache-probleme-losen)
+    * [14.1.3 Deployment-Probleme identifizieren und lösen](#1413-deployment-probleme-identifizieren-und-losen)
+      * [Häufige Deployment-Probleme bei der Hopsa-Website:](#haufige-deployment-probleme-bei-der-hopsa-website)
+    * [14.1.4 Domain und DNS-Probleme erkennen](#1414-domain-und-dns-probleme-erkennen)
+  * [14.2 Bilder werden nicht angezeigt](#142-bilder-werden-nicht-angezeigt)
+    * [14.2.1 Pfadprobleme verstehen und lösen](#1421-pfadprobleme-verstehen-und-losen)
+      * [Häufige Pfad-Probleme bei Bildern:](#haufige-pfad-probleme-bei-bildern)
+    * [14.2.2 Groß- und Kleinschreibung beachten](#1422-gross--und-kleinschreibung-beachten)
+    * [14.2.3 Bildformate und Kompatibilität](#1423-bildformate-und-kompatibilitat)
+    * [14.2.4 Build-Prozess und Kopierpfade prüfen](#1424-build-prozess-und-kopierpfade-prufen)
+  * [14.3 Formatierungsprobleme](#143-formatierungsprobleme)
+    * [14.3.1 Markdown-Syntax-Fehler erkennen und beheben](#1431-markdown-syntax-fehler-erkennen-und-beheben)
+      * [Häufige Markdown-Fehler in der Hopsa-Website:](#haufige-markdown-fehler-in-der-hopsa-website)
+    * [14.3.2 CSS-Styling-Probleme diagnostizieren](#1432-css-styling-probleme-diagnostizieren)
+      * [Häufige CSS-Probleme bei der Hopsa-Website:](#haufige-css-probleme-bei-der-hopsa-website)
+    * [14.3.3 Layout-Probleme und responsives Design](#1433-layout-probleme-und-responsives-design)
+      * [Häufige Layout-Probleme:](#haufige-layout-probleme)
+    * [14.3.4 Template-Probleme bei Nunjucks/Eleventy](#1434-template-probleme-bei-nunjuckseleventy)
+      * [Häufige Template-Probleme:](#haufige-template-probleme)
+  * [14.4 Allgemeine Fehlersuche-Strategien](#144-allgemeine-fehlersuche-strategien)
+    * [14.4.1 Browser-Entwicklertools nutzen](#1441-browser-entwicklertools-nutzen)
+    * [14.4.2 Systematische Fehlereingrenzung](#1442-systematische-fehlereingrenzung)
+    * [14.4.3 Hilfe suchen und finden](#1443-hilfe-suchen-und-finden)
+    * [14.4.4 Wann sollte man neustarten oder zurücksetzen?](#1444-wann-sollte-man-neustarten-oder-zurucksetzen)
+  * [Zusammenfassung: Dein Problemlösungs-Toolkit](#zusammenfassung-dein-problemlosungs-toolkit)
+  
 ## Einleitung: Wenn es mal nicht rund läuft
 
 Willkommen im Kapitel zur Fehlerbehebung! Du hast fleißig an der Hopsa-Website gearbeitet, aber irgendwie funktioniert etwas nicht wie erwartet? Keine Sorge – das passiert selbst den erfahrensten Webentwicklern. In diesem Kapitel zeigen wir dir, wie du die häufigsten Probleme systematisch identifizieren und lösen kannst.
@@ -6129,6 +7548,8 @@ Willkommen im Kapitel zur Fehlerbehebung! Du hast fleißig an der Hopsa-Website 
 > Fehlerbehebung (oder "Troubleshooting") bezeichnet den Prozess, Probleme zu identifizieren, zu analysieren und zu lösen. Es ist wie Detektivarbeit: Du sammelst Hinweise, stellst Hypothesen auf und testest verschiedene Lösungen, bis das Problem behoben ist.
 
 Bevor wir in die Details eintauchen, hier ein allgemeiner Tipp: Bewahre Ruhe! Die meisten Probleme haben einfache Ursachen und Lösungen. Ein systematisches Vorgehen hilft dir, schneller ans Ziel zu kommen.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## 14.1 Die Website wird nicht aktualisiert
 
@@ -6252,6 +7673,8 @@ Wenn die Website unter deiner benutzerdefinierten Domain hopsa-berlin.de nicht e
    - DNS-Änderungen können bis zu 48 Stunden dauern, bis sie vollständig propagiert sind
    - In der Zwischenzeit kannst du die Website weiterhin über die GitHub-URL erreichen
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## 14.2 Bilder werden nicht angezeigt
 
 Du hast ein schönes Bild hochgeladen, aber stattdessen siehst du nur ein kaputtes Bild-Symbol oder einen leeren Bereich? Hier sind die häufigsten Ursachen und wie du sie beheben kannst.
@@ -6356,6 +7779,8 @@ Bei der Hopsa-Website werden Bilder beim Build-Prozess von assets nach assets ko
 **Lösung bei Problemen:**
 - Wenn die Bilder nicht kopiert werden, führe den Build-Prozess manuell aus
 - Bei weiterhin bestehenden Problemen kopiere die Bilder manuell von assets nach assets
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## 14.3 Formatierungsprobleme
 
@@ -6564,6 +7989,8 @@ Die Hopsa-Website verwendet Nunjucks als Template-Sprache mit dem Static Site Ge
 
 3. **Teste schrittweise**: Vereinfache komplexe Templates und füge dann schrittweise Funktionalität hinzu, um zu verstehen, wo das Problem liegt.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## 14.4 Allgemeine Fehlersuche-Strategien
 
 Unabhängig davon, welches Problem du hast, diese allgemeinen Strategien können dir helfen, es zu identifizieren und zu lösen.
@@ -6684,6 +8111,8 @@ Manchmal ist es am besten, einen Schritt zurückzugehen oder ganz neu zu beginne
    - Beende den laufenden Prozess (Strg+C)
    - Starte den Server neu mit run.bat oder `npx @11ty/eleventy --serve`
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Zusammenfassung: Dein Problemlösungs-Toolkit
 
 Fehlerbehebung kann manchmal frustrierend sein, aber mit den richtigen Werkzeugen und einem systematischen Ansatz kannst du die meisten Probleme lösen. Hier sind die wichtigsten Punkte dieses Kapitels:
@@ -6716,11 +8145,65 @@ Denk daran: Fehler sind ein normaler Teil des Entwicklungsprozesses. Mit jeder F
 
 Mit diesem Kapitel hast du nun ein umfassendes Toolkit zur Fehlerbehebung auf der Hopsa-Website. Du bist bestens gerüstet, um typische Probleme zu erkennen, zu verstehen und zu beheben. Happy Debugging!
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
+---
+
 # 15. Glossar: Technische Begriffe einfach erklärt
 
+Übersicht des Kapitels:
+
+  * [Website-Begriffe](#website-begriffe)
+    * [Grundlagen des Internets](#grundlagen-des-internets)
+      * [Wie das Internet funktioniert (in wenigen Worten)](#wie-das-internet-funktioniert-in-wenigen-worten)
+      * [URLs verstehen](#urls-verstehen)
+      * [Webhosting erklärt](#webhosting-erklart)
+      * [Frontend vs. Backend](#frontend-vs-backend)
+    * [Dateitypen auf unserer Website](#dateitypen-auf-unserer-website)
+      * [HTML-Dateien (.html)](#html-dateien-html)
+      * [CSS-Dateien (.css)](#css-dateien-css)
+      * [JavaScript-Dateien (.js)](#javascript-dateien-js)
+      * [Markdown-Dateien (.md)](#markdown-dateien-md)
+    * [Responsive Design](#responsive-design)
+    * [SEO-Grundlagen](#seo-grundlagen)
+  * [GitHub-Begriffe](#github-begriffe)
+    * [Was ist Git und GitHub?](#was-ist-git-und-github)
+    * [Das Repository](#das-repository)
+    * [Commits und Commit-Messages](#commits-und-commit-messages)
+    * [Branches](#branches)
+    * [Pull Requests](#pull-requests)
+    * [GitHub Pages](#github-pages)
+    * [Issues und Projektmanagement](#issues-und-projektmanagement)
+  * [Eleventy und statische Websites](#eleventy-und-statische-websites)
+    * [Statische Websites verstehen](#statische-websites-verstehen)
+    * [Was ist ein Static Site Generator?](#was-ist-ein-static-site-generator)
+    * [Eleventy (11ty) - Unser Static Site Generator](#eleventy-11ty---unser-static-site-generator)
+      * [Die Struktur von Eleventy in unserem Projekt](#die-struktur-von-eleventy-in-unserem-projekt)
+      * [Templates und Layouts](#templates-und-layouts)
+      * [Front Matter in Markdown-Dateien](#front-matter-in-markdown-dateien)
+      * [Der Build-Prozess](#der-build-prozess)
+    * [Tailwind CSS in unserem Projekt](#tailwind-css-in-unserem-projekt)
+    * [Umleitung und URL-Handling](#umleitung-und-url-handling)
+  * [Praktische Tipps für die Arbeit mit unserer Website](#praktische-tipps-fur-die-arbeit-mit-unserer-website)
+    * [Wie du Inhalte bearbeitest](#wie-du-inhalte-bearbeitest)
+    * [Wie du mit Terminen umgehst](#wie-du-mit-terminen-umgehst)
+    * [Häufige Fragen und Antworten](#haufige-fragen-und-antworten-1)
+      * [Wie füge ich ein neues Teammitglied hinzu?](#wie-fuge-ich-ein-neues-teammitglied-hinzu)
+      * [Wie erstelle ich eine neue Seite?](#wie-erstelle-ich-eine-neue-seite)
+      * [Was bedeuten diese seltsamen Symbole in den Dateien?](#was-bedeuten-diese-seltsamen-symbole-in-den-dateien)
+      * [Wie kann ich sehen, wie meine Änderungen aussehen werden?](#wie-kann-ich-sehen-wie-meine-anderungen-aussehen-werden)
+  * [Empfohlene Ressourcen zum Weiterlernen](#empfohlene-ressourcen-zum-weiterlernen)
+    * [Für Website-Grundlagen](#fur-website-grundlagen)
+    * [Für Markdown](#fur-markdown-1)
+    * [Für GitHub](#fur-github)
+    * [Für Eleventy](#fur-eleventy)
+    * [ChatGPT-Prompts für weitere Hilfe](#chatgpt-prompts-fur-weitere-hilfe)
+    
 Willkommen zu unserem benutzerfreundlichen Glossar! In diesem Kapitel findest du einfache Erklärungen für alle technischen Begriffe, die mit unserer Hopsa-Website zu tun haben. Du brauchst kein Vorwissen – wir starten bei null und erklären alles Schritt für Schritt.
 
 Jeder Abschnitt behandelt einen anderen Begriffsbereich, und du kannst genau zu den Themen springen, die dich interessieren. Lass dich nicht von der Technik einschüchtern – am Ende wirst du überrascht sein, wie viel du verstehst!
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Website-Begriffe
 
@@ -6850,6 +8333,8 @@ Auf der Hopsa-Website haben wir:
 
 Diese Elemente helfen Suchmaschinen, den Inhalt unserer Seite zu verstehen und richtig zu indexieren.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## GitHub-Begriffe
 
 GitHub ist eine Plattform, die uns hilft, die Dateien unserer Website zu verwalten und zusammenzuarbeiten. Lass uns die wichtigsten Begriffe durchgehen:
@@ -6933,6 +8418,8 @@ Beschreibung: Foto und Kurzbeschreibung von Lisa zur Ensemble-Seite hinzufügen.
 ```
 
 Issues können zugewiesen, kommentiert und mit Labels versehen werden, um die Arbeit besser zu koordinieren.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
 
 ## Eleventy und statische Websites
 
@@ -7053,6 +8540,8 @@ redirect: [wir, mitglieder, mitglied, wer, uber-uns, ueber-uns]
 
 Dies erstellt automatisch URLs wie `hopsa-berlin.de/insta`, die zu Instagram weiterleiten, oder `hopsa-berlin.de/wir`, die zur Ensemble-Seite führen.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Praktische Tipps für die Arbeit mit unserer Website
 
 ### Wie du Inhalte bearbeitest
@@ -7123,6 +8612,8 @@ Für Termine verwenden wir eine spezielle Struktur:
 #### Wie kann ich sehen, wie meine Änderungen aussehen werden?
 Führe run.bat aus oder gib `eleventy --serve` in die Kommandozeile ein, dann öffne http://localhost:8080 in deinem Browser. Änderungen werden automatisch aktualisiert.
 
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
 ## Empfohlene Ressourcen zum Weiterlernen
 
 ### Für Website-Grundlagen
@@ -7154,3 +8645,220 @@ Wenn du mit ChatGPT arbeitest und Hilfe zu unserer Website benötigst, versuche 
 ---
 
 Mit diesem Glossar solltest du nun gut gerüstet sein, um die technischen Aspekte der Hopsa-Website zu verstehen und mit ihnen zu arbeiten. Denke daran: Jeder Experte hat einmal als Anfänger begonnen. Trau dich, Dinge auszuprobieren – im schlimmsten Fall kannst du immer zu einer früheren Version zurückkehren!
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
+---
+
+# Anhang: Nützliche Ressourcen und Links
+
+Übersicht des Kapitels:
+
+  * [1. Hilfreiche Webseiten und Werkzeuge](#1-hilfreiche-webseiten-und-werkzeuge)
+    * [1.1. Offizielle Dokumentationen (Die Quellen der Wahrheit)](#11-offizielle-dokumentationen-die-quellen-der-wahrheit)
+    * [1.2. Lernplattformen und Tutorials (Wissen erweitern)](#12-lernplattformen-und-tutorials-wissen-erweitern)
+    * [1.3. Spezifische Werkzeuge und Helferlein (Für den Hopsa-Alltag)](#13-spezifische-werkzeuge-und-helferlein-fur-den-hopsa-alltag)
+  * [2. Support und Hilfe bekommen (Du bist nicht allein!)](#2-support-und-hilfe-bekommen-du-bist-nicht-allein)
+    * [2.1. Interne Hilfe im Hopsa-Team](#21-interne-hilfe-im-hopsa-team)
+    * [2.2. GitHub Issues (Probleme und Vorschläge dokumentieren)](#22-github-issues-probleme-und-vorschlage-dokumentieren)
+    * [2.3. Die Macht von Suchmaschinen (Google ist dein Freund)](#23-die-macht-von-suchmaschinen-google-ist-dein-freund)
+    * [2.4. ChatGPT als Problemlöser](#24-chatgpt-als-problemloser)
+    * [2.5. Community-Foren und Gruppen (Wenn alles andere fehlschlägt)](#25-community-foren-und-gruppen-wenn-alles-andere-fehlschlagt)
+    
+Herzlichen Glückwunsch, dass du es bis hierher geschafft hast! In diesem Anhang findest du eine Sammlung von hilfreichen Webseiten, Werkzeugen und Tipps, die dir bei der Arbeit an der Hopsa-Berlin Webseite oder beim Vertiefen deines Wissens nützlich sein können. Außerdem erfährst du, wo und wie du Unterstützung bekommst, falls du einmal nicht weiterweißt. Sieh diesen Abschnitt als deine Schatzkiste voller nützlicher Helferlein!
+
+## 1. Hilfreiche Webseiten und Werkzeuge
+
+Das Internet ist voll von großartigen Ressourcen! Hier ist eine Auswahl, die besonders relevant für die Hopsa-Webseite und die verwendeten Technologien ist.
+
+### 1.1. Offizielle Dokumentationen (Die Quellen der Wahrheit)
+
+Wenn du wirklich verstehen willst, wie eine bestimmte Technologie funktioniert, ist die offizielle Dokumentation oft der beste Ort, um anzufangen. Sie wird von den Entwicklern der Technologie selbst geschrieben und ist meistens am aktuellsten. Keine Sorge, du musst nicht alles lesen, aber es ist gut zu wissen, wo du nachschlagen kannst!
+
+*   **Eleventy (11ty) Dokumentation**
+    *   **Link:** [https://www.11ty.dev/docs/](https://www.11ty.dev/docs/)
+    *   **Was es ist:** Eleventy ist das Herzstück unserer Webseite, der "Motor", der aus unseren Texten und Vorlagen die fertige Webseite baut.
+    *   **Was du dort findest:** Wie Eleventy grundsätzlich funktioniert, Anleitungen zu Konfigurationen (wie in unserer `.eleventy.js`), wie man mit Daten arbeitet, Vorlagen erstellt und vieles mehr. Wenn du dich fragst, "Wie macht Eleventy das eigentlich?", ist das deine erste Anlaufstelle.
+    *   > **Info-Box: Was ist ein Static Site Generator (SSG) wie Eleventy?**
+    *   > Stell dir vor, du hast Bauklötze (deine Inhalte in Markdown), eine Bauanleitung (deine Nunjucks-Vorlagen) und vielleicht ein paar spezielle Bauteile (Daten). Ein SSG wie Eleventy nimmt all das und baut daraus ein fertiges Haus (deine Webseite aus HTML-Dateien). Dieses "Haus" ist dann statisch, d.h., es steht fest und muss nicht bei jedem Besucher neu zusammengebaut werden. Das macht die Webseite sehr schnell und sicher.
+
+*   **Nunjucks Dokumentation**
+    *   **Link:** [https://mozilla.github.io/nunjucks/templating.html](https://mozilla.github.io/nunjucks/templating.html)
+    *   **Was es ist:** Nunjucks ist die "Sprache", in der unsere Vorlagen (Layouts wie `default.njk` oder Includes wie `termine.njk`) geschrieben sind. Es erlaubt uns, HTML-Strukturen wiederverwendbar zu machen und Logik einzubauen.
+    *   **Was du dort findest:** Die genaue Syntax von Nunjucks, welche "Befehle" (Tags, Filter) es gibt, um z.B. Schleifen zu erstellen, Bedingungen zu prüfen oder Inhalte zu formatieren. Wenn du in einer `.njk`-Datei etwas siehst wie `{% raw %}{% if ... %}{% endraw %}` oder `{{ '{{' }} variable | filter }}` und dich fragst, was das bedeutet, schau hier nach.
+    *   > **Info-Box: Was ist eine Template-Engine?**
+    *   > Eine Template-Engine hilft dabei, dynamische Webseiten oder, wie in unserem Fall, die Struktur für statische Seiten effizient zu erstellen. Stell dir eine Backform (das Template) vor: Du kannst immer wieder den gleichen Teig (deine Daten/Inhalte) hineingeben und bekommst einen Kuchen (eine HTML-Seite) in der gewünschten Form. Nunjucks ist unsere "Backform-Sprache".
+
+*   **Tailwind CSS Dokumentation**
+    *   **Link:** [https://tailwindcss.com/docs](https://tailwindcss.com/docs)
+    *   **Was es ist:** Tailwind CSS ist unser Werkzeugkasten für das Design der Webseite. Statt lange CSS-Dateien zu schreiben, verwenden wir viele kleine "Utility-Klassen" direkt im HTML.
+    *   **Was du dort findest:** Eine riesige Liste aller verfügbaren Utility-Klassen (z.B. für Farben, Abstände, Schriftgrößen, Layouts), wie man das Design anpasst (siehe unsere `tailwind.config.js`) und viele Beispiele. Wenn du das Aussehen eines Elements ändern möchtest, ist das die Referenz für die passenden Klassen.
+    *   > **Info-Box: Was ist CSS und was sind Utility-Klassen?**
+    *   > CSS (Cascading Style Sheets) ist die Sprache, die das Aussehen von Webseiten beschreibt (Farben, Schriftarten, Layout). Traditionell schreibt man dafür separate CSS-Dateien. Tailwind CSS verfolgt einen "Utility-First"-Ansatz: Es bietet tausende kleiner Klassen (Utilities), die jeweils eine spezifische CSS-Eigenschaft setzen (z.B. `text-red-500` für rote Schrift, `p-4` für Innenabstand). Diese fügst du direkt im HTML-Code hinzu. Das macht das Styling oft schneller und konsistenter.
+
+*   **Markdown Guide**
+    *   **Link:** [https://www.markdownguide.org/basic-syntax/](https://www.markdownguide.org/basic-syntax/)
+    *   **Was es ist:** Markdown ist eine sehr einfache Sprache, um Texte zu formatieren (Überschriften, Listen, Fett-/Kursivdruck, Links). Die meisten Inhalte unserer Webseite (z.B. in `index.md` oder `ensemble.md`) sind in Markdown geschrieben.
+    *   **Was du dort findest:** Eine klare Übersicht über alle Markdown-Befehle mit Beispielen. Wenn du vergessen hast, wie man eine Überschrift oder einen Link in Markdown erstellt, ist das der richtige Ort.
+    *   > **Info-Box: Warum Markdown statt z.B. Word?**
+    *   > Markdown ist reiner Text und daher sehr leichtgewichtig und universell lesbar. Es konzentriert sich auf die Struktur des Inhalts, nicht auf pixelgenaues Design. Das macht es ideal für Web-Inhalte, da das Design später von CSS übernommen wird. Außerdem ist es einfach zu lernen und stört nicht den Schreibfluss.
+
+*   **Git & GitHub Dokumentation**
+    *   **Git Link:** [https://git-scm.com/doc](https://git-scm.com/doc)
+    *   **GitHub Link:** [https://docs.github.com/de](https://docs.github.com/de)
+    *   **Was es ist:** Git ist ein System zur Versionskontrolle (es merkt sich alle Änderungen am Code). GitHub ist eine Plattform, die Git nutzt, um Projekte wie unseres online zu speichern und die Zusammenarbeit zu erleichtern. Unsere Webseite wird über GitHub Pages veröffentlicht.
+    *   **Was du dort findest:** Erklärungen zu den Grundkonzepten von Git (Repository, Commit, Branch, Merge), Anleitungen für Git-Befehle und wie man GitHub für Projekte nutzt. Das ist eher für technisch Interessierte, aber gut zu wissen, was dahintersteckt.
+    *   > **Info-Box: Was ist Versionskontrolle?**
+    *   > Stell dir vor, du schreibst ein wichtiges Dokument und speicherst immer wieder neue Versionen (Entwurf1, Entwurf2, FinaleVersion, FinaleVersion_korrigiert). Versionskontrolle mit Git macht das automatisch und viel besser. Es speichert jede Änderung, wer sie gemacht hat und wann. So kann man jederzeit zu einer älteren Version zurückkehren, Änderungen vergleichen und im Team arbeiten, ohne sich gegenseitig die Arbeit zu überschreiben.
+
+### 1.2. Lernplattformen und Tutorials (Wissen erweitern)
+
+Wenn du tiefer in die Webentwicklung einsteigen oder bestimmte Themen besser verstehen möchtest, sind diese Plattformen Gold wert:
+
+*   **MDN Web Docs (Mozilla Developer Network)**
+    *   **Link:** [https://developer.mozilla.org/de/](https://developer.mozilla.org/de/)
+    *   **Was es ist:** Eine unglaublich umfassende und qualitativ hochwertige Ressource für alles rund um Webtechnologien (HTML, CSS, JavaScript). Wird von Mozilla (den Machern von Firefox) gepflegt.
+    *   **Was du dort findest:** Detaillierte Erklärungen zu jedem HTML-Tag, jeder CSS-Eigenschaft und JavaScript-Funktion, oft mit Beispielen und Tutorials. Wenn du wissen willst, wie etwas im Web *wirklich* funktioniert, ist MDN oft die beste Quelle.
+
+*   **freeCodeCamp**
+    *   **Link:** [https://www.freecodecamp.org/](https://www.freecodecamp.org/)
+    *   **Was es ist:** Eine gemeinnützige Organisation, die kostenlose, interaktive Programmierkurse anbietet.
+    *   **Was du dort findest:** Kurse zu HTML, CSS, JavaScript, aber auch zu fortgeschritteneren Themen. Ideal, wenn du durch aktives Üben lernen möchtest.
+
+*   **YouTube Kanäle**
+    *   Es gibt unzählige Kanäle, die Webentwicklung erklären. Suche nach Themen wie "HTML lernen", "CSS für Anfänger", "Tailwind CSS Tutorial" oder "Eleventy Tutorial".
+    *   **Tipp:** Achte darauf, dass die Videos relativ aktuell sind, da sich Webtechnologien schnell entwickeln.
+
+### 1.3. Spezifische Werkzeuge und Helferlein (Für den Hopsa-Alltag)
+
+Diese Werkzeuge sind entweder direkt für die Hopsa-Webseite relevant oder können dir die Arbeit erleichtern:
+
+*   **Namecheap (Domain-Verwaltung)**
+    *   **Link zur Support-Seite:** [https://www.namecheap.com/support/](https://www.namecheap.com/support/)
+    *   **Was es ist:** Namecheap ist der Dienst, bei dem unsere Domain `hopsa-berlin.de` registriert ist und verwaltet wird.
+    *   **Was du dort (oder im Namecheap-Konto) findest:** Einstellungen zur Domain, DNS-Konfiguration (die Verbindung zwischen Domain und GitHub), Informationen zur Domain-Verlängerung. Änderungen hier sind selten nötig und sollten nur mit Vorsicht vorgenommen werden.
+    *   > **Info-Box: Was ist eine Domain und ein Domain Registrar?**
+    *   > Eine **Domain** ist die Adresse einer Webseite im Internet, z.B. `hopsa-berlin.de`. Sie ist wie der Name eines Geschäfts. Ein **Domain Registrar** (wie Namecheap) ist ein Unternehmen, das Domains registriert und verwaltet. Du "mietest" quasi den Namen für einen bestimmten Zeitraum.
+
+*   **Visual Studio Code (VS Code) Dokumentation**
+    *   **Link:** [https://code.visualstudio.com/docs](https://code.visualstudio.com/docs)
+    *   **Was es ist:** VS Code ist der Texteditor, den wir für die Bearbeitung der Webseiten-Dateien empfehlen.
+    *   **Was du dort findest:** Anleitungen zu allen Funktionen von VS Code, Tastenkürzel, wie man Erweiterungen installiert und konfiguriert. Wenn du mehr aus deinem Editor herausholen willst, schau hier vorbei.
+
+*   **ChatGPT (Dein KI-Assistent)**
+    *   **Link:** [https://chat.openai.com/](https://chat.openai.com/)
+    *   **Was es ist:** Eine künstliche Intelligenz, die dir helfen kann, Code zu schreiben, Fehler zu finden, Texte zu formulieren oder Konzepte zu erklären.
+    *   **Was du dort findest:** Ein Chatfenster, in das du deine Fragen und Anweisungen (Prompts) eingeben kannst. Im Kapitel "ChatGPT als dein persönlicher Assistent" findest du viele Beispiele, wie du es für die Hopsa-Webseite nutzen kannst.
+
+*   **Online Markdown Editoren/Previewer**
+    *   **Beispiele:** [https://dillinger.io/](https://dillinger.io/), [https://stackedit.io/](https://stackedit.io/)
+    *   **Was es ist:** Webseiten, auf denen du Markdown-Text schreiben und direkt eine Vorschau sehen kannst, wie er aussehen wird.
+    *   **Wofür nützlich:** Wenn du schnell mal einen Markdown-Text testen oder formatieren möchtest, ohne VS Code zu öffnen oder eine Datei im Projekt anzulegen.
+
+*   **Canva oder ähnliche Online-Grafiktools**
+    *   **Link:** [https://www.canva.com/](https://www.canva.com/)
+    *   **Was es ist:** Einsteigerfreundliche Online-Tools, um einfache Grafiken zu erstellen, Bilder zuzuschneiden oder für das Web zu optimieren.
+    *   **Wofür nützlich:** Wenn du z.B. ein neues Bild für die Ensemble-Seite hast und es auf die richtige Größe bringen oder komprimieren musst, bevor du es in den `src/assets/`-Ordner hochlädst.
+    *   > **Info-Box: Warum ist Bildoptimierung wichtig für Webseiten?**
+    *   > Große Bilddateien machen eine Webseite langsam. Langsame Webseiten frustrieren Besucher und werden von Suchmaschinen schlechter bewertet. Optimierte Bilder (kleinere Dateigröße bei guter Qualität) sorgen für schnelle Ladezeiten und ein besseres Nutzererlebnis. Für die Hopsa-Seite versuchen wir, Bilder im `webp`-Format zu verwenden, da es eine gute Kompression bei guter Qualität bietet, oder optimierte `jpg`-Dateien.
+
+*   **Google Maps**
+    *   **Link:** [https://www.google.com/maps](https://www.google.com/maps)
+    *   **Wofür nützlich:** Um korrekte Adressen und Links für die Veranstaltungsorte in der `src/_includes/termine.md`-Datei zu finden. Der Link, den du dort für die Adresse einfügst, sollte direkt zu Google Maps führen und den Ort anzeigen.
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
+## 2. Support und Hilfe bekommen (Du bist nicht allein!)
+
+Auch mit dem besten Leitfaden kann es mal passieren, dass man feststeckt oder eine Frage hat, auf die man keine Antwort findet. Das ist völlig normal! Wichtig ist, zu wissen, wo man Hilfe suchen kann.
+
+### 2.1. Interne Hilfe im Hopsa-Team
+
+Die erste und oft beste Anlaufstelle ist das Hopsa-Team selbst!
+
+*   **Frage einfach nach:** Es gibt bestimmt jemanden im Team, der sich schon einmal mit der Webseite beschäftigt hat oder technisch etwas versierter ist. Scheue dich nicht, deine Fragen in eurer üblichen Kommunikationsgruppe (z.B. WhatsApp, Signal) zu stellen.
+*   **Keine "dummen" Fragen:** Jeder fängt mal klein an. Was dir vielleicht kompliziert erscheint, ist für jemand anderen mit etwas mehr Erfahrung schnell geklärt. Es ist besser zu fragen, als lange frustriert zu sein oder versehentlich etwas kaputt zu machen.
+*   **Gemeinsam seid ihr stark:** Oft hilft es schon, ein Problem jemand anderem zu erklären, um selbst auf die Lösung zu kommen. Und vier Augen sehen mehr als zwei!
+
+### 2.2. GitHub Issues (Probleme und Vorschläge dokumentieren)
+
+Wenn du einen Fehler auf der Webseite entdeckst oder eine Idee für eine Verbesserung hast, ist der "Issues"-Bereich unseres GitHub-Repositories der richtige Ort dafür.
+
+*   **Link zu den Hopsa-GitHub-Issues:** [https://github.com/HopsaBerlin/hopsa-berlin.github.io/issues](https://github.com/HopsaBerlin/hopsa-berlin.github.io/issues)
+*   **Was sind GitHub Issues?** Das ist wie ein digitales Notizbuch oder eine Aufgabenliste für das Projekt. Hier können Fehler (Bugs), Verbesserungsvorschläge oder neue Ideen gesammelt und diskutiert werden.
+*   **Wie erstelle ich ein Issue?**
+    1.  Klicke auf der Issues-Seite auf den grünen Button "New issue".
+    2.  Gib einen klaren, aussagekräftigen **Titel** ein (z.B. "Link auf der Kontaktseite funktioniert nicht" oder "Vorschlag: Neue Seite für Workshops").
+    3.  Beschreibe im großen Textfeld das Problem oder den Vorschlag so **detailliert** wie möglich:
+        *   Bei Fehlern: Was hast du gemacht? Was ist passiert? Was hättest du erwartet? Gibt es eine Fehlermeldung? Auf welcher Seite ist der Fehler?
+        *   Bei Vorschlägen: Was ist die Idee? Warum wäre das nützlich?
+    4.  Klicke auf "Submit new issue".
+*   > **Info-Box: Was ist ein "Issue Tracker"?**
+*   > Ein Issue Tracker ist ein Werkzeug (oft Teil von Plattformen wie GitHub), um Aufgaben, Fehlerberichte und Anfragen zu einem Projekt zu verwalten. Es hilft dabei, den Überblick zu behalten, wer woran arbeitet und welche Probleme noch gelöst werden müssen. Für die Hopsa-Webseite ist das eine gute Möglichkeit, auch nicht-technischen Teammitgliedern zu erlauben, Probleme zu melden.
+
+### 2.3. Die Macht von Suchmaschinen (Google ist dein Freund)
+
+Für viele technische Probleme gibt es bereits Lösungen im Internet. Eine gut formulierte Suchanfrage kann Wunder wirken!
+
+*   **Wie suche ich effektiv?**
+    *   **Sei spezifisch:** Kopiere Fehlermeldungen (oder Teile davon) direkt in die Suchleiste.
+    *   **Nenne die Technologie:** Füge den Namen der Technologie hinzu, mit der du arbeitest (z.B. "Eleventy error navigation", "Tailwind CSS center div horizontally", "Markdown link new tab").
+    *   **Beschreibe, was du erreichen willst:** "How to add image in Markdown", "11ty include file with parameters".
+*   **Wo finde ich Antworten?**
+    *   Oft führen die Suchergebnisse zu Seiten wie **Stack Overflow** (eine riesige Frage-Antwort-Seite für Programmierer), Blogs von Entwicklern oder den offiziellen Dokumentationen.
+
+### 2.4. ChatGPT als Problemlöser
+
+Wie schon in den vorherigen Kapiteln erwähnt, kann ChatGPT ein mächtiger Verbündeter sein, auch bei der Fehlersuche.
+
+*   **Wie ChatGPT helfen kann:**
+    *   Fehlermeldungen erklären.
+    *   Mögliche Ursachen für ein Problem vorschlagen.
+    *   Code-Beispiele korrigieren oder verbessern.
+*   **Wichtig:** Gib ChatGPT so viel Kontext wie möglich! Dazu gehören die Fehlermeldung, der relevante Codeausschnitt und eine Beschreibung dessen, was du tun wolltest.
+
+*   **ChatGPT-Prompt-Beispiel für Fehlersuche:**
+
+    Bevor du den folgenden Prompt verwendest, kopiere die genaue Fehlermeldung aus deinem Terminal (oder Browser) und den relevanten Codeausschnitt aus der Datei, die deiner Meinung nach das Problem verursacht.
+
+    ```markdown
+    > Ich arbeite an der statischen Webseite für hopsa-berlin.de, die mit Eleventy (11ty), Nunjucks für Templates und Tailwind CSS für das Styling erstellt wird. Die Inhalte sind meist in Markdown-Dateien.
+    >
+    > Ich bekomme folgende Fehlermeldung, wenn ich versuche, [beschreibe hier genau, was du gemacht hast, z.B. 'die Seite lokal mit dem Skript run.bat zu starten' oder 'ein neues Event in src/_includes/termine.md hinzuzufügen' oder 'eine neue Seite xyz.md zu erstellen']:
+    >
+    > ```
+    > [Füge hier die exakte Fehlermeldung ein, die du siehst]
+    > ```
+    >
+    > Hier ist der Code-Abschnitt, der meiner Meinung nach das Problem verursachen könnte. Er stammt aus der Datei `[Pfad zur Datei, z.B. src/_includes/termine.md oder .eleventy.js oder run.bat]`:
+    >
+    > ```[Sprache des Codes, z.B. nunjucks, javascript, markdown, batch]
+    > // filepath: [Pfad zur Datei, z.B. src/_includes/termine.md]
+    > [Füge hier den relevanten Codeausschnitt ein]
+    > ```
+    >
+    > Ich verwende [Dein Betriebssystem, z.B. Windows 10, macOS Sonoma].
+    >
+    > Kannst du mir bitte helfen zu verstehen, was dieser Fehler bedeutet und mir einen konkreten Vorschlag machen, wie ich ihn beheben kann, bezogen auf das Hopsa-Berlin Projekt?
+    ```
+
+### 2.5. Community-Foren und Gruppen (Wenn alles andere fehlschlägt)
+
+Für die meisten verbreiteten Technologien gibt es Online-Communities, in denen sich Nutzer austauschen und gegenseitig helfen.
+
+*   **Wo suchen?**
+    *   **Eleventy:** Hat eine [Discord-Community](https://www.11ty.dev/community/) und ist auf [Mastodon](https://www.11ty.dev/blog/mastodon/) aktiv.
+    *   **Tailwind CSS:** Hat ebenfalls eine große [Discord-Community](https://tailwindcss.com/community).
+    *   **Stack Overflow:** Eine allgemeine Anlaufstelle für Programmierfragen aller Art. Suche nach Tags wie `eleventy`, `nunjucks`, `tailwindcss`.
+*   **Wie stelle ich eine gute Frage in einem Forum?**
+    *   **Suche zuerst:** Überprüfe, ob deine Frage vielleicht schon einmal gestellt und beantwortet wurde.
+    *   **Sei präzise:** Wähle einen klaren Titel für deine Frage.
+    *   **Gib Kontext:** Beschreibe dein Problem genau. Was versuchst du zu erreichen? Was hast du schon probiert?
+    *   **Zeige Code:** Füge relevante Codeausschnitte bei (gut formatiert!).
+    *   **Sei höflich:** Denke daran, dass die Leute dir freiwillig helfen.
+
+Wir hoffen, dieser Anhang gibt dir die nötige Sicherheit und die Werkzeuge an die Hand, um erfolgreich an der Hopsa-Berlin Webseite mitzuwirken. Denk immer daran: Lernen ist ein Prozess, und jede Herausforderung ist eine Chance, etwas Neues zu entdecken! Viel Spaß dabei!
+
+[Zurück zum Inhaltsverzeichnis](#inhaltsverzeichnis)
+
+---
